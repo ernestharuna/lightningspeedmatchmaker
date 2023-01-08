@@ -30,4 +30,33 @@ class UserController extends Controller
 
         auth()->login($user);
     }
+
+    // Logout User
+    public function logout(Request $request)
+    {
+        auth()->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/')->with('message', 'You have been logged out');
+    }
+
+    // Show login form
+    public function login()
+    {
+        return view('user.auth.login');
+    }
+
+    // Login user
+    public function authenticate(Request $request)
+    {
+        $validate = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => 'required'
+        ]);
+
+        if (auth()->attempt($validate)) {
+            $request->session()->regenerate();
+            return redirect('/dashboard')->with('message', 'You are now logged in');
+        }
+    }
 }

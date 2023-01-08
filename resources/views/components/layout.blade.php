@@ -13,6 +13,7 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="stylesheet" href="{{ asset('public/assets/css/styles.css') }}">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
@@ -24,7 +25,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    Lightning Speed Match Maker
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -81,8 +82,11 @@
         <main class="py-4">
             {{ $slot }}
         </main>
+
+        <footer class="container" id="foot">
+            {{-- @include('partials.footer') --}}
+        </footer>
     </div>
 </body>
 
 </html>
-
