@@ -8,14 +8,14 @@ use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
-    //Show regiester form
+    //Show register form
     public function create()
     {
         return view('user.auth.signup');
     }
 
     // Register New User
-    public function user(Request $request)
+    public function store(Request $request)
     {
         $validate = $request->validate([
             'first_name' => ['required', 'min:3', 'max:20'],
@@ -27,17 +27,9 @@ class UserController extends Controller
         $validate['password'] = bcrypt($validate['password']);
 
         $user = User::create($validate);
-
         auth()->login($user);
-    }
 
-    // Logout User
-    public function logout(Request $request)
-    {
-        auth()->logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-        return redirect('/')->with('message', 'You have been logged out');
+        return redirect('/')->with('status', 'Account created!');
     }
 
     // Show login form
@@ -56,7 +48,31 @@ class UserController extends Controller
 
         if (auth()->attempt($validate)) {
             $request->session()->regenerate();
-            return redirect('/dashboard')->with('message', 'You are now logged in');
+            return redirect()->intended('/')->with('status', 'You\'re now logged in');
         }
+
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.'
+        ])->onlyInput('email');
+    }
+
+    // Show Questionaire
+    public function questionForm()
+    {
+        return view('user.question');
+    } 
+    // Update Questionaire
+    public function update(Request $request, User $user)
+    {
+        
+    }
+
+    // Logout User
+    public function logout(Request $request)
+    {
+        auth()->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/login')->with('status', 'You have been logged out');
     }
 }
