@@ -4,8 +4,9 @@
             <div class="text-center my-4">
                 <h2>Create Your Account</h2>
             </div>
-            <form method="POST" action="/user" class="row g-3">
+            <form method="POST" action="/register" class="row g-3">
                 @csrf
+                {{-- first name --}}
                 <div class="col-md-6">
                     <label for="first_name" class="form-label fw-bold">First Name</label>
                     <input type="text" class="form-control" name="first_name" placeholder="John"
@@ -16,6 +17,8 @@
                         </p>
                     @enderror
                 </div>
+
+                {{-- last name --}}
                 <div class="col-md-6">
                     <label for="last_name" class="form-label fw-bold">Last Name</label>
                     <input type="text" class="form-control" name="last_name" placeholder="Doe"
@@ -26,15 +29,20 @@
                         </p>
                     @enderror
                 </div>
+
+                {{-- email --}}
                 <div class="col-12">
                     <label for="email" class="form-label fw-bold">E-mail</label>
-                    <input type="email" class="form-control" name="email" placeholder="john@xyz.com">
+                    <input type="email" class="form-control" name="email" placeholder="john@xyz.com"
+                        value="{{ old('email') }}">
                     @error('email')
                         <p class="text-danger fs-6 mt-1">
                             {{ $message }}
                         </p>
                     @enderror
                 </div>
+
+                {{-- password --}}
                 <div class="col-12">
                     <label for="password" class="form-label fw-bold">Password</label>
                     <input type="password" class="form-control" name="password" placeholder="Password">
@@ -44,6 +52,8 @@
                         </p>
                     @enderror
                 </div>
+
+                {{-- password cocfirmation --}}
                 <div class="col-12">
                     <label for="password_confirmation" class="form-label fw-bold">Confirm Password</label>
                     <input type="password" class="form-control" name="password_confirmation">

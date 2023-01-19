@@ -19,25 +19,15 @@ use Illuminate\Support\Facades\Route;
 // Display User dashboard
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->middleware('auth')->name('home');
 
-// Register form
-Route::get('/register', [UserController::class, 'create'])->middleware('guest')->name('register');
-// Register User
-Route::post('/user', [UserController::class, 'store']);
-
-// Login form
-Route::get('/login', [UserController::class, 'login'])->middleware('guest')->name('login');
-// Login User
-Route::post('/user/authenticate', [UserController::class, 'authenticate']);
-// Logout user
-Route::post('/logout', [UserController::class, 'logout'])->middleware('auth')->name('logout');
-
-// Questionaire form
-Route::get('/questionniare', [UserController::class, 'questionForm'])->middleware('auth');
-// Update questionniare
-Route::post('/update_profile', [UserController::class, 'update'])->middleware('auth');
-
-Route::middleware('auth')->group(function (){
+Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroys');
+    Route::patch('/profile/{user}', [ProfileController::class, 'update'])->name('profile.update');
+    
+    Route::get('/profile/form/{id}', function ($id) {
+        return view('user.part-1.form' . $id);
+    });
+
+    Route::delete('/profile/{user}', [ProfileController::class, 'delete'])->name('profile.delete');
 });
+
+require __DIR__ . '/auth.php';

@@ -4,7 +4,7 @@
             <div class="text-center my-4">
                 <h2>Login to your Account</h2>
             </div>
-            <form method="POST" action="/user/authenticate" class="row g-3">
+            <form method="POST" action="/login" class="row g-3">
                 @csrf
                 <div class="col-12">
                     <label for="email" class="form-label fw-bold">E-mail</label>

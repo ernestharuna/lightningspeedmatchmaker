@@ -1,18 +1,17 @@
 <!-- It is never too late to be what you might have been. - George Eliot -->
 @if (session()->has('status'))
     <style>
-        .alert{
-            width: fit-content;
-            margin: 10px 0;
-            padding: 5px 10px;
-            top: 0;
-            left: 50%;
+        #alert {
             position: fixed;
-            transform: translateX(-50%);
+            top: 10px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: fit-content;
         }
     </style>
-    <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 3000)" x-show="show" class="alert alert-success" role="alert">
-        <p class="p-0">
+    <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 3000)" x-show="show"
+        class="alert alert-success animate__animated animate__shakeX" role="alert" id="alert">
+        <p class="p-0 m-0">
             {{ session('status') }}
         </p>
     </div>

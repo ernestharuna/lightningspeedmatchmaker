@@ -9,11 +9,14 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
+    <title>Match Maker | Lightning Speed</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="stylesheet" href="{{ asset('/assets/css/styles.css') }}">
+    <script src="{{ asset('assets/js/custom.js') }}"></script>
+
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
@@ -68,10 +71,12 @@
                                     {{ auth()->user()->last_name }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('profile.edit') }}">
+                                        {{ __('Edit Profile') }}
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -88,12 +93,12 @@
 
         <main class="py-4">
             {{ $slot }}
+            <x-flash-message></x-flash-message>
         </main>
 
         <footer class="container" id="foot">
             {{-- @include('partials.footer') --}}
         </footer>
-        <x-flash-message></x-flash-message>
     </div>
 </body>
 
