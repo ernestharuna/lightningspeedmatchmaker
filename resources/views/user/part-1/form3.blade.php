@@ -19,15 +19,15 @@
                 {{-- second language --}}
                 <div class="col-md-6">
                     <label for="second_language" class="form-label fw-bold">What's your second language</label>
-                    <input type="text" class="form-control" id="second_language" name="second_language" value="{{ old('second_language',  auth()->user()->second_language) }}" placeholder="Hausa">
+                    <input type="text" class="form-control" id="second_language" name="second_language" value="{{ old('second_language', auth()->user()->second_language) }}" placeholder="Hausa">
                 </div>
 
                 {{-- employment status --}}
-                <div class="col-md-6">
-                    <label for="employed" class="form-label fw-bold">Current employment status  <b class="text-danger">*</b></label>
+                <div class="col-md-3">
+                    <label for="employed" class="form-label fw-bold">Employment status  <b class="text-danger">*</b></label>
                     <select class="form-select" aria-label="Default select example" id="employed" name="employed" required>
                         <option value="{{ auth()->user()->employed }}" selected>
-                            {{ auth()->user()->employed ? auth()->user()->employed : __('Choose a option') }}
+                            {{ auth()->user()->employed ? auth()->user()->employed . __(' • ') : __('Choose a option') }}
                         </option>
                         <option value="Employed">Employed</option>
                         <option value="Self-employed">Self-employed</option>
@@ -37,10 +37,10 @@
 
                 {{-- income --}}
                 <div class="col-md-6">
-                    <label for="income" class="form-label fw-bold">How much do you earn annually?  <b class="text-danger">*</b></label>
+                    <label for="income" class="form-label fw-bold">Annual Income  <b class="text-danger">*</b></label>
                     <select class="form-select" aria-label="Default select example" id="income" name="income" required>
                         <option value="{{ auth()->user()->income }}" selected>
-                            {{ auth()->user()->income ? auth()->user()->income : __('Choose a option') }}
+                            {{ auth()->user()->income ? auth()->user()->income . __(' • ') : __('Choose a option') }}
                         </option>
                         <option value="Less than 50,000">Less than $50,000</option>
                         <option value="50,000 - 100,000">$50,000 - $100,000</option>
@@ -51,18 +51,37 @@
                 </div>
 
                 {{-- profession --}}
-               <div class="col-md-6">
-                    <label for="profession" class="form-label fw-bold">What is your profession?  <b class="text-danger">*</b></label>
+               <div class="col-md-3">
+                    <label for="profession" class="form-label fw-bold">Your profession?  <b class="text-danger">*</b></label>
                     <input type="text" class="form-control" id="profession" name="profession" value="{{ old('profession',  auth()->user()->profession) }}" placeholder="Teacher" required>
                </div>
+
+                {{-- extra --}}
+                <div class="col-md-13">
+                    <label for="extra" class="form-label fw-bold">
+                       Write something about yourself
+                        <b class="text-danger">*</b>
+                    </label>
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Leave a comment here" id="extra" name="extra"
+                            style="height: 100px" required>{{ old('extra', auth()->user()->extra) }}</textarea>
+                        <label for="extra">Feel free to write about your likes, dislikes and hobbies.</label>
+                    </div>
+                </div>
 
                 <div class="mt-4 d-flex align-item-center justify-content-between">
                     <div>
                         <button type="submit" class="btn btn-success shadow fw-bold">Save</button>
                     </div>
                     <div>
-                        <a href="/profile/form/2" class="btn btn-secondary shadow fw-bold">Back</a>
-                        <a href="/profile/form/4" class="btn btn-secondary shadow fw-bold">Next</a>
+                        <a href="/profile/form/2" class="btn btn-outline-dark shadow fw-bold">
+                            <i class="bi bi-arrow-bar-left"></i>
+                            Back
+                        </a>
+                        <a href="/profile/form/4" class="btn btn-dark shadow fw-bold">
+                            Next
+                            <i class="bi bi-arrow-bar-right"></i>
+                        </a>
                     </div>
                 </div>
             </form>

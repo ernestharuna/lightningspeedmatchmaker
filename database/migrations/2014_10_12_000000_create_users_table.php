@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name'); //first name
-            $table->string('last_name'); // last name
+            $table->char('first_name',20); //first name
+            $table->char('last_name', 20); // last name
             $table->string('email')->unique(); // email
 
             // Questionaire Questions
             // form 1
-            $table->dateTime('date_of_birth')->nullable(); // date of birth
+            $table->string('date_of_birth')->nullable(); // date of birth
             $table->string('gender')->nullable(); // gender
             $table->string('orientation')->nullable(); //sexual orientation
             $table->string('relationship_status')->nullable(); // what is your marital status
@@ -47,7 +47,6 @@ return new class extends Migration
             $table->string('smokes')->nullable(); // do you smoke
             $table->string('drinks')->nullable(); //do you drink
             $table->string('drugs')->nullable(); // do you take hard drugs
-            $table->string('date_drug')->nullable(); // would you mind dating someone who does drugs
             $table->string('profile_pic')->nullable(); //upload your profile picture
             $table->string('country')->nullable(); // country of residence
             $table->string('city')->nullable(); // city

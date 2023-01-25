@@ -1,9 +1,9 @@
 <x-layout>
     <div class="d-flex align-items-center justify-content-center mt-3">
         <div
-            class="bg-white border rounded-3 shadow col-sm-4 col-md-6 col-lg-6 mx-3 p-4 animate__animated animate__fadeIn">
+            class="bg-white border rounded-3 shadow col-sm-10 col-md-10 col-lg-6 mx-3 p-4 animate__animated animate__fadeIn">
             <div class="text-left my-4">
-                <h3>A little more about your self</h3>
+                <h3>A little more about yourself</h3>
             </div>
             <form method="POST" action="{{ route('profile.update', auth()->id()) }}" enctype="multipart/form-data"
                 class="row g-3">
@@ -12,11 +12,12 @@
 
                 {{-- pets --}}
                 <div class="col-md-6">
-                    <label for="pets" class="form-label fw-bold">Do you have pets? <b class="text-danger">*</b></label>
+                    <label for="pets" class="form-label fw-bold">Do you have pets? <b
+                            class="text-danger">*</b></label>
                     <select class="form-select" aria-label="Default select example" id="pets" name="pets"
                         required>
                         <option value="{{ auth()->user()->pets }}" selected>
-                            {{ auth()->user()->pets ? auth()->user()->pets : __('Choose a option') }}
+                            {{ auth()->user()->pets ? auth()->user()->pets . __(' • ') : __('Choose a option') }}
                         </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
@@ -24,12 +25,12 @@
                 </div>
 
                 {{-- smoke --}}
-                <div class="col-md-6">
+                <div class="col-md-3">
                     <label for="smokes" class="form-label fw-bold">Do you smoke? <b class="text-danger">*</b></label>
                     <select class="form-select" aria-label="Default select example" id="smokes" name="smokes"
                         required>
                         <option value="{{ auth()->user()->smokes }}" selected>
-                            {{ auth()->user()->smokes ? auth()->user()->smokes : __('Choose a option') }}
+                            {{ auth()->user()->smokes ? auth()->user()->smokes . __(' • ') : __('Choose a option') }}
                         </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
@@ -37,38 +38,30 @@
                 </div>
 
                 {{-- drink --}}
-                <div class="col-md-6">
+                <div class="col-md-3">
                     <label for="drinks" class="form-label fw-bold">Do you drink? <b class="text-danger">*</b></label>
                     <select class="form-select" aria-label="Default select example" id="drinks" name="drinks"
                         required>
                         <option value="{{ auth()->user()->drinks }}" selected>
-                            {{ auth()->user()->drinks ? auth()->user()->drinks : __('Choose a option') }}
+                            {{ auth()->user()->drinks ? auth()->user()->drinks . __(' • ') : __('Choose a option') }}
                         </option>
-                        <option value="Yes">Yes</option>
+                        <option value="Yes, once a week">Yes, once a week</option>
+                        <option value="Yes, socially">Yes, socially</option>
+                        <option value="Yes, moderately">Yes, moderately</option>
+                        <option value="I'm one drink from being admitted to AA">I'm one drink from being admitted to AA
+                        </option>
                         <option value="No">No</option>
                     </select>
                 </div>
 
                 {{-- drugs --}}
                 <div class="col-md-6">
-                    <label for="drugs" class="form-label fw-bold">Do you do drugs? <b class="text-danger">*</b></label>
+                    <label for="drugs" class="form-label fw-bold">Do you do drugs? <b
+                            class="text-danger">*</b></label>
                     <select class="form-select" aria-label="Default select example" id="drugs" name="drugs"
                         required>
                         <option value="{{ auth()->user()->drugs }}" selected>
-                            {{ auth()->user()->drugs ? auth()->user()->drugs : __('Choose a option') }}
-                        </option>
-                        <option value="Yes">Yes</option>
-                        <option value="No">No</option>
-                    </select>
-                </div>
-
-                {{-- date drug --}}
-                <div class="col-md-6">
-                    <label for="date_drug" class="form-label fw-bold">Can you date someone who does drugs? <b class="text-danger">*</b></label>
-                    <select class="form-select" aria-label="Default select example" id="date_drug" name="date_drug"
-                        required>
-                        <option value="{{ auth()->user()->date_drug }}" selected>
-                            {{ auth()->user()->date_drug ? auth()->user()->date_drug : __('Choose a option') }}
+                            {{ auth()->user()->drugs ? auth()->user()->drugs . __(' • ') : __('Choose a option') }}
                         </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
@@ -83,11 +76,12 @@
 
                 {{-- country --}}
                 <div class="col-md-6">
-                    <label for="country" class="form-label fw-bold">What country do you come from? <b class="text-danger">*</b></label>
+                    <label for="country" class="form-label fw-bold">What country do you come from? <b
+                            class="text-danger">*</b></label>
                     <select class="form-select" aria-label="Default select example" id="country" name="country"
                         required>
                         <option value="{{ auth()->user()->country }}" selected>
-                            {{ auth()->user()->country ? auth()->user()->country : __('Choose a option') }}
+                            {{ auth()->user()->country ? auth()->user()->country . __(' • ') : __('Choose a option') }}
                         </option>
                         <option value="Afghanistan">Afghanistan</option>
                         <option value="Aland Islands">Åland Islands</option>
@@ -349,16 +343,20 @@
 
                 <div class="col-md-6">
                     <label for="city" class="form-label fw-bold">What city are located?</label>
-                    <input class="form-control" type="text" name="city" id="city" placeholder="Your City" value="{{ old('city',  auth()->user()->city)}}">
+                    <input class="form-control" type="text" name="city" id="city"
+                        placeholder="Your City" value="{{ old('city', auth()->user()->city) }}">
                 </div>
 
                 <div class="mt-4 d-flex align-item-center justify-content-between">
                     <div>
-                        <button type="submit" class="btn btn-success shadow fw-bold">Done & Save</button>
-                        <a href="/profile/form/3" class="btn btn-secondary shadow fw-bold">Back</a>
+                        <a href="/profile/form/3" class="btn btn-outline-dark shadow fw-bold">
+                            <i class="bi bi-arrow-bar-left"></i> Back
+                        </a>
                     </div>
                     <div>
-                        <a href="/" class="btn btn-dark shadow fw-bold">I am ready to be Matched!</a>
+                        <a href="/">
+                            <button type="submit" class="btn btn-success shadow fw-bold">Done</button>
+                        </a>
                     </div>
                 </div>
             </form>

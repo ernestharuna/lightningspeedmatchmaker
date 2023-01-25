@@ -29,7 +29,6 @@ class RegisteredUserController extends Controller {
         $user = User::create($validate);
         auth()->login($user);
 
-        // return redirect('/')->with('status', 'Account created!');
         return redirect()->intended('/')->with('status', 'Account created!');
     }
 }

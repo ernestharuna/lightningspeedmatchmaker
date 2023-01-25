@@ -27,7 +27,7 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ asset('/assets/img/logo.png') }}" alt="logo" width="60px" height="auto">
@@ -41,7 +41,18 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        <b class="fw-bolder">Lightning Speed Match Maker</b>
+                        <li class="px-3 py-1">
+                            <a class="text-decoration-none text-dark fw-bold" href="/">Dashboard</a>
+                        </li>
+                        <li class="px-3 py-1">
+                            <a class="text-decoration-none text-dark fw-bold" href="#">My Matches</a>
+                        </li>
+                        <li class="px-3 py-1">
+                            <a class="text-decoration-none text-dark fw-bold" href="#">Referrals</a>
+                        </li>
+                        <li class="px-3 py-1">
+                            <a class="text-decoration-none text-dark fw-bold" href="#">About</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -74,6 +85,9 @@
                                 <div class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('profile.edit') }}">
                                         {{ __('Edit Profile') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('seeks.index') }}">
+                                        {{ __('Change matching preferences') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

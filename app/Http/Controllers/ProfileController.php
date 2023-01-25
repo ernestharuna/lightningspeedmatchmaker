@@ -10,7 +10,7 @@ class ProfileController extends Controller
     // Show Form 1
     public function edit()
     {
-        return view('user\part-1\form1');
+        return view('user.part-1.form1');
     }
 
     // Update Forms
@@ -46,7 +46,6 @@ class ProfileController extends Controller
             'smokes' => 'sometimes|nullable',
             'drinks' => 'sometimes|nullable',
             'drugs' => 'sometimes|nullable',
-            'date_drug' => 'sometimes|nullable',
             'country' => 'sometimes|nullable',
             'city' => 'sometimes|nullable',
             'extra' => 'sometimes|nullable',

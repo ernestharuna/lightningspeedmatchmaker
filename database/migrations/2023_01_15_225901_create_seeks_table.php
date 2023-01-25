@@ -17,17 +17,22 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
 
-            $table->string('age_range');
+            $table->string('gender');
             $table->string('sexual_orientation');
-            $table->string('eye_color');
-            $table->string('body_type');
-            $table->string('religion');
-            $table->double('income');
-            $table->string('drugs');
-            $table->string('drinks');
-            $table->string('city');
-            $table->string('country');
-            
+            $table->string('height')->nullable(); // height
+            $table->string('body_type')->nullable(); // body type
+            $table->string('hair_color')->nullable(); // hair color
+            $table->string('eye_color')->nullable(); // eye color
+
+            $table->string('ethnicity')->nullable(); // ethnicity
+            $table->string('religion')->nullable(); // religion
+            $table->string('zodiac_sign')->nullable(); // zodiac_sign
+
+            $table->string('date_pet_owner')->nullable(); // can you date someone that owns pet(s)
+            $table->string('date_drug')->nullable(); // can you date someone that does drugs
+            $table->string('date_drink')->nullable(); // can you date someone that drinks
+            $table->string('date_smoker')->nullable(); // can you date someone that smokes
+            $table->string('income')->nullable(); // income
             $table->timestamps();
         });
     }

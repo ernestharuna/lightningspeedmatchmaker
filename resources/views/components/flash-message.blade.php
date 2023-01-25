@@ -3,15 +3,17 @@
     <style>
         #alert {
             position: fixed;
-            top: 10px;
+            top: 15%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: fit-content;
+            width: max-content;
+            background: rgba(12, 255, 12, 0.2);
+            border: 0.5px solid darkslategray;
+            padding: 5px 10px;
         }
     </style>
-    <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 3000)" x-show="show"
-        class="alert alert-success animate__animated animate__shakeX" role="alert" id="alert">
-        <p class="p-0 m-0">
+    <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 3000)" x-show="show" role="alert" id="alert" class="rounded shadow">
+        <p class="p-0 m-0 fw-bold">
             {{ session('status') }}
         </p>
     </div>

@@ -4,24 +4,41 @@
             <div class="col-md-8 mb-4">
                 <div class="card">
                     <div class="card-header">
-                        <b>
-                            Hi There, {{ auth()->user()->first_name }}
-                        </b>
+                        <p class="m-0 fs-5">
+                            Hi there, {{ auth()->user()->first_name }} 🤙🏽
+                        </p>
                     </div>
 
                     <div class="card-body">
-                        {{ __('Welcome to your dashboard!') }}
+                        <p>
+                            {{ __('Welcome to your dashboard!') }}
+                        </p>
+                        <p>
+                            Memberships are billed annually. If you would like to become a paying member, and have full
+                            access to recieve weekly matches,
+                            <a href="http://" target="_blank" rel="noopener noreferrer">click here</a>
+                        </p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-8">
-                @unless( auth()->user()->income )
+
+            {{-- show if user hasn't filled these fields --}}
+            <div class="col-md-8 mb-4">
+                @unless(auth()->user()->gender &&
+                        auth()->user()->date_of_birth &&
+                        auth()->user()->income &&
+                        auth()->user()->employed &&
+                        auth()->user()->country)
                     <div class="card shadow animate__animated animate__headShake">
-                        <div class="card-header">{{ __('Complete Your Matching Questionaire') }}</div>
+                        <div class="card-header text-danger">
+                            <p class="m-0 fs-5">
+                                {{ __('Complete Your Matching Questionaire') }}
+                            </p>
+                        </div>
 
                         <div class="card-body">
                             <p>
-                                In order to make the best matches possible, we need to ask you some questions.
+                                ⚠ In order to make the best matches, we need to ask you some questions.
                                 <br>
                                 This takes just a few minutes.
                             </p>
@@ -35,25 +52,65 @@
                             </a>
                         </div>
                     </div>
-                    @else
+                @else
+                    @unless(isset(auth()->user()->seeks->gender))
+                        <div class="card animate__animated animate__headShake">
+                            <div class="card-header">{{ __('Describe your ideal person') }}</div>
+
+                            <div class="card-body">
+                                <p>
+                                    Now you've filled out the necessary quesetions, tell us about the kind of partner you're
+                                    loking for.
+                                </p>
+                                <p>
+                                    <b>Let's get started!</b>
+                                </p>
+                                <a href="{{ route('seeks.create') }}">
+                                    <button class="btn btn-dark shadow fw-bolder">
+                                        {{ __('Start') }}
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    @endunless
+                @endunless
+            </div>
+
+            <div class="col-md-8">
+                @isset(auth()->user()->seeks->gender)
                     <div class="card shadow animate__animated animate__headShake">
-                        <div class="card-header">{{ __('Tell us about your ideal person') }}</div>
+                        <div class="card-header fw-bold text-success">{{ __('You\'re all set!') }}</div>
 
                         <div class="card-body">
                             <p>
-                                Now you've filled out the necessary quesetions, tell us about the kind of partner you're loking for.
+                                Now you've filled out the necessary quesetions, we will make you the best match possible
+                                with the details you've provided.
                             </p>
-                            <p>
-                                <b>Let's get started!</b>
-                            </p>
-                            <a href="#">
-                                <button class="btn btn-primary shadow fw-bolder">
+                            <div class="d-flex align-items-center">
+                                <span class="text-center border border-2 px-2 py-1 rounded">
+                                    <a href="{{ route('seeks.index') }}" class="text-decoration-none text-dark">
+                                        {{ __('View Your Preference') }}
+                                    </a>
+                                </span>
+                                <span class="text-center mx-3 border border-2 px-2 py-1 rounded">
+                                    <a href="{{ route('profile.edit') }}" class="text-decoration-none text-dark">
+                                        {{ __('View Your Profile') }}
+                                    </a>
+                                </span>
+                                <span class="text-center border border-2 px-2 py-1 rounded">
+                                    <a href="#" class="text-decoration-none text-dark">
+                                        {{ __('Refer a friend') }}
+                                    </a>
+                                </span>
+                            </div>
+                            {{-- <a href="{{ route('seek.create') }}">
+                                <button class="btn btn-dark shadow fw-bolder">
                                     {{ __('Start') }}
                                 </button>
-                            </a>
+                            </a> --}}
                         </div>
                     </div>
-                @endunless
+                @endisset
             </div>
         </div>
     </div>

@@ -48,7 +48,6 @@ class User extends Authenticatable
         'smokes',
         'drinks',
         'drugs',
-        'date_drug',
         'profile_pic',
         'country',
         'city',
@@ -74,8 +73,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function seek()
+    public function seeks()
     {
-        return $this->hasOne(Seek::class);
+        return $this->hasOne(Seeks::class);
     }
 }

@@ -20,7 +20,7 @@
                         <b class="text-danger">*</b>
                     </label>
                     <input type="date" class="form-control" id="date_of_birth" name="date_of_birth"
-                        value="{{ old(auth()->user()->date_of_birth) }}" required>
+                        value="{{ old('date_of_birth', auth()->user()->date_of_birth) }}" required>
                 </div>
 
                 {{-- gender --}}
@@ -30,7 +30,7 @@
                     <select id="gender" class="form-select" aria-label="Default select example" name="gender"
                         required>
                         <option value="{{ auth()->user()->gender }}" selected>
-                            {{ auth()->user()->gender ? auth()->user()->gender : __('Choose a option') }}
+                            {{ auth()->user()->gender ? auth()->user()->gender . __(' • ') : __('Choose a option') }}
                         </option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
@@ -45,7 +45,7 @@
                     <select class="form-select" aria-label="Default select example" id="orientation" name="orientation"
                         required>
                         <option value="{{ auth()->user()->orientation }}" selected>
-                            {{ auth()->user()->orientation ? auth()->user()->orientation : __('Choose a option') }}
+                            {{ auth()->user()->orientation ? auth()->user()->orientation . __(' • ') : __('Choose a option') }}
                         </option>
                         <option value="Heterosexual">Heterosexual</option>
                         <option value="Hisexual">Bisexual</option>
@@ -60,7 +60,7 @@
                     <select class="form-select" aria-label="Default select example" id="relationship_status"
                         name="relationship_status" required>
                         <option value="{{ auth()->user()->relationship_status }}" selected>
-                            {{ auth()->user()->relationship_status ? auth()->user()->relationship_status : __('Choose a option') }}
+                            {{ auth()->user()->relationship_status ? auth()->user()->relationship_status . __(' • ') : __('Choose a option') }}
                         </option>
                         <option value="Single">Single</option>
                         <option value="Divorced">Divorced</option>
@@ -84,7 +84,7 @@
                 </div>
 
                 <small class="m-0">
-                    Fields marked with (<b class="text-danger fs-3" style="position: relative; top: 9px">*</b>) are
+                    Fields marked with <b class="text-danger fs-3" style="position: relative; top: 9px">*</b> are
                     compulsory
                 </small>
 
@@ -93,7 +93,10 @@
                         <button type="submit" class="btn btn-success shadow fw-bold">Save</button>
                     </div>
                     <div>
-                        <a href="/profile/form/2" class="btn btn-secondary shadow fw-bold">Next</a>
+                        <a href="/profile/form/2" class="btn btn-outline-dark shadow fw-bold">
+                            Next
+                            <i class="bi bi-arrow-bar-right"></i>
+                        </a>
                     </div>
                 </div>
             </form>
