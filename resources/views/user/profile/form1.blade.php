@@ -8,6 +8,9 @@
                     All fields here are mandatroy
                 </p>
             </div>
+            @php
+                auth()->user()->looking_for != '' ? ($isActive = false) : ($isActive = true);
+            @endphp
             <form method="POST" action="{{ route('profile.update', auth()->id()) }}" enctype="multipart/form-data"
                 class="row g-3">
                 @csrf
@@ -48,7 +51,8 @@
                             {{ auth()->user()->orientation ? auth()->user()->orientation . __(' • ') : __('Choose a option') }}
                         </option>
                         <option value="Heterosexual">Heterosexual</option>
-                        <option value="Hisexual">Bisexual</option>
+                        <option value="Bisexual">Bisexual</option>
+                        <option value="Lesbian">Lesbian</option>
                         <option value="Gay">Gay</option>
                     </select>
                 </div>
@@ -93,10 +97,27 @@
                         <button type="submit" class="btn btn-success shadow fw-bold">Save</button>
                     </div>
                     <div>
-                        <a href="/profile/form/2" class="btn btn-outline-dark shadow fw-bold">
+                        <a href="/profile/form/2" @class([
+                            'btn',
+                            'btn-outline-dark',
+                            'disabled' => $isActive,
+                            'shadow',
+                            'fw-bold',
+                        ])>
                             Next
                             <i class="bi bi-arrow-bar-right"></i>
                         </a>
+                        {{-- <a href="/profile/form/2" @class([
+                            'p-4',
+                            'btn',
+                            'btn-outline-dark',
+                            'disabled' => true,
+                            'shadow',
+                            'fw-bold',
+                        ])>
+                            Next
+                            <i class="bi bi-arrow-bar-right"></i>
+                        </a> --}}
                     </div>
                 </div>
             </form>

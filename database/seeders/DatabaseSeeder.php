@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Seek;
+use App\Models\Seeks;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
@@ -21,6 +21,6 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        Seek::factory(3)->create();
+        // Seeks::factory(3)->create();
     }
 }

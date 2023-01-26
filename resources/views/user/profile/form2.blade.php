@@ -6,6 +6,9 @@
                 <h3>Describe yourself</h3>
                 <p>Please fill all fields for accurately for proper <b>Match Making</b></p>
             </div>
+            @php
+                auth()->user()->religion != '' ? ($isActive = false) : ($isActive = true);
+            @endphp
             <form method="POST" action="{{ route('profile.update', auth()->id()) }}" enctype="multipart/form-data"
                 class="row g-3">
                 @csrf
@@ -32,7 +35,8 @@
                     <div class="input-group">
                         <span class="input-group-text" id="inputGroupPrepend">Kg</span>
                         <input type="number" class="form-control" id="weight" name="weight"
-                            value="{{ old('weight', auth()->user()->weight) }}" placeholder="83" aria-describedby="inputGroupPrepend">
+                            value="{{ old('weight', auth()->user()->weight) }}" placeholder="83"
+                            aria-describedby="inputGroupPrepend">
                     </div>
                 </div>
 
@@ -142,7 +146,13 @@
                             <i class="bi bi-arrow-bar-left"></i>
                             Back
                         </a>
-                        <a href="/profile/form/3" class="btn btn-dark shadow fw-bold">
+                        <a href="/profile/form/3" @class([
+                            'btn',
+                            'btn-dark',
+                            'disabled' => $isActive,
+                            'shadow',
+                            'fw-bold',
+                        ])>
                             Next
                             <i class="bi bi-arrow-bar-right"></i>
                         </a>

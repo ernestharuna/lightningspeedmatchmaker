@@ -27,12 +27,12 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile/{user}', [ProfileController::class, 'update'])->name('profile.update');
 
     Route::get('/profile/form/{id}', function ($id) {
-        return view('user.part-1.form' . $id);
+        return view('user.profile.form' . $id);
     });
 
     Route::delete('/profile/{user}', [ProfileController::class, 'delete'])->name('profile.delete');
 
-    Route::resource('seeks', SeeksController::class)->only(['index', 'create','store', 'edit', 'update', 'destroy']);
+    Route::resource('seeks', SeeksController::class)->only(['index', 'create', 'store', 'edit', 'update', 'destroy']);
 });
 
 

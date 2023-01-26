@@ -14,7 +14,7 @@ class SeeksController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
         $user = auth()->user();
         $seeks = $user->seeks;
         return view('user.seeks.index', compact('seeks'));
@@ -26,9 +26,29 @@ class SeeksController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   
-        $user = auth()->user()->users;
-        return view('user.part-2.form5', compact('user'));
+    {
+        $user = auth()->user();
+        $user_gender = auth()->user()->gender;
+        $user_orientation = auth()->user()->orientation;
+
+        if ($user_orientation == "Heterosexual" && $user_gender == "Male") {
+            $option = "Female";
+        } elseif ($user_orientation == "Heterosexual" && $user_gender == "Female") {
+            $option = "Male";
+        } elseif ($user_orientation == "Lesbian" && $user_gender == "Female") {
+            $option = "Female";
+        } elseif ($user_orientation == "Gay" && $user_gender == "Male") {
+            $option = "Male";
+        } else {
+            $option = "Choose an Option";
+        }
+        // dd($option);
+
+        return view('user.seeks.create')->with([
+            'user' => $user,
+            'option' => $option
+        ]);
+        // return view('user.seeks.create', compact('user'));
     }
 
     /**
@@ -68,7 +88,6 @@ class SeeksController extends Controller
      */
     public function show(Seeks $seek)
     {
-
     }
 
     /**
@@ -79,7 +98,8 @@ class SeeksController extends Controller
      */
     public function edit(Seeks $seek)
     {
-        // return view('part-2.edit-form5');
+        $seeks = auth()->user()->seeks;
+        return view('user.seeks.edit', compact('seeks'));
     }
 
     /**
@@ -91,7 +111,26 @@ class SeeksController extends Controller
      */
     public function update(Request $request, Seeks $seek)
     {
-        //
+        $validate = $request->validate([
+            'gender' => 'sometimes|nullable',
+            'sexual_orientation' => 'sometimes|nullable',
+            'height' => 'sometimes|nullable',
+            'body_type' => 'sometimes|nullable',
+            'hair_color' => 'sometimes|nullable',
+            'eye_color' => 'sometimes|nullable',
+            'ethnicity' => 'sometimes|nullable',
+            'religion' => 'sometimes|nullable',
+            'zodiac_sign' => 'sometimes|nullable',
+            'date_pet_owner' => 'sometimes|nullable',
+            'date_drug' => 'sometimes|nullable',
+            'date_drink' => 'sometimes|nullable',
+            'date_smoker' => 'sometimes|nullable',
+            'income' => 'sometimes|nullable',
+        ]);
+
+        $seek->update($validate);
+
+        return redirect(route('dashboard'))->with('status', 'Preferences Updated');
     }
 
     /**
@@ -102,6 +141,7 @@ class SeeksController extends Controller
      */
     public function destroy(Seeks $seek)
     {
-        //
+        $seek->delete();
+        return redirect(route('dashboard'))->with('status', 'Preference Deleted, Create new preference');
     }
 }

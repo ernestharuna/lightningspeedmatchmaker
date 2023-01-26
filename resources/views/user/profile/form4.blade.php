@@ -5,6 +5,9 @@
             <div class="text-left my-4">
                 <h3>A little more about yourself</h3>
             </div>
+            @php
+                auth()->user()->country != '' ? ($isActive = false) : ($isActive = true);
+            @endphp
             <form method="POST" action="{{ route('profile.update', auth()->id()) }}" enctype="multipart/form-data"
                 class="row g-3">
                 @csrf
@@ -349,13 +352,16 @@
 
                 <div class="mt-4 d-flex align-item-center justify-content-between">
                     <div>
-                        <a href="/profile/form/3" class="btn btn-outline-dark shadow fw-bold">
-                            <i class="bi bi-arrow-bar-left"></i> Back
+                        <a href="/">
+                            <button type="submit" class="btn btn-success shadow fw-bold">Done</button>
                         </a>
                     </div>
                     <div>
-                        <a href="/">
-                            <button type="submit" class="btn btn-success shadow fw-bold">Done</button>
+                        <a href="/profile/form/3" class="btn btn-outline-dark shadow fw-bold">
+                            <i class="bi bi-arrow-bar-left"></i> Back
+                        </a>
+                        <a href="/" class="btn btn-outline-dark shadow fw-bold">
+                            Back to Home
                         </a>
                     </div>
                 </div>

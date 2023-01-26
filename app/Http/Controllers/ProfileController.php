@@ -10,7 +10,7 @@ class ProfileController extends Controller
     // Show Form 1
     public function edit()
     {
-        return view('user.part-1.form1');
+        return view('user.profile.form1');
     }
 
     // Update Forms
