@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
+    public function index()
+    {
+        $user = auth()->user();
+        return view('user.profile.index')->with([
+            'user' => $user
+        ]);
+    }
     // Show Form 1
     public function edit()
     {

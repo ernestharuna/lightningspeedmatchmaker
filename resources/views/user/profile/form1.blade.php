@@ -97,7 +97,7 @@
                         <button type="submit" class="btn btn-success shadow fw-bold">Save</button>
                     </div>
                     <div>
-                        <a href="/profile/form/2" @class([
+                        <a href="/profile/edit/form/2" @class([
                             'btn',
                             'btn-outline-dark',
                             'disabled' => $isActive,
@@ -107,17 +107,6 @@
                             Next
                             <i class="bi bi-arrow-bar-right"></i>
                         </a>
-                        {{-- <a href="/profile/form/2" @class([
-                            'p-4',
-                            'btn',
-                            'btn-outline-dark',
-                            'disabled' => true,
-                            'shadow',
-                            'fw-bold',
-                        ])>
-                            Next
-                            <i class="bi bi-arrow-bar-right"></i>
-                        </a> --}}
                     </div>
                 </div>
             </form>

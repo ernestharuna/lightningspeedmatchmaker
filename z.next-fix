@@ -6,6 +6,7 @@
 # start part 2 forms - done
 
 
-
-# Start admin panel
-# Add email verifications
+# make profile button disabled if they havent filled forms
+# make accounts deletable
+# Start admin panel and guard
+# Add email verifications with OTP

@@ -83,11 +83,11 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('profile.edit') }}">
-                                        {{ __('Edit Profile') }}
+                                    <a class="dropdown-item" href="{{ route('profile.index') }}">
+                                        {{ __('Profile') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('seeks.index') }}">
-                                        {{ __('Change matching preferences') }}
+                                        {{ __('Matching preferences') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

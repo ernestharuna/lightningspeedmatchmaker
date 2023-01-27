@@ -23,12 +23,14 @@ Route::redirect('/', '/dashboard');
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->middleware('auth')->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile/{user}', [ProfileController::class, 'update'])->name('profile.update');
 
-    Route::get('/profile/form/{id}', function ($id) {
+    Route::get('/profile/edit/form/{id}', function ($id) {
         return view('user.profile.form' . $id);
     });
+
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index'); 
 
     Route::delete('/profile/{user}', [ProfileController::class, 'delete'])->name('profile.delete');
 

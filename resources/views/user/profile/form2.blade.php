@@ -142,11 +142,11 @@
                         <button type="submit" class="btn btn-success shadow fw-bold">Save</button>
                     </div>
                     <div>
-                        <a href="/profile/form/1" class="btn btn-outline-dark shadow fw-bold">
+                        <a href="/profile/edit/form/1" class="btn btn-outline-dark shadow fw-bold">
                             <i class="bi bi-arrow-bar-left"></i>
                             Back
                         </a>
-                        <a href="/profile/form/3" @class([
+                        <a href="/profile/edit/form/3" @class([
                             'btn',
                             'btn-dark',
                             'disabled' => $isActive,

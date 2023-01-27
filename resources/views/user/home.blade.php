@@ -89,7 +89,7 @@
                                     </a>
                                 </span>
                                 <span class="text-center mx-3 border border-2 px-2 py-1 rounded">
-                                    <a href="{{ route('profile.edit') }}" class="text-decoration-none text-dark">
+                                    <a href="{{ route('profile.index') }}" class="text-decoration-none text-dark">
                                         {{ __('View Your Profile') }}
                                     </a>
                                 </span>
