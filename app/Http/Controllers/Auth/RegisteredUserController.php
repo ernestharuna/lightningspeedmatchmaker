@@ -39,7 +39,7 @@ class RegisteredUserController extends Controller
 
         Auth::login($admin);
 
-        return redirect()->intended('admin.dashboard')->with('status', 'You\'re now logged in as Administrator');
+        return redirect(route('admin.dashboard'))->with('status', 'You\'re now logged in as Administrator');
     }
 
     // show register form

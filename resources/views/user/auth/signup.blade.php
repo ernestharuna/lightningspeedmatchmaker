@@ -69,7 +69,7 @@
                 </div>
                 <div>
                     <p>
-                        Already have an account? <a href="/login">Log in</a>
+                        Already have an account? <a href="{{ route('login') }}">Log in</a>
                     </p>
                 </div>
             </form>

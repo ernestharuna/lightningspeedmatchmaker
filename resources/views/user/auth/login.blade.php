@@ -31,7 +31,7 @@
 
                 <div>
                     <p>
-                        Don't have an account? <a href="/register">Create Account</a>
+                        Don't have an account? <a href="{{ route('register') }}">Create Account</a>
                     </p>
                 </div>
             </form>

@@ -43,7 +43,7 @@ class LoginController extends Controller
 
         if (Auth::guard('admin')->attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('admin.dashboard');
+            return redirect(route('admin.dashboard'))->with('status', 'You\'re now logged in as administrator');
         };
 
         return back()->withErrors([
