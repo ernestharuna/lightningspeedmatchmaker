@@ -40,20 +40,22 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-                        <li class="px-3 py-1">
-                            <a class="text-decoration-none text-dark fw-bold" href="/">Dashboard</a>
-                        </li>
-                        <li class="px-3 py-1">
-                            <a class="text-decoration-none text-dark fw-bold" href="#">My Matches</a>
-                        </li>
-                        <li class="px-3 py-1">
-                            <a class="text-decoration-none text-dark fw-bold" href="#">Referrals</a>
-                        </li>
-                        <li class="px-3 py-1">
-                            <a class="text-decoration-none text-dark fw-bold" href="#">About</a>
-                        </li>
-                    </ul>
+                    @auth('web')
+                        <ul class="navbar-nav me-auto">
+                            <li class="px-3 py-1">
+                                <a class="text-decoration-none text-dark fw-bold" href="/">Dashboard</a>
+                            </li>
+                            <li class="px-3 py-1">
+                                <a class="text-decoration-none text-dark fw-bold" href="#">My Matches</a>
+                            </li>
+                            <li class="px-3 py-1">
+                                <a class="text-decoration-none text-dark fw-bold" href="#">Referrals</a>
+                            </li>
+                            <li class="px-3 py-1">
+                                <a class="text-decoration-none text-dark fw-bold" href="#">About</a>
+                            </li>
+                        </ul>
+                    @endauth
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
@@ -62,7 +64,7 @@
                             @if (Route::has('login'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">
-                                        <i class="bi bi-box-arrow-in-right"></i> {{ __('Login') }}
+                                        {{ __('Login') }} >>
                                     </a>
                                 </li>
                             @endif
@@ -70,7 +72,7 @@
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">
-                                        <i class="bi bi-box-arrow-in-right"></i> {{ __('Register') }}
+                                        {{ __('Register') }}
                                     </a>
                                 </li>
                             @endif
@@ -83,12 +85,14 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('profile.index') }}">
-                                        {{ __('Profile') }}
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('seeks.index') }}">
-                                        {{ __('Matching preferences') }}
-                                    </a>
+                                    @auth('web')
+                                        <a class="dropdown-item" href="{{ route('profile.index') }}">
+                                            {{ __('Profile') }}
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('seeks.index') }}">
+                                            {{ __('Matching preferences') }}
+                                        </a>
+                                    @endauth
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}

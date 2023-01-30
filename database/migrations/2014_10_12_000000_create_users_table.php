@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('orientation')->nullable(); //sexual orientation
             $table->string('relationship_status')->nullable(); // what is your marital status
             $table->longText('looking_for')->nullable(); // what are you looking for in a relationship
+            $table->string('phone_number')->nullable(); // phone number
             // form 2
             $table->string('height')->nullable(); // height
             $table->string('weight')->nullable(); ///weight
@@ -53,9 +54,10 @@ return new class extends Migration
             $table->longText('extra')->nullable(); // short note about yourself
             // Questionaire questions end
 
+            $table->boolean('subscription')->default(false);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->rememberToken();
+            // $table->rememberToken();
             $table->timestamps();
         });
     }

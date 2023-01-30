@@ -3,7 +3,7 @@
         <div
             class="bg-white border rounded-3 shadow col-sm-4 col-md-6 col-lg-6 mx-3 p-4 animate__animated animate__fadeIn">
             <div class="text-left my-4">
-                <h3>{{ auth()->user()->first_name }}, we need these basic details about you</h3>
+                <h3>{{ Auth::user()->first_name }}, we need these basic details about you</h3>
                 <p>
                     All fields here are mandatroy
                 </p>

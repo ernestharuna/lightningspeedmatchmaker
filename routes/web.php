@@ -2,9 +2,6 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SeeksController;
-use App\Http\Controllers\User;
-use App\Http\Controllers\UserController;
-use App\Models\Seeks;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,11 +28,11 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index'); 
-
-    Route::delete('/profile/{user}', [ProfileController::class, 'delete'])->name('profile.delete');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.delete');
 
     Route::resource('seeks', SeeksController::class)->only(['index', 'create', 'store', 'edit', 'update', 'destroy']);
 });
 
 
 require __DIR__ . '/auth.php';
+require __DIR__ . '/admin.php';

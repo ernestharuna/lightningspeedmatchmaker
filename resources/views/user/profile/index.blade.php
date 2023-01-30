@@ -157,7 +157,7 @@
                         {{-- extra --}}
                         <div class="row my-3">
                             <div class="col rounded border mx-2">
-                                About you: <br> 
+                                About you: <br>
                                 <b>{{ $user->extra }}</b>
                             </div>
                         </div>
@@ -168,14 +168,16 @@
                                     Edit Profile
                                 </button>
                             </a>
-                            <a href="#" onclick="event.preventDefault(); document.getElementById('delete-profile').submit();">
+                            <a href="#"
+                                onclick="event.preventDefault(); document.getElementById('delete-profile').submit();">
                                 <button class="btn btn-danger mx-2">
                                     Delete
                                 </button>
                             </a>
 
                             {{-- for delete --}}
-                            <form id="delete-profile" action="" method="POST" class="d-none">
+                            <form id="delete-profile" action="{{ route('profile.delete') }}" method="POST"
+                                class="d-none">
                                 @csrf
                                 @method('DELETE')
                             </form>

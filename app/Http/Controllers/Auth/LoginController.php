@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -19,22 +20,59 @@ class LoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
+    
+    public function __constructor()
+    {
+        $this->middleware('guest')->except('logout');
+        $this->middleware('guest:admin')->except('logout');
+    }
+
+    public function adminLoginForm()
+    {
+        return view('admin.auth.login', [
+            'url' => 'admin'
+        ]);
+    }
+
+    public function adminLogin(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:6'
+        ]);
+
+        if (Auth::guard('admin')->attempt($credentials)) {
+            $request->session()->regenerate();
+            return redirect()->intended('admin.dashboard');
+        };
+
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.'
+        ])->onlyInput('email');
+    }
+
+// ----------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------
+
 
     // Show login form
     public function create()
     {
-        return view('user.auth.login');
+        return view('user.auth.login', [
+            'url' => 'user'
+        ]);
     }
 
     // Login user
     public function authenticate(Request $request)
     {
-        $validate = $request->validate([
+        $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => 'required'
         ]);
 
-        if (auth()->attempt($validate)) {
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             return redirect()->intended('/')->with('status', 'You\'re now logged in');
         }
@@ -47,9 +85,12 @@ class LoginController extends Controller
     // Logout user
     public function logout(Request $request)
     {
-        auth()->logout();
+        Auth::logout();
+
         $request->session()->invalidate();
+
         $request->session()->regenerateToken();
-        return redirect('/login')->with('status', 'You have been logged out');
+
+        return redirect(route('login'))->with('status', 'You have been logged out');
     }
 }
