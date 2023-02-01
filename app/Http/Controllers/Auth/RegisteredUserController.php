@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\Events\Registered;
 
 class RegisteredUserController extends Controller
 {
@@ -24,7 +25,7 @@ class RegisteredUserController extends Controller
             'url' => 'Admin'
         ]);
     }
-    
+
     public function createAdmin(Request $request)
     {
         $credentials = $request->validate([
@@ -61,8 +62,13 @@ class RegisteredUserController extends Controller
         $validate['password'] = bcrypt($validate['password']);
 
         $user = User::create($validate);
-        Auth::login($user);
 
+        event(new Registered($user));
+
+        Auth::login($user);
         return redirect()->intended('/')->with('status', 'Account created!');
+
+
+        // return back()->with('status', 'Not successful, Try again.');
     }
 }

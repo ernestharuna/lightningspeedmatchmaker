@@ -68,7 +68,7 @@ class ProfileController extends Controller
         // dd($validate);
         $user->update($validate);
 
-        return redirect()->back()->with('status', 'Information stored!');
+        return redirect()->back()->with('status', 'Saved !');
     }
 
     public function destroy(Request $request)

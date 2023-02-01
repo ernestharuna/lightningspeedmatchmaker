@@ -7,6 +7,6 @@
 
 
 # make profile button disabled if they havent filled forms
-# make accounts deletable
-# Start admin panel and guard
+# make accounts deletable - done
+# Start admin panel and guard - done
 # Add email verifications with OTP

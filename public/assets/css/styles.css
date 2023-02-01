@@ -1,13 +1,35 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
 
-body {
-    
+body {}
+
+.dashboard h3 {
+    margin: 0;
 }
 
-footer {
-    box-shadow: 0 0 10px 0;
-    position: fixed;
-    bottom: 0px;
-    width: 100%;
-    background: white;
+.dashboard {
+    display: flex;
+    align-items: center;
+    /* flex-wrap: wrap; */
+    justify-content: space-between;
+}
+
+.my-card {
+    width: 350px;
+    height: 150px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: white;
+    margin: 10px;
+    background: linear-gradient(45deg, rgb(0, 110, 255), rgb(123, 200, 255) ) ;
+}   
+
+@media screen and (max-width: 860px) {
+    .dashboard {
+        display: block;
+    }
+
+    .my-card {
+        width: auto;
+        height: 150px;
+    }
 }

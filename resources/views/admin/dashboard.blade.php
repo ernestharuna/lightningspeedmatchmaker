@@ -1,11 +1,31 @@
 <x-layout>
-    <h2>Hello Boss</h2>
-
-    @forelse ($users as $user)
-        <p>
-            {{ $user->first_name }}
-        </p>
-        @empty
-        <p>No users at the moment</p>
-    @endforelse
+    <x-admin-panel />
+    <div class="container mt-3">
+        <h3>
+            Recent Activities
+        </h3>
+        <ol class="list-group list-group-numbered">
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                    <div class="fw-bold">Subheading</div>
+                    Content for list item
+                </div>
+                <span class="badge bg-primary rounded-pill">14</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                    <div class="fw-bold">Subheading</div>
+                    Content for list item
+                </div>
+                <span class="badge bg-primary rounded-pill">14</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                    <div class="fw-bold">Subheading</div>
+                    Content for list item
+                </div>
+                <span class="badge bg-primary rounded-pill">14</span>
+            </li>
+        </ol>
+    </div>
 </x-layout>

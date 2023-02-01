@@ -43,18 +43,25 @@
                     @auth('web')
                         <ul class="navbar-nav me-auto">
                             <li class="px-3 py-1">
-                                <a class="text-decoration-none text-dark fw-bold" href="/">Dashboard</a>
+                                <a class="text-decoration-none text-dark" href="/">Dashboard</a>
                             </li>
                             <li class="px-3 py-1">
-                                <a class="text-decoration-none text-dark fw-bold" href="#">My Matches</a>
+                                <a class="text-decoration-none text-dark" href="#">My Matches</a>
                             </li>
                             <li class="px-3 py-1">
-                                <a class="text-decoration-none text-dark fw-bold" href="#">Referrals</a>
+                                <a class="text-decoration-none text-dark" href="#">Referrals</a>
                             </li>
                             <li class="px-3 py-1">
-                                <a class="text-decoration-none text-dark fw-bold" href="#">About</a>
+                                <a class="text-decoration-none text-dark" href="#">About</a>
                             </li>
                         </ul>
+                    @endauth
+                    @auth('admin')
+                    <ul class="navbar-nav me-auto">
+                        <li class="px-3 py-1">
+                            <a class="text-decoration-none text-dark fw-bold px-2 border border-2 rounded" href="/">Administrator Dashboard</a>
+                        </li>
+                    </ul>
                     @endauth
 
                     <!-- Right Side Of Navbar -->
@@ -62,15 +69,15 @@
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
-                                <li class="nav-item">
+                                <li class="nav-item border rounded py-0 px-2 m-2">
                                     <a class="nav-link" href="{{ route('login') }}">
-                                        {{ __('Login') }} >>
+                                        {{ __('Login') }}
                                     </a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
-                                <li class="nav-item">
+                                <li class="nav-item border rounded py-0 px-2 m-2">
                                     <a class="nav-link" href="{{ route('register') }}">
                                         {{ __('Register') }}
                                     </a>
@@ -80,8 +87,8 @@
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ auth()->user()->first_name }}
-                                    {{ auth()->user()->last_name }}
+                                    {{ Auth::user()->first_name }}
+                                    {{ Auth::user()->last_name }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="navbarDropdown">
