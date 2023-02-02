@@ -1,8 +1,8 @@
 <x-layout>
-    <x-admin-panel />
+    <x-admin-panel :users=$users/>
     <div class="container mt-3">
         <h3>
-            Recent Activities
+            Recent Matches
         </h3>
         <ol class="list-group list-group-numbered">
             <li class="list-group-item d-flex justify-content-between align-items-start">

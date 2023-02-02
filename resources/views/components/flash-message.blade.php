@@ -12,7 +12,7 @@
             padding: 5px 10px;
         }
     </style>
-    <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 3000)" x-show="show" role="alert" id="alert" class="rounded shadow">
+    <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 3000)" x-show="show" x-transition.duration.500ms role="alert" id="alert" class="rounded shadow">
         <p class="p-0 m-0 fw-bold">
             {{ session('status') }}
         </p>

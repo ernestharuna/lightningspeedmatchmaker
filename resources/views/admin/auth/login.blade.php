@@ -31,7 +31,7 @@
 
                 <div>
                     <p>
-                        Don't have an account? <a href="/register/admin">Create Account</a>
+                        <a href="/register/admin">Create Admin</a>
                     </p>
                 </div>
             </form>

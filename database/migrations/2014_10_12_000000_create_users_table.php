@@ -54,6 +54,7 @@ return new class extends Migration
             $table->longText('extra')->nullable(); // short note about yourself
             // Questionaire questions end
 
+            $table->string('subscription')->nullable();
             $table->boolean('subscription')->default(false);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

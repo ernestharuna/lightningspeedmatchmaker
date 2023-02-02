@@ -16,7 +16,7 @@
                         <p>
                             Memberships are billed annually. If you would like to become a paying member, and have full
                             access to recieve weekly matches,
-                            <a href="http://" target="_blank" rel="noopener noreferrer">click here</a>
+                            <a href="{{ route('subs') }}" target="_blank" rel="noopener noreferrer" class="fw-bold">click here</a>
                         </p>
                     </div>
                 </div>
