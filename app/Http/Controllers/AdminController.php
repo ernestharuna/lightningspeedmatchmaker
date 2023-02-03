@@ -15,23 +15,4 @@ class AdminController extends Controller
             'subs' => Subscriptions::all(),
         ]);
     }
-
-    public function manageSubs()
-    {
-        return view('admin.user-subscriptions', [
-            'users' => User::latest()->get(),
-            'subs' => Subscriptions::all(),
-        ]);
-    }
-    public function edit(Subscriptions $subscriptions)
-    {
-        return view('admin.edit-subscription', [
-            'sub' => $subscriptions,
-        ]);
-    }
-
-    public function update(Request $request)
-    {
-        
-    }
 }

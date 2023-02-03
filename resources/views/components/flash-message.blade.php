@@ -10,6 +10,7 @@
             background: rgba(12, 255, 12, 0.2);
             border: 0.5px solid darkslategray;
             padding: 5px 10px;
+            z-index: 2000;
         }
     </style>
     <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 3000)" x-show="show" x-transition.duration.500ms role="alert" id="alert" class="rounded shadow">

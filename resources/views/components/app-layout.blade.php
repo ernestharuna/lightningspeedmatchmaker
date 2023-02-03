@@ -59,7 +59,7 @@
                     @auth('admin')
                     <ul class="navbar-nav me-auto">
                         <li class="px-3 py-1">
-                            <a class="text-decoration-none text-dark fw-bold px-2 border border-2 rounded" href="/">Administrator Dashboard</a>
+                            <a class="text-decoration-none text-dark fw-bold px-2 border border-2 rounded" href="{{route('admin.dashboard')}}">Administrator Dashboard</a>
                         </li>
                     </ul>
                     @endauth
@@ -92,14 +92,6 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="navbarDropdown">
-                                    @auth('web')
-                                        <a class="dropdown-item" href="{{ route('profile.index') }}">
-                                            {{ __('Profile') }}
-                                        </a>
-                                        <a class="dropdown-item" href="{{ route('seeks.index') }}">
-                                            {{ __('Matching preferences') }}
-                                        </a>
-                                    @endauth
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}

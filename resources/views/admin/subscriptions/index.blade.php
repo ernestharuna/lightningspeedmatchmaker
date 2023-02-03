@@ -16,6 +16,9 @@
                     </li>
                 @endforeach
             </ol>
+            <a href="{{ route('sub.create') }}">
+                <button class="btn btn-primary my-3">Create New</button>
+            </a>
         </div>
     </x-admin-panel>
 </x-app-layout>
