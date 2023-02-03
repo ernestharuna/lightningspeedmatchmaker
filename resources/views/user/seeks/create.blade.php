@@ -4,6 +4,7 @@
             class="bg-white border rounded-3 shadow col-sm-10 col-md-10 col-lg-6 mx-3 p-4 animate__animated animate__fadeIn">
             <div class="text-left my-4">
                 <h3>Now, tell us about the pereson you dream of.</h3>
+                <p>The first two (2) fields have been filled based on your previous answers</p>
             </div>
             <form method="POST" action="{{ route('seeks.store') }}" enctype="multipart/form-data" class="row g-3">
                 @csrf
@@ -44,6 +45,7 @@
                         <option value="5'5ft - 6ft">5'5ft - 6ft</option>
                         <option value="6ft - 6'5ft">6ft - 6'5ft</option>
                         <option value="6'5 above">6'5 above</option>
+                        <option value="I don't mind">I don't mind</option>
                     </select>
                 </div>
 
@@ -59,6 +61,7 @@
                         <option value="Muscular">Muscular</option>
                         <option value="Chubby">Chubby</option>
                         <option value="Fat">Fat</option>
+                        <option value="I don't mind">I don't mind</option>
                     </select>
                 </div>
 
@@ -73,6 +76,7 @@
                         <option value="Brunet">Brunet</option>
                         <option value="Blonde">Blonde</option>
                         <option value="Red">Red</option>
+                        <option value="Any color, I don't mind">Any color, I don't mind</option>
                     </select>
                 </div>
 
@@ -88,6 +92,7 @@
                         <option value="Blue">Blue</option>
                         <option value="Green">Green</option>
                         <option value="Hazel">Hazel</option>
+                        <option value="Any color, I don't mind">Any color, I don't mind</option>
                     </select>
                 </div>
 
@@ -102,8 +107,8 @@
                         <option value="Asian">Asian</option>
                         <option value="African">African</option>
                         <option value="Latinos">Latino/Hispanic</option>
-                        <option value="I don't mind">I don't mind</option>
                         <option value="Other">Other</option>
+                        <option value="I don't mind">I don't mind</option>
                     </select>
                 </div>
 
@@ -122,8 +127,8 @@
                         <option value="Christian">Christian</option>
                         <option value="Jewish">Jewish</option>
                         <option value="Hindu">Hindu</option>
-                        <option value="Other">I don't mind</option>
                         <option value="Other">Other</option>
+                        <option value="Other">I don't mind</option>
                     </select>
                 </div>
 
@@ -147,6 +152,7 @@
                         <option value="Virgo">Virgo</option>
                         <option value="Aries">Aries</option>
                         <option value="Scorpio">Scorpio</option>
+                        <option value="I don't mind">Any, I don't mind</option>
                     </select>
                 </div>
 
@@ -161,6 +167,7 @@
                         </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
+                        <option value="Not sure">Not sure</option>
                     </select>
                 </div>
 
@@ -176,6 +183,7 @@
                         </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
+                        <option value="Not sure">Not sure</option>
                     </select>
                 </div>
 
@@ -191,6 +199,7 @@
                         </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
+                        <option value="Not sure">Not sure</option>
                     </select>
                 </div>
 
@@ -206,6 +215,7 @@
                         </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
+                        <option value="Not sure">Not sure</option>
                     </select>
                 </div>
 

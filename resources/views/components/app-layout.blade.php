@@ -42,26 +42,27 @@
                     <!-- Left Side Of Navbar -->
                     @auth('web')
                         <ul class="navbar-nav me-auto">
-                            <li class="px-3 py-1">
-                                <a class="text-decoration-none text-dark" href="/">Dashboard</a>
-                            </li>
-                            <li class="px-3 py-1">
-                                <a class="text-decoration-none text-dark" href="#">My Matches</a>
-                            </li>
-                            <li class="px-3 py-1">
-                                <a class="text-decoration-none text-dark" href="#">Referrals</a>
-                            </li>
-                            <li class="px-3 py-1">
-                                <a class="text-decoration-none text-dark" href="#">About</a>
-                            </li>
+                            <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                                {{ __('Dashboard') }}
+                            </x-nav-link>
+                            <x-nav-link :href="route('matches')" :active="request()->routeIs('matches')">
+                                {{ __('My Matches') }}
+                            </x-nav-link>
+                            <x-nav-link :href="route('referrals')" :active="request()->routeIs('referrals')">
+                                {{ __('Refer') }}
+                            </x-nav-link>
+                            <x-nav-link :href="route('about')" :active="request()->routeIs('about')">
+                                {{ __('About') }}
+                            </x-nav-link>
                         </ul>
                     @endauth
                     @auth('admin')
-                    <ul class="navbar-nav me-auto">
-                        <li class="px-3 py-1">
-                            <a class="text-decoration-none text-dark fw-bold px-2 border border-2 rounded" href="{{route('admin.dashboard')}}">Administrator Dashboard</a>
-                        </li>
-                    </ul>
+                        <ul class="navbar-nav me-auto">
+                            <li class="px-3 py-1">
+                                <a class="text-decoration-none text-dark fw-bold px-2 border border-2 rounded"
+                                    href="{{ route('admin.dashboard') }}">Administrator Dashboard</a>
+                            </li>
+                        </ul>
                     @endauth
 
                     <!-- Right Side Of Navbar -->

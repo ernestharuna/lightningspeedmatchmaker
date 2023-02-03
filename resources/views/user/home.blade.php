@@ -99,11 +99,6 @@
                                     </a>
                                 </span>
                             </div>
-                            {{-- <a href="{{ route('seek.create') }}">
-                                <button class="btn btn-dark shadow fw-bolder">
-                                    {{ __('Start') }}
-                                </button>
-                            </a> --}}
                         </div>
                     </div>
                 @endisset

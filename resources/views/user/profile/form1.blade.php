@@ -5,11 +5,11 @@
             <div class="text-left my-4">
                 <h3>{{ Auth::user()->first_name }}, we need these basic details about you</h3>
                 <p>
-                    All fields here are mandatroy
+                   Make sure the details you give are accurate and correct.
                 </p>
             </div>
             @php
-                auth()->user()->looking_for != '' ? ($isActive = false) : ($isActive = true);
+                Auth::user()->looking_for != '' ? ($isActive = false) : ($isActive = true);
             @endphp
             <form method="POST" action="{{ route('profile.update', auth()->id()) }}" enctype="multipart/form-data"
                 class="row g-3">

@@ -8,7 +8,7 @@
                 Users
             </h3>
             <span>
-                <a href="#" class="text-white text-decoration-none">Registered Members</a>
+                <a href="{{ route('users.index') }}" class="text-white text-decoration-none">Members</a>
                 <br>
                 <a href="#" class="text-white text-decoration-none">Subscribed Members</a>
             </span>
@@ -32,7 +32,7 @@
                     Subscriptions
                 </a>
                 <br>
-                <a href="#" class="text-white text-decoration-none">Members</a>
+                {{-- <a href="#" class="text-white text-decoration-none">Lorem ipsum</a> --}}
             </span>
         </div>
     </div>

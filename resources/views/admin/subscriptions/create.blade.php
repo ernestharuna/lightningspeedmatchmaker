@@ -8,9 +8,9 @@
                     <input type="text" class="form-control" id="subscription_type" name="subscription_type"
                         placeholder="Annual Plan" value="{{ old('subscription_type') }}">
                     @error('subscription_type')
-                        <p class="text-danger fs-6 mt-1">
+                        <small class="text-danger fw-bold mt-1">
                             {{ $message }}
-                        </p>
+                        </small>
                     @enderror
                 </div>
 
@@ -19,9 +19,9 @@
                     <input type="text" class="form-control" id="description" name="description"
                         placeholder="This plan last for one (1) year" value="{{ old('description') }}">
                     @error('description')
-                        <p class="text-danger fs-6 mt-1">
+                        <small class="text-danger fw-bold mt-1">
                             {{ $message }}
-                        </p>
+                        </small>
                     @enderror
                 </div>
 
@@ -32,9 +32,9 @@
                         <input type="number" class="form-control" id="price" name="price" placeholder="100">
                     </div>
                     @error('price')
-                        <p class="text-danger fs-6 mt-1">
+                        <small class="text-danger fw-bold mt-1">
                             {{ $message }}
-                        </p>
+                        </small>
                     @enderror
                 </div>
 

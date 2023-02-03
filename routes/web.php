@@ -27,11 +27,20 @@ Route::middleware(['auth', 'verified'])->group(function () {
     });
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.delete');
-    
+
     Route::get('/subscriptions', [SubscriptionsController::class, 'index'])->name('subs');
 
     Route::resource('seeks', SeeksController::class)->only(['index', 'create', 'store', 'edit', 'update', 'destroy']);
-});
 
-require __DIR__ . '/auth.php';
-require __DIR__ . '/admin.php';
+    Route::get('/referrals', function () {
+        return view('user.referrals.index');
+    })->name('referrals');
+
+    Route::get('/matches', function () {
+        return view('user.match.index');
+    })->name('matches');
+
+    Route::get('/about', function () {
+        return view('user.about');
+    })->name('about');
+});
