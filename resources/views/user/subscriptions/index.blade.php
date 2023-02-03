@@ -1,4 +1,4 @@
-<x-layout>
+<x-app-layout>
     <div class="container">
         <div class="subscriptions">
             @foreach ($subs as $sub)
@@ -13,4 +13,4 @@
             @endforeach
         </div>
     </div>
-</x-layout>
+</x-app-layout>

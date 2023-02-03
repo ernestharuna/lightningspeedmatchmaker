@@ -1,4 +1,4 @@
-<x-layout>
+<x-app-layout>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8 mb-4">
@@ -16,7 +16,7 @@
                         <p>
                             Memberships are billed annually. If you would like to become a paying member, and have full
                             access to recieve weekly matches,
-                            <a href="{{ route('subs') }}" target="_blank" rel="noopener noreferrer" class="fw-bold">click here</a>
+                            <a href="{{ route('subs') }}" class="fw-bold">click here</a>
                         </p>
                     </div>
                 </div>
@@ -110,4 +110,4 @@
             </div>
         </div>
     </div>
-</x-layout>
+</x-app-layout>

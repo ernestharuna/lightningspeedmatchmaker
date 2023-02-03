@@ -1,4 +1,4 @@
-<x-layout>
+<x-app-layout>
     <div class="d-flex align-items-center justify-content-center mt-3">
         <div
             class="bg-white border rounded-3 shadow col-sm-4 col-md-6 col-lg-6 mx-3 p-4 animate__animated animate__fadeIn">
@@ -112,4 +112,4 @@
             </form>
         </div>
     </div>
-</x-layout>
+</x-app-layout>
