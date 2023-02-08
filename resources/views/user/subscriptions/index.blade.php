@@ -1,5 +1,7 @@
 <x-app-layout>
     <div class="container">
+        <h2>All Subscriptions</h2>
+        <p>You can come back to change this anytime</p>
         <div class="subscriptions">
             @foreach ($subs as $sub)
                 <div class="box">

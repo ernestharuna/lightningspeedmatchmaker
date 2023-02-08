@@ -45,8 +45,11 @@
                             <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                                 {{ __('Dashboard') }}
                             </x-nav-link>
+                            <x-nav-link :href="route('subs')" :active="request()->routeIs('subs')">
+                                {{ __('Subscriptions') }}
+                            </x-nav-link>
                             <x-nav-link :href="route('matches')" :active="request()->routeIs('matches')">
-                                {{ __('My Matches') }}
+                                {{ __('Matches') }}
                             </x-nav-link>
                             <x-nav-link :href="route('referrals')" :active="request()->routeIs('referrals')">
                                 {{ __('Refer') }}
