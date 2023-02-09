@@ -10,7 +10,7 @@
             <span>
                 <a href="{{ route('users.index') }}" class="text-white text-decoration-none">Members</a>
                 <br>
-                <a href="#" class="text-white text-decoration-none">Subscribed Members</a>
+                <a href="{{ route('sub.users') }}" class="text-white text-decoration-none">Subscribed Members</a>
             </span>
         </div>
         <div class="my-card">
@@ -18,7 +18,7 @@
                 Matches
             </h3>
             <span>
-                <a href="#" class="text-white text-decoration-none">View Matches</a>
+                <a href="{{ route('admin.dashboard') }} " class="text-white text-decoration-none">View Matches</a>
                 <br>
                 <a href="#" class="text-white text-decoration-none">Make a Match</a>
             </span>

@@ -19,38 +19,40 @@ class DatabaseSeeder extends Seeder
     {
         \App\Models\User::factory(40)->create();
         
-        Admin::create([
-            'first_name' => 'Ernest',
-            'last_name' => 'Haruna',
-            'email' => 'udwaghie@gmail.com',
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-        ]);
+        // Admin::create([
+        //     'first_name' => 'Ernest',
+        //     'last_name' => 'Haruna',
+        //     'email' => 'udwaghie@gmail.com',
+        //     'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+        // ]);
 
-        Subscriptions::create([
-            'subscription_type' => 'Free Plan',
-            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque excepturi ullam, quasi unde nihil
-            nesciunt!',
-            'price' => '0',
-        ]);
+        // Subscriptions::create([
+        //     'subscription_type' => 'Free Plan',
+        //     'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque excepturi ullam, quasi unde nihil
+        //     nesciunt!',
+        //     'price' => '0',
+        // ]);
 
-        Subscriptions::create([
-            'subscription_type' => 'Weekly Plan',
-            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque excepturi ullam, quasi unde nihil
-            nesciunt!',
-            'price' => '10',
-        ]);
-        Subscriptions::create([
-            'subscription_type' => 'Monthly Plan',
-            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque excepturi ullam, quasi unde nihil
-            nesciunt!',
-            'price' => '40',
-        ]);
-        Subscriptions::create([
-            'subscription_type' => 'Annual Plan',
-            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque excepturi ullam, quasi unde nihil
-            nesciunt!',
-            'price' => '150',
-        ]);
+        // Subscriptions::create([
+        //     'subscription_type' => 'Weekly Plan',
+        //     'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque excepturi ullam, quasi unde nihil
+        //     nesciunt!',
+        //     'price' => '10',
+        // ]);
+        // Subscriptions::create([
+        //     'subscription_type' => 'Monthly Plan',
+        //     'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque excepturi ullam, quasi unde nihil
+        //     nesciunt!',
+        //     'price' => '40',
+        // ]);
+        // Subscriptions::create([
+        //     'subscription_type' => 'Annual Plan',
+        //     'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque excepturi ullam, quasi unde nihil
+        //     nesciunt!',
+        //     'price' => '150',
+        // ]);
+
+        
         // Admin::factory()->create([
         //     'first_name' => 'Ernest',
         //     'last_name' => 'Haruna',

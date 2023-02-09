@@ -8,7 +8,7 @@ use Database\Factories\SubscriptionsFactory;
 
 Route::middleware('auth:admin')->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-    
+
     // subscriptions
     Route::get('/admin/dashboard/subscriptions/manage', [SubscriptionsController::class, 'manageSubs'])->name('manage.subs');
     Route::get('/admin/dashboard/subscriptions/create', [SubscriptionsController::class, 'create'])->name('sub.create');
@@ -18,4 +18,5 @@ Route::middleware('auth:admin')->group(function () {
     Route::delete('/admin/dashboard/subscriptions/{sub}/delete', [SubscriptionsController::class, 'delete'])->name('sub.delete');
 
     Route::get('/admin/dashboard/users', [UserController::class, 'index'])->name('users.index');
+    Route::get('/admin/dashboard/subscribedUsers', [UserController::class, 'sub_users'])->name('sub.users');
 });

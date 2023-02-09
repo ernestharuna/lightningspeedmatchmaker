@@ -4,28 +4,32 @@
     margin: 0;
 }
 
-.dashboard, .subscriptions {
+.dashboard {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: space-between;
 }
+.subscriptions {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+}
 
-.my-card, .box {
+.my-card,
+.box {
     width: 350px;
-    height: 150px;
     padding: 10px 20px;
     border-radius: 10px;
     color: white;
     margin: 10px;
-    background: linear-gradient(45deg, rgb(0, 110, 255), rgb(123, 200, 255) ) ;
-}   
-
-.box {
-    height: max-content;
+    background: linear-gradient(45deg, rgb(0, 110, 255), rgb(123, 200, 255));
 }
 
+
 @media screen and (max-width: 860px) {
-    .dashboard, .subscriptions {
+
+    .dashboard,
+    .subscriptions {
         display: block;
     }
 
@@ -33,9 +37,10 @@
         width: auto;
         height: 150px;
     }
+
     .box {
         width: auto;
         min-height: max-content;
-        text-align: center;
+        /* text-align: center; */
     }
 }
