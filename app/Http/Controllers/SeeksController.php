@@ -39,6 +39,10 @@ class SeeksController extends Controller
             $option = "Female";
         } elseif ($user_orientation == "Gay" && $user_gender == "Male") {
             $option = "Male";
+        } elseif ($user_orientation == "Bisexual" && $user_gender == "Male") {
+            $option = "Male or Female";
+        } elseif ($user_orientation == "Bisexual" && $user_gender == "Female") {
+            $option = "Male or Female";
         } else {
             $option = "Choose an Option";
         }

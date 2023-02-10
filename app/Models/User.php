@@ -47,11 +47,13 @@ class User extends Authenticatable implements MustVerifyEmail
         'pets',
         'smokes',
         'drinks',
+        'phone_number',
         'drugs',
         'profile_pic',
         'country',
         'city',
-        'extra'
+        'extra',
+        'subscription'
     ];
 
     /**

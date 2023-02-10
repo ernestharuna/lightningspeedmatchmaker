@@ -54,10 +54,12 @@ class ProfileController extends Controller
             'pets' => 'sometimes|nullable',
             'smokes' => 'sometimes|nullable',
             'drinks' => 'sometimes|nullable',
+            'phone_number' => 'sometimes|nullable',
             'drugs' => 'sometimes|nullable',
             'country' => 'sometimes|nullable',
             'city' => 'sometimes|nullable',
             'extra' => 'sometimes|nullable',
+            'subscription' => 'sometimes|nullable',
             'updated_at' => now()
         ]);
 
@@ -68,7 +70,7 @@ class ProfileController extends Controller
         // dd($validate);
         $user->update($validate);
 
-        return redirect()->back()->with('status', 'Saved !');
+        return redirect()->back()->with('status', 'Saved');
     }
 
     public function destroy(Request $request)

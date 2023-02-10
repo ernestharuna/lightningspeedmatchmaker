@@ -58,7 +58,7 @@
                 </div>
 
                 {{-- drugs --}}
-                <div class="col-md-6">
+                <div class="col-md-3">
                     <label for="drugs" class="form-label fw-bold">Do you do drugs? <b
                             class="text-danger">*</b></label>
                     <select class="form-select" aria-label="Default select example" id="drugs" name="drugs"
@@ -69,6 +69,23 @@
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                     </select>
+                </div>
+
+                {{-- phone number --}}
+                <div class="col-md-3">
+                    <label for="phone_number" class="form-label fw-bold">Phone number <b
+                            class="text-danger">*</b></label>
+                    <input type="text" id="phone_number" name="phone_number" class="form-control"
+                        value="{{ old('phone_number', auth()->user()->phone_number) }}" placeholder="+143 564 3642" required>
+
+                    {{-- <select class="form-select" aria-label="Default select example" id="phone_number"
+                        name="phone_number" required>
+                        <option value="{{ auth()->user()->phone_number }}" selected>
+                            {{ auth()->user()->phone_number ? auth()->user()->phone_number . __(' • ') : __('Choose a option') }}
+                        </option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select> --}}
                 </div>
 
                 {{-- profile pic --}}

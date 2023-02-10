@@ -23,4 +23,10 @@ class UserController extends Controller
             'users' => $users
         ]);
     }
+
+    public function show (User $user) {
+        return view('admin.members.show', [
+            'user' => $user
+        ]);
+    }
 }

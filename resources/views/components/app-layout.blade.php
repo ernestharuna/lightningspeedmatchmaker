@@ -54,9 +54,6 @@
                             <x-nav-link :href="route('referrals')" :active="request()->routeIs('referrals')">
                                 {{ __('Refer') }}
                             </x-nav-link>
-                            <x-nav-link :href="route('about')" :active="request()->routeIs('about')">
-                                {{ __('About') }}
-                            </x-nav-link>
                         </ul>
                     @endauth
                     @auth('admin')

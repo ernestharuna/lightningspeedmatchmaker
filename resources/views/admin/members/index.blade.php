@@ -6,7 +6,7 @@
                     <li class="list-group-item d-flex justify-content-between align-items-start">
                         <div class="ms-2 me-auto">
                             <div class="fw-bold">
-                                <a href="{{ route('sub.edit', $user) }}" class="text-dark text-decoration-none">
+                                <a href="{{ route('users.show', $user) }}" class="text-dark text-decoration-none">
                                     {{ $user->first_name }} {{ $user->last_name }}
                                 </a>
                             </div>

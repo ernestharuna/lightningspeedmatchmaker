@@ -16,7 +16,9 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('/admin/dashboard/subscriptions/{sub}/edit', [SubscriptionsController::class, 'edit'])->name('sub.edit');
     Route::put('/admin/dashboard/subscriptions/{sub}', [SubscriptionsController::class, 'update'])->name('sub.update');
     Route::delete('/admin/dashboard/subscriptions/{sub}/delete', [SubscriptionsController::class, 'delete'])->name('sub.delete');
-
+    
+    // Users
     Route::get('/admin/dashboard/users', [UserController::class, 'index'])->name('users.index');
     Route::get('/admin/dashboard/subscribedUsers', [UserController::class, 'sub_users'])->name('sub.users');
+    Route::get('/admin/dashboard/users/{user}', [UserController::class, 'show'])->name('users.show');
 });

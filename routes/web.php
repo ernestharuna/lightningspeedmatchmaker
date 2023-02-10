@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SeeksController;
 use App\Http\Controllers\SubscriptionsController;
+use Database\Factories\SubscriptionsFactory;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,9 +18,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware(['auth', 'verified'])->group(function () {
+    // Redirection
     Route::redirect('/', '/dashboard');
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 
+    // Profile & forms
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile/{user}', [ProfileController::class, 'update'])->name('profile.update');
     Route::get('/profile/edit/form/{id}', function ($id) {
@@ -28,10 +31,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.delete');
 
+    // Subscriptions
     Route::get('/subscriptions', [SubscriptionsController::class, 'index'])->name('subs');
 
+    // Seeks Resourse controller
     Route::resource('seeks', SeeksController::class)->only(['index', 'create', 'store', 'edit', 'update', 'destroy']);
 
+    // Other Dashboard links
     Route::get('/referrals', function () {
         return view('user.referrals.index');
     })->name('referrals');
@@ -39,8 +45,4 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/matches', function () {
         return view('user.match.index');
     })->name('matches');
-
-    Route::get('/about', function () {
-        return view('user.about');
-    })->name('about');
 });
