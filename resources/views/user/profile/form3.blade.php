@@ -39,9 +39,11 @@
                         <option value="{{ auth()->user()->employed }}" selected>
                             {{ auth()->user()->employed ? auth()->user()->employed . __(' • ') : __('Choose a option') }}
                         </option>
+                        <option value="Student">Student</option>
                         <option value="Employed">Employed</option>
                         <option value="Self-employed">Self-employed</option>
                         <option value="Unemployed">Unemployed</option>
+                        <option value="Retired">Retired</option>
                     </select>
                 </div>
 
@@ -93,7 +95,7 @@
                         </a>
                         <a href="/profile/edit/form/4" @class([
                             'btn',
-                            'btn-dark',
+                            'btn-danger',
                             'disabled' => $isActive,
                             'shadow',
                             'fw-bold',

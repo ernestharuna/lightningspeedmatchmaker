@@ -33,9 +33,9 @@
                 <div class="col-md-6">
                     <label for="weight" class="form-label fw-bold">How much do you weigh?</label>
                     <div class="input-group">
-                        <span class="input-group-text" id="inputGroupPrepend">Kg</span>
+                        <span class="input-group-text" id="inputGroupPrepend">lbs</span>
                         <input type="number" class="form-control" id="weight" name="weight"
-                            value="{{ old('weight', auth()->user()->weight) }}" placeholder="83"
+                            value="{{ old('weight', auth()->user()->weight) }}" placeholder="140"
                             aria-describedby="inputGroupPrepend">
                     </div>
                 </div>
@@ -148,7 +148,7 @@
                         </a>
                         <a href="/profile/edit/form/3" @class([
                             'btn',
-                            'btn-dark',
+                            'btn-danger',
                             'disabled' => $isActive,
                             'shadow',
                             'fw-bold',

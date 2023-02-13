@@ -99,7 +99,7 @@
                     <div>
                         <a href="/profile/edit/form/2" @class([
                             'btn',
-                            'btn-outline-dark',
+                            'btn-outline-danger',
                             'disabled' => $isActive,
                             'shadow',
                             'fw-bold',

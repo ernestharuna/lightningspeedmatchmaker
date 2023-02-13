@@ -3,7 +3,7 @@
         <div
             class="bg-white border rounded-3 shadow col-sm-10 col-md-10 col-lg-6 mx-3 p-4 animate__animated animate__fadeIn">
             <div class="text-left my-4">
-                <h3>Now, tell us about the pereson you dream of.</h3>
+                <h3>Now, tell us more about your soulmate.</h3>
                 <p>The first two (2) fields have been filled based on your previous answers</p>
             </div>
             <form method="POST" action="{{ route('seeks.store') }}" enctype="multipart/form-data" class="row g-3">
@@ -230,7 +230,7 @@
                         <option value="" selected disabled>
                             Choose an option
                         </option>
-                        <option value="I dont't mind">I dont't mind</option>
+                        <option value="I dont't mind">I don't mind</option>
                         <option value="Less than $50,000">Less than $50,000</option>
                         <option value="$50,000 - $100,000">$50,000 - $100,000</option>
                         <option value="$100,000 - $300,000">$100,000 - $300,000</option>

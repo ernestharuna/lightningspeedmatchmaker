@@ -377,7 +377,7 @@
                         <a href="/profile/edit/form/3" class="btn btn-outline-dark shadow fw-bold">
                             <i class="bi bi-arrow-bar-left"></i> Back
                         </a>
-                        <a href="/" class="btn btn-outline-dark shadow fw-bold">
+                        <a href="/" class="btn btn-outline-danger shadow fw-bold">
                             Back to Home
                         </a>
                     </div>

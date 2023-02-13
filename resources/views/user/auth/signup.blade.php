@@ -65,7 +65,7 @@
                 </div>
 
                 <div class="col-12 mt-4">
-                    <button type="submit" class="btn btn-primary shadow fw-bold">Sign In</button>
+                    <button type="submit" class="btn btn-primary shadow fw-bold">Register</button>
                 </div>
                 <div>
                     <p>

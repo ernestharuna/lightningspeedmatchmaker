@@ -28,7 +28,6 @@
                                 <a href="{{ route('referrals') }}" class="text-white text-decoration-none">
                                     {{ __('Refer a friend') }}
                                 </a>
-                                
                             @endisset
                         </span>
                     </div>
@@ -47,7 +46,8 @@
 
                         <div class="card-body">
                             <p>
-                                ⚠ In order to make the best matches, we need to ask you some questions.
+                                To move forward with completing your profile, we would need you to answer all of the
+                                questions to the best of your abilities to increase the quality of your matches.
                                 <br>
                                 This takes just a few minutes.
                             </p>
