@@ -21,6 +21,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'first_name',
         'last_name',
         'email',
+        'phone_number',
         'password',
 
         'date_of_birth',
@@ -28,6 +29,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'orientation',
         'relationship_status',
         'looking_for',
+        'children',
 
         'height',
         'weight',
@@ -37,22 +39,25 @@ class User extends Authenticatable implements MustVerifyEmail
         'ethnicity',
         'religion',
         'zodiac_sign',
+        'activity_level',
 
         'first_language',
         'second_language',
         'employed',
-        'income',
         'profession',
+        'education',
 
         'pets',
         'smokes',
         'drinks',
-        'phone_number',
         'drugs',
         'profile_pic',
+        'dp_1',
+        'dp_2',
         'country',
         'city',
         'extra',
+        'how_jelly',
         'subscription'
     ];
 
@@ -78,5 +83,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function seeks()
     {
         return $this->hasOne(Seeks::class);
+    }
+
+    public function referrals()
+    {
+        return $this->hasMany(Referrals::class);
     }
 }
