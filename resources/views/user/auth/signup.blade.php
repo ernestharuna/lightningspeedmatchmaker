@@ -31,11 +31,22 @@
                 </div>
 
                 {{-- email --}}
-                <div class="col-12">
+                <div class="col-6">
                     <label for="email" class="form-label fw-bold">E-mail</label>
                     <input type="email" class="form-control" name="email" placeholder="john@xyz.com"
                         value="{{ old('email') }}">
                     @error('email')
+                        <p class="text-danger fs-6 mt-1">
+                            {{ $message }}
+                        </p>
+                    @enderror
+                </div>
+
+                {{-- phone number --}}
+                <div class="col-6">
+                    <label for="phone_number" class="form-label fw-bold">Phone Number</label>
+                    <input type="number" class="form-control" name="phone_number" placeholder="+441 4141 4141" value="{{ old('phone_number') }}">
+                    @error('phone_number')
                         <p class="text-danger fs-6 mt-1">
                             {{ $message }}
                         </p>

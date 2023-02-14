@@ -15,9 +15,10 @@
                         </p>
                     @enderror
                 </div>
+
                 <div class="col-12">
                     <label for="password" class="form-label fw-bold">Password</label>
-                    <input type="password" class="form-control fw-bold" name="password" placeholder="Password">
+                    <input type="password" class="form-control" name="password" placeholder="Password">
                     @error('password')
                         <p class="text-danger fs-6 mt-1">
                             {{ $message }}

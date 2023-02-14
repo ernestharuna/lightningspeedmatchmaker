@@ -26,8 +26,8 @@ return new class extends Migration
             $table->string('gender')->nullable(); // gender
             $table->string('orientation')->nullable(); //sexual orientation
             $table->string('relationship_status')->nullable(); // what is your marital status
-            $table->longText('looking_for')->nullable(); // what kind of relationship are you looking for
-            $table->longText('children')->nullable(); // children?
+            $table->string('looking_for')->nullable(); // what kind of relationship are you looking for
+            $table->string('children')->nullable(); // children?
 
             // form 2
             $table->string('height')->nullable(); // height

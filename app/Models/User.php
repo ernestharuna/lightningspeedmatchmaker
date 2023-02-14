@@ -24,13 +24,15 @@ class User extends Authenticatable implements MustVerifyEmail
         'phone_number',
         'password',
 
+        // form 1
         'date_of_birth',
         'gender',
         'orientation',
         'relationship_status',
         'looking_for',
         'children',
-
+        
+        // form 2
         'height',
         'weight',
         'body_type',
@@ -39,14 +41,17 @@ class User extends Authenticatable implements MustVerifyEmail
         'ethnicity',
         'religion',
         'zodiac_sign',
-        'activity_level',
-
+        
+        // form 3
         'first_language',
         'second_language',
         'employed',
         'profession',
+        'activity_level',
         'education',
+        'extra',
 
+        // form 4
         'pets',
         'smokes',
         'drinks',
@@ -54,11 +59,12 @@ class User extends Authenticatable implements MustVerifyEmail
         'profile_pic',
         'dp_1',
         'dp_2',
+        'how_jelly',
         'country',
         'city',
-        'extra',
-        'how_jelly',
-        'subscription'
+
+        // filled later
+        'subscription',
     ];
 
     /**

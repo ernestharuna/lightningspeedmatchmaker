@@ -6,7 +6,7 @@
                 <h3>A little more about yourself</h3>
             </div>
             @php
-                auth()->user()->country != '' ? ($isActive = false) : ($isActive = true);
+                Auth::user()->country != '' ? ($isActive = false) : ($isActive = true);
             @endphp
             <form method="POST" action="{{ route('profile.update', auth()->id()) }}" enctype="multipart/form-data"
                 class="row g-3">
@@ -14,13 +14,13 @@
                 @method('PATCH')
 
                 {{-- pets --}}
-                <div class="col-md-6">
+                <div class="col-md-3">
                     <label for="pets" class="form-label fw-bold">Do you have pets? <b
                             class="text-danger">*</b></label>
                     <select class="form-select" aria-label="Default select example" id="pets" name="pets"
                         required>
-                        <option value="{{ auth()->user()->pets }}" selected>
-                            {{ auth()->user()->pets ? auth()->user()->pets . __(' • ') : __('Choose a option') }}
+                        <option value="{{ Auth::user()->pets }}" selected disabled>
+                            {{ Auth::user()->pets ? Auth::user()->pets . __(' • ') : __('Choose a option') }}
                         </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
@@ -32,8 +32,8 @@
                     <label for="smokes" class="form-label fw-bold">Do you smoke? <b class="text-danger">*</b></label>
                     <select class="form-select" aria-label="Default select example" id="smokes" name="smokes"
                         required>
-                        <option value="{{ auth()->user()->smokes }}" selected>
-                            {{ auth()->user()->smokes ? auth()->user()->smokes . __(' • ') : __('Choose a option') }}
+                        <option value="{{ Auth::user()->smokes }}" selected disabled>
+                            {{ Auth::user()->smokes ? Auth::user()->smokes . __(' • ') : __('Choose a option') }}
                         </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
@@ -45,8 +45,8 @@
                     <label for="drinks" class="form-label fw-bold">Do you drink? <b class="text-danger">*</b></label>
                     <select class="form-select" aria-label="Default select example" id="drinks" name="drinks"
                         required>
-                        <option value="{{ auth()->user()->drinks }}" selected>
-                            {{ auth()->user()->drinks ? auth()->user()->drinks . __(' • ') : __('Choose a option') }}
+                        <option value="{{ Auth::user()->drinks }}" selected disabled>
+                            {{ Auth::user()->drinks ? Auth::user()->drinks . __(' • ') : __('Choose a option') }}
                         </option>
                         <option value="Yes, once a week">Yes, once a week</option>
                         <option value="Yes, socially">Yes, socially</option>
@@ -63,35 +63,43 @@
                             class="text-danger">*</b></label>
                     <select class="form-select" aria-label="Default select example" id="drugs" name="drugs"
                         required>
-                        <option value="{{ auth()->user()->drugs }}" selected>
-                            {{ auth()->user()->drugs ? auth()->user()->drugs . __(' • ') : __('Choose a option') }}
+                        <option value="{{ Auth::user()->drugs }}" selected disabled>
+                            {{ Auth::user()->drugs ? Auth::user()->drugs . __(' • ') : __('Choose a option') }}
                         </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                     </select>
                 </div>
 
-                {{-- phone number --}}
+                {{-- How jelous --}}
                 <div class="col-md-3">
-                    <label for="phone_number" class="form-label fw-bold">Phone number <b
-                            class="text-danger">*</b></label>
-                    <input type="text" id="phone_number" name="phone_number" class="form-control"
-                        value="{{ old('phone_number', auth()->user()->phone_number) }}" placeholder="+143 564 3642" required>
-
-                    {{-- <select class="form-select" aria-label="Default select example" id="phone_number"
-                        name="phone_number" required>
-                        <option value="{{ auth()->user()->phone_number }}" selected>
-                            {{ auth()->user()->phone_number ? auth()->user()->phone_number . __(' • ') : __('Choose a option') }}
+                    <label for="how_jelly" class="form-label fw-bold">Jealous type? <b class="text-danger">*</b></label>
+                    <select class="form-select" aria-label="Default select example" id="how_jelly" name="how_jelly"
+                        required>
+                        <option value="{{ Auth::user()->how_jelly }}" selected disabled>
+                            {{ Auth::user()->how_jelly ? Auth::user()->how_jelly . __(' • ') : __('Choose a option') }}
                         </option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
-                    </select> --}}
+                    </select>
                 </div>
 
                 {{-- profile pic --}}
-                <div class="col-md-6">
-                    <label for="profile_pic" class="form-label fw-bold">Upload a picture of your self?</label>
+                <div class="col-md-3">
+                    <label for="profile_pic" class="form-label fw-bold">Profile Picture</label>
                     <input class="form-control" type="file" name="profile_pic" id="profile_pic">
+                </div>
+
+                {{-- display pic --}}
+                <div class="col-md-3">
+                    <label for="dp_1" class="form-label fw-bold">Display Picture</label>
+                    <input class="form-control" type="file" name="dp_1" id="dp_1">
+                </div>
+
+                {{-- display pic --}}
+                <div class="col-md-3">
+                    <label for="dp_2" class="form-label fw-bold">Display Picture</label>
+                    <input class="form-control" type="file" name="dp_2" id="dp_2">
                 </div>
 
                 {{-- country --}}
@@ -100,8 +108,8 @@
                             class="text-danger">*</b></label>
                     <select class="form-select" aria-label="Default select example" id="country" name="country"
                         required>
-                        <option value="{{ auth()->user()->country }}" selected>
-                            {{ auth()->user()->country ? auth()->user()->country . __(' • ') : __('Choose a option') }}
+                        <option value="{{ Auth::user()->country }}" selected disabled>
+                            {{ Auth::user()->country ? Auth::user()->country . __(' • ') : __('Choose a option') }}
                         </option>
                         <option value="Afghanistan">Afghanistan</option>
                         <option value="Aland Islands">Åland Islands</option>
@@ -364,7 +372,7 @@
                 <div class="col-md-6">
                     <label for="city" class="form-label fw-bold">What city are located?</label>
                     <input class="form-control" type="text" name="city" id="city"
-                        placeholder="Your City" value="{{ old('city', auth()->user()->city) }}">
+                        placeholder="Your City" value="{{ old('city', Auth::user()->city) }}">
                 </div>
 
                 <div class="mt-4 d-flex align-item-center justify-content-between">
@@ -377,8 +385,14 @@
                         <a href="/profile/edit/form/3" class="btn btn-outline-dark shadow fw-bold">
                             <i class="bi bi-arrow-bar-left"></i> Back
                         </a>
-                        <a href="/" class="btn btn-outline-danger shadow fw-bold">
-                            Back to Home
+                        <a href="/" @class([
+                            'btn',
+                            'btn-danger',
+                            'disabled' => $isActive,
+                            'shadow',
+                            'fw-bold',
+                        ])>
+                            Next Step
                         </a>
                     </div>
                 </div>

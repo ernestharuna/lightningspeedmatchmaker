@@ -23,7 +23,7 @@
                         <b class="text-danger">*</b>
                     </label>
                     <input type="date" class="form-control" id="date_of_birth" name="date_of_birth"
-                        value="{{ old('date_of_birth', auth()->user()->date_of_birth) }}" required>
+                        value="{{ old('date_of_birth', Auth::user()->date_of_birth) }}" required>
                 </div>
 
                 {{-- gender --}}
@@ -32,8 +32,8 @@
                             class="text-danger">*</b></label>
                     <select id="gender" class="form-select" aria-label="Default select example" name="gender"
                         required>
-                        <option value="{{ auth()->user()->gender }}" selected>
-                            {{ auth()->user()->gender ? auth()->user()->gender . __(' • ') : __('Choose a option') }}
+                        <option value="{{ Auth::user()->gender }}" selected disabled>
+                            {{ Auth::user()->gender ? Auth::user()->gender . __(' • ') : __('Choose a option') }}
                         </option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
@@ -47,8 +47,8 @@
                             class="text-danger">*</b></label>
                     <select class="form-select" aria-label="Default select example" id="orientation" name="orientation"
                         required>
-                        <option value="{{ auth()->user()->orientation }}" selected>
-                            {{ auth()->user()->orientation ? auth()->user()->orientation . __(' • ') : __('Choose a option') }}
+                        <option value="{{ Auth::user()->orientation }}" selected disabled>
+                            {{ Auth::user()->orientation ? Auth::user()->orientation . __(' • ') : __('Choose a option') }}
                         </option>
                         <option value="Heterosexual">Heterosexual</option>
                         <option value="Bisexual">Bisexual</option>
@@ -63,8 +63,8 @@
                             class="text-danger">*</b></label>
                     <select class="form-select" aria-label="Default select example" id="relationship_status"
                         name="relationship_status" required>
-                        <option value="{{ auth()->user()->relationship_status }}" selected>
-                            {{ auth()->user()->relationship_status ? auth()->user()->relationship_status . __(' • ') : __('Choose a option') }}
+                        <option value="{{ Auth::user()->relationship_status }}" selected disabled>
+                            {{ Auth::user()->relationship_status ? Auth::user()->relationship_status . __(' • ') : __('Choose a option') }}
                         </option>
                         <option value="Single">Single</option>
                         <option value="Divorced">Divorced</option>
@@ -73,8 +73,35 @@
                     </select>
                 </div>
 
+                {{-- children --}}
+                <div class="col-md-6">
+                    <label for="children" class="form-label fw-bold">Do you have children? <b class="text-danger">*</b></label>
+                    <select class="form-select" aria-label="Default select example" id="children" name="children" required>
+                        <option value="{{ Auth::user()->children }}" selected disabled>
+                            {{ Auth::user()->children ? Auth::user()->children . __(' • ') : __('Choose a option') }}
+                        </option>
+                        <option value="Yes, they live with me">Yes, they live with me</option>
+                        <option value="Yes, but they live elsewhere">Yes, but they live elsewhere</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+
                 {{-- looking for --}}
-                <div class="col-md-13">
+                <div class="col-md-6">
+                    <label for="looking_for" class="form-label fw-bold">What are you looking for ? <b class="text-danger">*</b></label>
+                    <select class="form-select" aria-label="Default select example" id="looking_for" name="looking_for" required>
+                        <option value="{{ Auth::user()->looking_for }}" selected disabled>
+                            {{ Auth::user()->looking_for ? Auth::user()->looking_for . __(' • ') : __('Choose a option') }}
+                        </option>
+                        <option value="Marriage">Marriage</option>
+                        <option value="Platonic relationship">Platonic relationship</option>
+                        <option value="Friends with benefit">Friends with benefit</option>
+                        <option value="Hang out buddy">Hang out buddy</option>
+                    </select>
+                </div>
+
+                {{-- looking for --}}
+                {{-- <div class="col-md-13">
                     <label for="looking_for" class="form-label fw-bold">
                         What are you looking for in a
                         Relationship?
@@ -82,10 +109,10 @@
                     </label>
                     <div class="form-floating">
                         <textarea class="form-control" placeholder="Leave a comment here" id="looking_for" name="looking_for"
-                            style="height: 100px" required>{{ old('looking_for', auth()->user()->looking_for) }}</textarea>
+                            style="height: 100px" required>{{ old('looking_for', Auth::user()->looking_for) }}</textarea>
                         <label for="looking_for">Comments</label>
                     </div>
-                </div>
+                </div> --}}
 
                 <small class="m-0">
                     Fields marked with <b class="text-danger fs-3" style="position: relative; top: 9px">*</b> are

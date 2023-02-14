@@ -27,10 +27,12 @@ class ProfileController extends Controller
     {
         $validate = $request->validate([
             // form 1
+            'phone_number' => 'sometimes|nullable',
             'date_of_birth' => 'sometimes|nullable',
             'gender' => 'sometimes|nullable',
             'orientation' => 'sometimes|nullable',
             'relationship_status' => 'sometimes|nullable',
+            'children' => 'sometimes|nullable',
             'looking_for' => 'sometimes|nullable',
 
             //form 2
@@ -46,19 +48,24 @@ class ProfileController extends Controller
             // form 3
             'first_language' => 'sometimes|nullable',
             'second_language' => 'sometimes|nullable',
+            'activity_level' => 'sometimes|nullable',
             'employed' => 'sometimes|nullable',
-            'income' => 'sometimes|nullable',
+            'education' => 'sometimes|nullable',
             'profession' => 'sometimes|nullable',
+            'extra' => 'sometimes|nullable',
 
             // form 4
             'pets' => 'sometimes|nullable',
             'smokes' => 'sometimes|nullable',
             'drinks' => 'sometimes|nullable',
-            'phone_number' => 'sometimes|nullable',
             'drugs' => 'sometimes|nullable',
+            'profile_pic' => 'sometimes|nullable',
+            'dp_1' => 'sometimes|nullable',
+            'dp_2' => 'sometimes|nullable',
+            'how_jelly' => 'sometimes|nullable',
             'country' => 'sometimes|nullable',
             'city' => 'sometimes|nullable',
-            'extra' => 'sometimes|nullable',
+            
             'subscription' => 'sometimes|nullable',
             'updated_at' => now()
         ]);

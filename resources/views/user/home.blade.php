@@ -36,7 +36,7 @@
 
             {{-- show if user hasn't filled these fields --}}
             <div class="col-md-8 mb-4">
-                @unless($user->gender && $user->date_of_birth && $user->income && $user->employed && $user->country)
+                @unless($user->gender && $user->date_of_birth && $user->education && $user->employed && $user->country)
                     <div class="card shadow animate__animated animate__headShake">
                         <div class="card-header text-danger">
                             <p class="m-0 fs-5">
