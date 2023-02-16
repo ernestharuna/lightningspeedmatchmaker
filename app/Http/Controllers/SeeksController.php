@@ -152,6 +152,6 @@ class SeeksController extends Controller
     public function destroy(Seeks $seek)
     {
         $seek->delete();
-        return redirect(route('dashboard'))->with('status', 'Preference Deleted, Create new preference');
+        return redirect(route('dashboard'))->with('error', 'Preference Deleted, Create new preference');
     }
 }

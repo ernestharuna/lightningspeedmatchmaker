@@ -12,13 +12,14 @@
                                         {{ $ref->ref_name }}
                                     </span>
                                 </div>
-                                {{ $ref->ref_gender }}
+                                {{ $ref->ref_gender }} | {{ $ref->ref_no }} {{ $ref->ref_email ? '| '.$ref->ref_email : '' }}
                             </div>
                             <span class="badge bg-success mx-2 rounded-pill">
                                 <span class="badge bg-secondary rounded-pill">referred by:</span>
                                 {{ $ref->user->first_name }}
                             </span>
-                            <a href="" onclick="event.preventDefault(); document.getElementById('delete-ref').submit();"
+                            <a href=""
+                                onclick="event.preventDefault(); document.getElementById('delete-ref').submit();"
                                 class="badge bg-danger rounded-pill">
                                 <i class="bi bi-trash fw-bold fs-6"></i>
                             </a>

@@ -112,11 +112,8 @@
         <main class="py-4">
             {{ $slot }}
             <x-flash-message></x-flash-message>
+            <x-danger-message></x-danger-message>
         </main>
-
-        <footer class="container" id="foot">
-            {{-- @include('partials.footer') --}}
-        </footer>
     </div>
 </body>
 

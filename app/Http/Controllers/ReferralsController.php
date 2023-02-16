@@ -23,7 +23,9 @@ class ReferralsController extends Controller
     {
         $credentials = $request->validate([
             'ref_name' => ['required', 'min:5'],
-            'ref_gender' => 'required'
+            'ref_gender' => 'required',
+            'ref_email' => 'required',
+            'ref_no' => 'required',
         ]);
 
         $request->user()->referrals()->create($credentials);

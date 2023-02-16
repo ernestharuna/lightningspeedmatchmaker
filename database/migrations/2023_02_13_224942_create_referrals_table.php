@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('referrals', function (Blueprint $table) {
             $table->id();
-
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('ref_name');
             $table->string('ref_gender');
-            
+            $table->string('ref_email')->unique();
+            $table->string('ref_no');
             $table->timestamps();
         });
     }

@@ -64,6 +64,6 @@ class SubscriptionsController extends Controller
     public function delete(Subscriptions $sub)
     {
         $sub->delete();
-        return redirect(route('manage.subs'))->with('status', 'Subscription deleted');
+        return redirect(route('manage.subs'))->with('error', 'Subscription deleted');
     }
 }

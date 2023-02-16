@@ -40,6 +40,36 @@
                     </select>
                 </div>
 
+                 {{-- email --}}
+                 <div class="col-md-6">
+                    <label for="ref_email" class="form-label fw-bold">
+                        E-mail
+                    </label>
+                    <input type="email" class="form-control" id="ref_email" name="ref_email"
+                        value="{{ old('ref_email') }}" placeholder="johndoe@xyz.com">
+
+                    @error('ref_email')
+                        <p class="text-danger fs-6 mt-1">
+                            {{ $message }}
+                        </p>
+                    @enderror
+                </div>
+
+                 {{-- phone number --}}
+                 <div class="col-md-6">
+                    <label for="ref_no" class="form-label fw-bold">
+                        Phone Number <b class="text-danger">*</b>
+                    </label>
+                    <input type="tel" class="form-control" id="ref_no" name="ref_no"
+                        value="{{ old('ref_no') }}" placeholder="+2348 1836 70422" required>
+
+                    @error('ref_no')
+                        <p class="text-danger fs-6 mt-1">
+                            {{ $message }}
+                        </p>
+                    @enderror
+                </div>
+
                 <small class="m-0">
                     - Fields marked with <b class="text-danger fs-3" style="position: relative; top: 9px">*</b> are
                     compulsory.

@@ -45,7 +45,7 @@
                 {{-- phone number --}}
                 <div class="col-6">
                     <label for="phone_number" class="form-label fw-bold">Phone Number</label>
-                    <input type="number" class="form-control" name="phone_number" placeholder="+441 4141 4141" value="{{ old('phone_number') }}">
+                    <input type="text" class="form-control" name="phone_number" placeholder="+441 4141 4141" value="{{ old('phone_number') }}">
                     @error('phone_number')
                         <p class="text-danger fs-6 mt-1">
                             {{ $message }}
