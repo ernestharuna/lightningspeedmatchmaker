@@ -6,6 +6,7 @@
                     <li class="list-group-item d-flex justify-content-between align-items-start">
                         <div class="ms-2 me-auto">
                             <div class="fw-bold">
+                                <img src="{{ $user->profile_pic ? asset('storage/' . $user->profile_pic) : asset('assets/img/logo.png') }}" class="img-fluid rounded border" alt="..." style="width: 50px">
                                 <a href="{{ route('users.show', $user) }}" class="text-dark text-decoration-none">
                                     {{ $user->first_name }} {{ $user->last_name }}
                                 </a>

@@ -9,6 +9,13 @@
                         </p>
                     </div>
                     <div class="card-body">
+                        {{-- Picture --}}
+                        <div class="row">
+                            <div class="col rounded mx-2">
+                                <img src="{{ $user->profile_pic ? asset('storage/' . $user->profile_pic) : asset('assets/img/logo.png') }}"
+                                    class="img-thumbnail mb-3" alt="..." style="width: 100px">
+                            </div>
+                        </div>
                         {{-- Names --}}
                         <div class="row">
                             <div class="col rounded border mx-2">
