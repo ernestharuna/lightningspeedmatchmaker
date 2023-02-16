@@ -32,7 +32,9 @@
                     Subscriptions
                 </a>
                 <br>
-                {{-- <a href="#" class="text-white text-decoration-none">Lorem ipsum</a> --}}
+                <a href="{{ route('user.refs') }}" class="text-white text-decoration-none">
+                    Referrals
+                </a>
             </span>
         </div>
     </div>

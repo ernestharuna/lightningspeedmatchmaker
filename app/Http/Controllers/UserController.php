@@ -18,7 +18,7 @@ class UserController extends Controller
 
     public function sub_users()
     {
-        $users = User::where('subscription', '!=', 0)->paginate(10);
+        $users = User::where('subscription', 'Free')->paginate(10);
         return view('admin.members.sub_users', [
             'users' => $users
         ]);

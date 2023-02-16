@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -30,7 +31,8 @@ class LoginController extends Controller
     public function adminLoginForm()
     {
         return view('admin.auth.login', [
-            'url' => 'admin'
+            'url' => 'admin',
+            'admins' => Admin::all(),
         ]);
     }
 

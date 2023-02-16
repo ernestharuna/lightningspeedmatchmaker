@@ -1,6 +1,7 @@
 <x-app-layout>
     <x-admin-panel>
         <div class="container">
+            <h3>Subscribed Users</h3>
             <ol class="list-group list-group-numbered">
                 @unless(count($users) == 0)
                     @foreach ($users as $user)

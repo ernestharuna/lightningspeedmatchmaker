@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ReferralsController;
 use App\Http\Controllers\SubscriptionsController;
 use App\Http\Controllers\UserController;
 use Database\Factories\SubscriptionsFactory;
@@ -21,4 +22,8 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('/admin/dashboard/users', [UserController::class, 'index'])->name('users.index');
     Route::get('/admin/dashboard/subscribedUsers', [UserController::class, 'sub_users'])->name('sub.users');
     Route::get('/admin/dashboard/users/{user}', [UserController::class, 'show'])->name('users.show');
+
+    // Referrals
+    Route::get('admin/dashboard/referrals', [ReferralsController::class, 'index'])->name('user.refs');
+    Route::delete('admin/dashboard/referrals/{ref}', [ReferralsController::class, 'delete'])->name('user.refs.delete');
 });

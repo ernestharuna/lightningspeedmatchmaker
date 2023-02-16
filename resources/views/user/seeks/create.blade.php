@@ -67,7 +67,7 @@
 
                 {{-- hair color --}}
                 <div class="col-md-6">
-                    <label for="hair_color" class="form-label fw-bold">Their Hair color</label>
+                    <label for="hair_color" class="form-label fw-bold">Their hair color</label>
                     <select class="form-select" aria-label="Default select example" id="hair_color" name="hair_color">
                         <option value="" selected disabled>
                             Choose an option
@@ -82,7 +82,7 @@
 
                 {{-- eye color --}}
                 <div class="col-md-6">
-                    <label for="eye_color" class="form-label fw-bold">Their Eye color</label>
+                    <label for="eye_color" class="form-label fw-bold">Their eye color</label>
                     <select class="form-select" aria-label="Default select example" id="eye_color" name="eye_color">
                         <option value="" selected disabled>
                             Choose an option
@@ -96,10 +96,65 @@
                     </select>
                 </div>
 
+                {{-- physically active --}}
+                <div class="col-md-6">
+                    <label for="how_pa" class="form-label fw-bold" title="How physically active do you want your partner to be">Activity level</label>
+                    <select class="form-select" aria-label="Default select example" id="how_pa" name="how_pa">
+                        <option value="" selected disabled>
+                            Choose an option
+                        </option>
+                        <option value="I don't mind a couch potato">I don't mind a couch potato</option>
+                        <option value="A couple times a week">A couple times a week</option>
+                        <option value="An obsessive cross fit animal">An obsessive cross fit animal</option>
+                        <option value="Daily fitness">Daily fitness</option>
+                    </select>
+                </div>
+
+                {{-- education --}}
+                <div class="col-md-6">
+                    <label for="education" class="form-label fw-bold" title="What level of education would you like them to have">Education <b class="text-danger">*</b></label>
+                    <select class="form-select" aria-label="Default select example" id="education" name="education" required>
+                        <option value="" selected disabled>
+                            Choose an option
+                        </option>
+                        <option value="I don't mind">I don't mind</option>
+                        <option value="Some college">Some college</option>
+                        <option value="Bachelors">Bachelors</option>
+                        <option value="Masters">Masters</option>
+                        <option value="Postgraduate">Postgraduate</option>
+                    </select>
+                </div>
+
+                {{-- What they're looking for --}}
+                <div class="col-md-6">
+                    <label for="rel_type" class="form-label fw-bold" title="What kind of relationship do you expect your partner to be searching for ?">What they seek <b class="text-danger">*</b></label>
+                    <select class="form-select" aria-label="Default select example" id="rel_type" name="rel_type" required>
+                        <option value="" selected disabled>
+                            Choose an option
+                        </option>
+                        <option value="Someone looking for Marriage">Someone looking for Marriage</option>
+                        <option value="Someone looking to spend time doing outdoor activities">Someone looking to spend time doing outdoor activities</option>
+                        <option value="Someone looking for friends with benefits">Someone looking for friends with benefits</option>
+                    </select>
+                </div>
+
+                {{-- how_jelly --}}
+                <div class="col-md-6">
+                    <label for="how_jelly" class="form-label fw-bold">Do you want an obsessive partner ?</label>
+                    <select class="form-select" aria-label="Default select example" id="how_jelly" name="how_jelly">
+                        <option value="" selected disabled>
+                            Choose an option
+                        </option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                        <option value="I don't know">I don't know</option>
+                    </select>
+                </div>
+
                 {{-- ethnicity --}}
                 <div class="col-md-6">
-                    <label for="ethnicity" class="form-label fw-bold">Ethnicity</label>
-                    <select class="form-select" aria-label="Default select example" id="ethnicity" name="ethnicity">
+                    <label for="ethnicity" class="form-label fw-bold">Ethnicity <b class="text-danger">*</b></label>
+                    <select class="form-select" aria-label="Default select example" id="ethnicity" name="ethnicity" required>
                         <option value="" selected disabled>
                             Choose an option
                         </option>
@@ -115,7 +170,7 @@
                 {{-- religion --}}
                 <div class="col-md-6">
                     <label for="religion" class="form-label fw-bold">
-                        Their Religion
+                        Religion
                         <b class="text-danger">*</b>
                     </label>
                     <select class="form-select" aria-label="Default select example" id="religion" name="religion"
@@ -153,6 +208,21 @@
                         <option value="Aries">Aries</option>
                         <option value="Scorpio">Scorpio</option>
                         <option value="I don't mind">Any, I don't mind</option>
+                    </select>
+                </div>
+
+                {{-- children --}}
+                <div class="col-md-6">
+                    <label for="children" class="form-label fw-bold" title="Do you mind a partner with children?">Children? <b
+                            class="text-danger">*</b></label>
+                    <select class="form-select" aria-label="Default select example" id="children"
+                        name="children" required>
+                        <option value="" selected disabled>
+                            Choose an option
+                        </option>
+                        <option value="Yes">Yes</option>
+                        <option value="Yes, if they're on their own">Yes, if they're on their own</option>
+                        <option value="No">No</option>
                     </select>
                 </div>
 
@@ -216,26 +286,6 @@
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                         <option value="Not sure">Not sure</option>
-                    </select>
-                </div>
-
-                {{-- income --}}
-                <div class="col-md-6">
-                    <label for="income" class="form-label fw-bold">
-                        Their Annual Income
-                        <b class="text-danger">*</b>
-                    </label>
-                    <select class="form-select" aria-label="Default select example" id="income" name="income"
-                        required>
-                        <option value="" selected disabled>
-                            Choose an option
-                        </option>
-                        <option value="I dont't mind">I don't mind</option>
-                        <option value="Less than $50,000">Less than $50,000</option>
-                        <option value="$50,000 - $100,000">$50,000 - $100,000</option>
-                        <option value="$100,000 - $300,000">$100,000 - $300,000</option>
-                        <option value="$300,000 - $400,000">$300,000 - $400,000</option>
-                        <option value="$300,000 - $400,000">Above $400,000</option>
                     </select>
                 </div>
 

@@ -8,25 +8,21 @@
                             Hi there, {{ $user->first_name }} 🤙🏽
                         </p>
                         <span class="text-white">
-                            <a href="" class="text-white text-decoration-none">Check Match</a>
-                            |
-                            <a href="{{ route('referrals') }}" class="text-white text-decoration-none">Refer</a>
+                            <a href="{{ route('subs') }}" class="text-white text-decoration-none">
+                                {{ __('- Change Subscription') }}
+                            </a>
                             <br>
                             @isset($user->seeks->gender)
                                 <a href="{{ route('seeks.index') }}" class="text-white text-decoration-none">
-                                    {{ __('View Your Preference') }}
+                                    {{ __('- Preference') }}
                                 </a>
                                 |
                                 <a href="{{ route('profile.index') }}" class="text-white text-decoration-none">
-                                    {{ __('View Your Profile') }}
-                                </a>
-                                <br>
-                                <a href="{{ route('subs') }}" class="text-white text-decoration-none">
-                                    {{ __('Change Subscription') }}
+                                    {{ __('- Profile') }}
                                 </a>
                                 <br>
                                 <a href="{{ route('referrals') }}" class="text-white text-decoration-none">
-                                    {{ __('Refer a friend') }}
+                                    {{ __('- Refer a friend') }}
                                 </a>
                             @endisset
                         </span>

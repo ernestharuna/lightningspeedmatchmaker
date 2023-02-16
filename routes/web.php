@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReferralsController;
 use App\Http\Controllers\SeeksController;
 use App\Http\Controllers\SubscriptionsController;
 use Database\Factories\SubscriptionsFactory;
@@ -37,12 +38,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Seeks Resourse controller
     Route::resource('seeks', SeeksController::class)->only(['index', 'create', 'store', 'edit', 'update', 'destroy']);
 
-    // Other Dashboard links
-    Route::get('/referrals', function () {
-        return view('user.referrals.index');
-    })->name('referrals');
+    //---------------- Other Dashboard links---------------------//
+    // Referrals
+    Route::get('/referrals', [ReferralsController::class, 'create'])->name('referrals');
+    Route::post('/referrals/save', [ReferralsController::class, 'store'])->name('submit.ref');
 
+    // matches
     Route::get('/matches', function () {
-        return view('user.match.index');
+        return view('user.coming-soon');
     })->name('matches');
 });

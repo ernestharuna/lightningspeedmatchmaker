@@ -29,11 +29,15 @@
                     <button type="submit" class="btn btn-primary shadow fw-bold">Log in</button>
                 </div>
 
-                <div>
-                    <p>
-                        <a href="/register/admin">Create Admin</a>
-                    </p>
-                </div>
+                @if (count($admins) == 0 )
+                    <div>
+                        <p>
+                            <a href="/register/admin" class="text-decoration-none text-dark">Create Admin</a>
+                        </p>
+                    </div>
+                @else
+                    
+                @endif
             </form>
         </div>
     </div>

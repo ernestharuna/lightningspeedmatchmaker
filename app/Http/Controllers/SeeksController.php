@@ -70,14 +70,20 @@ class SeeksController extends Controller
             'body_type' => 'sometimes|nullable',
             'hair_color' => 'sometimes|nullable',
             'eye_color' => 'sometimes|nullable',
+            'how_pa' => 'sometimes|nullable',
+            'education' => 'sometimes|nullable',
+
+            'rel_type' => 'sometimes|nullable',
+            'how_jelly' => 'sometimes|nullable',
             'ethnicity' => 'sometimes|nullable',
             'religion' => 'sometimes|nullable',
             'zodiac_sign' => 'sometimes|nullable',
+
+            'children' => 'sometimes|nullable',
             'date_pet_owner' => 'sometimes|nullable',
             'date_drug' => 'sometimes|nullable',
             'date_drink' => 'sometimes|nullable',
             'date_smoker' => 'sometimes|nullable',
-            'income' => 'sometimes|nullable',
         ]);
 
         $request->user()->seeks()->create($validate);

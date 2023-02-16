@@ -55,6 +55,7 @@ class RegisteredUserController extends Controller
         $validate = $request->validate([
             'first_name' => ['required', 'min:3', 'max:20'],
             'last_name' => ['required', 'min:3', 'max:20'],
+            'phone_number' => 'required',
             'email' => ['required', 'email', Rule::unique('users', 'email')],
             'password' => 'required|confirmed|min:6'
         ]);
@@ -63,7 +64,12 @@ class RegisteredUserController extends Controller
 
         $user = User::create($validate);
 
-        event(new Registered($user));
+        // try {
+        //     event(new Registered($user));
+        // }
+        // catch {
+            
+        // }
 
         Auth::login($user);
         return redirect()->intended('/')->with('status', 'Account created!');

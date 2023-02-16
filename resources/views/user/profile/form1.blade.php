@@ -100,20 +100,6 @@
                     </select>
                 </div>
 
-                {{-- looking for --}}
-                {{-- <div class="col-md-13">
-                    <label for="looking_for" class="form-label fw-bold">
-                        What are you looking for in a
-                        Relationship?
-                        <b class="text-danger">*</b>
-                    </label>
-                    <div class="form-floating">
-                        <textarea class="form-control" placeholder="Leave a comment here" id="looking_for" name="looking_for"
-                            style="height: 100px" required>{{ old('looking_for', Auth::user()->looking_for) }}</textarea>
-                        <label for="looking_for">Comments</label>
-                    </div>
-                </div> --}}
-
                 <small class="m-0">
                     Fields marked with <b class="text-danger fs-3" style="position: relative; top: 9px">*</b> are
                     compulsory
