@@ -1,30 +1,41 @@
 <x-app-layout>
     <x-admin-panel>
         <div class="container">
-            <form action="#">
-                {{-- <div class="input-group">
-                    <span class="input-group-text" id="basic-addon1">Search</span>
-                    <input type="search" class="form-control my-3">
-                </div> --}}
+
+            <form action="/admin/dashboard/users/" class="w-50">
                 <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon3">Search</span>
-                    <input type="search" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                    <button class="input-group-text bg-white fw-bold" type="submit">Search</button>
+                    <input type="text" class="form-control" name="search" placeholder="Search by names, gender or country">
                 </div>
             </form>
+
             <ol class="list-group list-group-numbered">
                 @foreach ($users as $user)
                     <li class="list-group-item d-flex justify-content-between align-items-start">
                         <div class="ms-2 me-auto">
                             <div class="d-flex ">
                                 <img src="{{ $user->profile_pic ? asset('storage/' . $user->profile_pic) : asset('assets/img/logo.png') }}"
-                                    class="img-fluid rounded border" alt="..." style="width: 50px">
+                                    class="img-fluid rounded border" alt="..." style="width: 50px; height: 50px;">
                                 <div class="mx-2">
                                     <a href="{{ route('users.show', $user) }}"
                                         class="text-dark text-decoration-none fw-bold">
                                         {{ $user->first_name }} {{ $user->last_name }}
                                         <br>
                                     </a>
-                                    {{ $user->orientation }} {{ $user->gender }}
+                                    @if ($user->orientation || $user->gender || $user->country)
+                                        <a href="/admin/dashboard/users/?orientation={{ $user->orientation }}"
+                                            class="text-decoration-none text-white bg-secondary rounded px-1 mx-1">
+                                            <small> {{ $user->orientation }}</small>
+                                        </a>
+                                        <a href="/admin/dashboard/users/?gender={{ $user->gender }}"
+                                            class="text-decoration-none text-white bg-secondary rounded px-1 mx-1">
+                                            <small>{{ $user->gender }}</small>
+                                        </a>
+                                        <a href="/admin/dashboard/users/?country={{ $user->country }}"
+                                            class="text-decoration-none text-white bg-secondary rounded px-1 mx-1">
+                                            <small>{{ $user->country }}</small>
+                                        </a>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -32,7 +43,7 @@
                     </li>
                 @endforeach
             </ol>
-            <div class="mt-3 p-4">
+            <div class="my-1 p-2">
                 {{ $users->links() }}
             </div>
         </div>

@@ -12,6 +12,24 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public function scopeFilter($query, array $filters)
+    {
+        if ($filters['orientation'] ?? false) {
+            $query->where('orientation', 'like', '%' . request('orientation') . '%');
+        }
+        if ($filters['gender'] ?? false) {
+            $query->where('gender', 'like', '%' . request('gender') . '%');
+        }
+        if ($filters['country'] ?? false) {
+            $query->where('country', 'like', '%' . request('country') . '%');
+        }
+        if ($filters['search'] ?? false) {
+            $query->where('first_name', 'like', '%' . request('search') . '%')
+                ->orWhere('last_name', 'like', '%' . request('search') . '%')
+                ->orWhere('country', 'like', '%' . request('search') . '%');
+        }
+    }
+
     /**
      * The attributes that are mass assignable.
      *
@@ -31,7 +49,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'relationship_status',
         'looking_for',
         'children',
-        
+
         // form 2
         'height',
         'weight',
@@ -41,7 +59,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'ethnicity',
         'religion',
         'zodiac_sign',
-        
+
         // form 3
         'first_language',
         'second_language',

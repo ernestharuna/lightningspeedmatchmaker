@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
-use Database\Factories\SubscriptionsFactory;
 use App\Http\Controllers\ReferralsController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\SubscriptionsController;
@@ -23,10 +22,11 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('/admin/dashboard/users', [UserController::class, 'index'])->name('users.index');
     Route::get('/admin/dashboard/subscribedUsers', [UserController::class, 'sub_users'])->name('sub.users');
     Route::get('/admin/dashboard/users/{user}', [UserController::class, 'show'])->name('users.show');
-
+    
     // Referrals
     Route::get('admin/dashboard/referrals', [ReferralsController::class, 'index'])->name('user.refs');
     Route::delete('admin/dashboard/referrals/{ref}', [ReferralsController::class, 'delete'])->name('user.refs.delete');
 
-    Route::post('/logout', [LoginController::class, 'admin_logout'])->name('admin.logout');
+    // Admin log out
+    Route::post('/admin/logout', [LoginController::class, 'admin_logout'])->name('admin.logout');
 });

@@ -10,6 +10,6 @@
 # make accounts deletable - done
 # Start admin panel and guard - done
 # Add email verifications with OTP -done
-
+# Allow admin search users - done
 # Start matching algorithm
-# Fix admin logout
+# Fix admin logout - done
