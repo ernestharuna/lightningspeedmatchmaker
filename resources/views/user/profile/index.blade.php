@@ -121,11 +121,11 @@
                             </div>
                         </div>
 
-                        {{-- profesion & income --}}
+                        {{-- profesion & education --}}
                         <div class="row mt-3">
                             <div class="col rounded border mx-2">
                                 Income: <br>
-                                <b>{{ $user->income }}</b>
+                                <b>{{ $user->education }}</b>
                             </div>
                             <div class="col rounded border mx-2">
                                 Profession: <br>

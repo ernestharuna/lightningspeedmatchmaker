@@ -61,7 +61,7 @@ return new class extends Migration
             $table->string('how_jelly')->nullable(); // Are you a jealous kind of person?
             // Questionaire questions end
 
-            $table->string('subscription')->nullable();
+            $table->string('subscription')->nullable()->default('Free');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             // $table->rememberToken();

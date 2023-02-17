@@ -7,15 +7,18 @@
                     @foreach ($users as $user)
                         <li class="list-group-item d-flex justify-content-between align-items-start">
                             <div class="ms-2 me-auto">
-                                <div class="fw-bold">
+                                <div class="d-flex ">
                                     <img src="{{ $user->profile_pic ? asset('storage/' . $user->profile_pic) : asset('assets/img/logo.png') }}"
                                         class="img-fluid rounded border" alt="..." style="width: 50px">
-
-                                    <a href="{{ route('users.show', $user) }}" class="text-dark text-decoration-none">
-                                        {{ $user->first_name }} {{ $user->last_name }}
-                                    </a>
+                                    <div class="mx-2">
+                                        <a href="{{ route('users.show', $user) }}"
+                                            class="text-dark text-decoration-none fw-bold">
+                                            {{ $user->first_name }} {{ $user->last_name }}
+                                            <br>
+                                        </a>
+                                        {{ $user->orientation }} {{ $user->gender }}
+                                    </div>
                                 </div>
-                                {{ $user->orientation }} {{ $user->gender }}
                             </div>
                             <span class="badge bg-secondary rounded-pill">{{ $user->subscription }}</span>
                         </li>

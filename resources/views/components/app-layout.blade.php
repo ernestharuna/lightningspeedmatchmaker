@@ -93,14 +93,31 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                                    @auth('web')
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+                                    @endauth
+                                    @auth('admin')
+                                        <a class="dropdown-item" href=""
+                                            onclick="event.preventDefault(); document.getElementById('admin-logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+                                    @endauth
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
+
+                                    @auth('web')
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+                                    @endauth
+                                    @auth('admin')
+                                        <form id="admin-logout-form" action="{{ route('admin.logout') }}" method="POST"
+                                            class="d-none">
+                                            @csrf
+                                        </form>
+                                    @endauth
                                 </div>
                             </li>
                         @endguest

@@ -2,7 +2,9 @@
     <div class="d-flex align-items-center justify-content-center mt-3">
         <div class="bg-white border rounded-3 shadow col-sm-4 col-lg-6 mx-3 p-4">
             <div class="text-center my-4">
-                <h2>Admin Login</h2>
+                <h2>
+                    <a href="/register/admin" class="text-decoration-none text-dark">Admin Login</a>
+                </h2>
             </div>
             <form method="POST" action="/login/admin" class="row g-3">
                 @csrf
@@ -28,16 +30,6 @@
                 <div class="col-12 mt-4">
                     <button type="submit" class="btn btn-primary shadow fw-bold">Log in</button>
                 </div>
-
-                @if (count($admins) == 0 )
-                    <div>
-                        <p>
-                            <a href="/register/admin" class="text-decoration-none text-dark">Create Admin</a>
-                        </p>
-                    </div>
-                @else
-                    
-                @endif
             </form>
         </div>
     </div>

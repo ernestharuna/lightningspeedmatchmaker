@@ -14,8 +14,8 @@
                                 </div>
                                 {{ $ref->ref_gender }} | {{ $ref->ref_no }} {{ $ref->ref_email ? '| '.$ref->ref_email : '' }}
                             </div>
-                            <span class="badge bg-success mx-2 rounded-pill">
-                                <span class="badge bg-secondary rounded-pill">referred by:</span>
+                            <span class="badge bg-gradient bg-primary mx-2 rounded-pill">
+                                <span class="badge bg-white text-dark rounded-pill">referred by:</span>
                                 {{ $ref->user->first_name }}
                             </span>
                             <a href=""

@@ -6,7 +6,10 @@
 # start part 2 forms - done
 
 
-# make profile button disabled if they havent filled forms
+# make profile button disabled if they havent filled forms - done
 # make accounts deletable - done
 # Start admin panel and guard - done
-# Add email verifications with OTP
+# Add email verifications with OTP -done
+
+# Start matching algorithm
+# Fix admin logout

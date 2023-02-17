@@ -42,13 +42,13 @@
 
                  {{-- email --}}
                  <div class="col-md-6">
-                    <label for="ref_email" class="form-label fw-bold">
-                        E-mail
+                    <label for="referral_email" class="form-label fw-bold">
+                        E-mail <span class="fw-normal">(optional)</span>
                     </label>
-                    <input type="email" class="form-control" id="ref_email" name="ref_email"
-                        value="{{ old('ref_email') }}" placeholder="johndoe@xyz.com">
+                    <input type="email" class="form-control" id="referral_email" name="referral_email"
+                        value="{{ old('referral_email') }}" placeholder="johndoe@xyz.com">
 
-                    @error('ref_email')
+                    @error('referral_email')
                         <p class="text-danger fs-6 mt-1">
                             {{ $message }}
                         </p>
@@ -76,6 +76,8 @@
                     <br>
                     - Make sure to notify your friends before submitting their details to us as we will reach out to
                     them.
+                    <br>
+                    - If your friend has been referred with the same email, your form will be rejected. 
                 </small>
 
                 <div class="mt-3 d-flex align-item-center justify-content-between">

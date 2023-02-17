@@ -95,4 +95,15 @@ class LoginController extends Controller
 
         return redirect(route('login'))->with('status', 'You have been logged out');
     }
+
+    public function admin_logout(Request $request)
+    {
+        Auth::guard('admin')->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerate();
+
+        return redirect(view('admin.auth.login'))->with('status', "You\'re now logged out");
+    }
 }
