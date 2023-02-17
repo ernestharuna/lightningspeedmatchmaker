@@ -2,10 +2,11 @@
     <x-admin-panel>
         <div class="container">
 
-            <form action="/admin/dashboard/users/" class="w-50">
+            <form action="/admin/dashboard/users/" class="w-50 shadow">
                 <div class="input-group mb-3">
                     <button class="input-group-text bg-white fw-bold" type="submit">Search</button>
-                    <input type="text" class="form-control" name="search" placeholder="Search by names, gender or country">
+                    <input type="text" class="form-control" name="search"
+                        placeholder="Search by names, gender or country">
                 </div>
             </form>
 
@@ -15,7 +16,9 @@
                         <div class="ms-2 me-auto">
                             <div class="d-flex ">
                                 <img src="{{ $user->profile_pic ? asset('storage/' . $user->profile_pic) : asset('assets/img/logo.png') }}"
-                                    class="img-fluid rounded border" alt="..." style="width: 50px; height: 50px;">
+                                    class="img-fluid rounded border" alt="..."
+                                    style="width: 50px; height: 50px; aspect-ratio: 3/2;">
+                                    {{--  object-fit: contain; --}}
                                 <div class="mx-2">
                                     <a href="{{ route('users.show', $user) }}"
                                         class="text-dark text-decoration-none fw-bold">
