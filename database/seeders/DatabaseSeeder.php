@@ -3,10 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\Admin;
-use App\Models\Seeks;
+use App\Models\Referrals;
 use App\Models\Subscriptions;
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,15 +16,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(40)->create();
-        
-        // Admin::create([
-        //     'first_name' => 'Ernest',
-        //     'last_name' => 'Haruna',
-        //     'email' => 'udwaghie@gmail.com',
-        //     'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-        // ]);
-
+        \App\Models\User::factory(40)->create();
+        Referrals::factory(10)->create();
+        Admin::factory(1)->create();
         // Subscriptions::create([
         //     'subscription_type' => 'Free Plan',
         //     'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque excepturi ullam, quasi unde nihil
@@ -59,11 +52,5 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'ernestharuna1@gmail.com',
         //     'password' => 'ernestharuna1@gmail.com',
         // ]);
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-        // Seeks::factory(3)->create();
     }
 }

@@ -63,7 +63,7 @@
                             {{ Auth::user()->hair_color ? Auth::user()->hair_color . __(' • ') : __('Choose a option') }}
                         </option>
                         <option value="Black">Black</option>
-                        <option value="Brunet">Brunet</option>
+                        <option value="Brunette">Brunette</option>
                         <option value="Blonde">Blonde</option>
                         <option value="Red">Red</option>
                     </select>
