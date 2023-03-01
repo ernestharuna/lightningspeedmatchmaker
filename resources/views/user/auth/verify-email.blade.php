@@ -5,19 +5,20 @@
                 <div class="card text-center">
                     <div class="card-header">
                         <p class="m-0 fs-5 text-danger">
-                            {{ __('Verify your Email!') }}
+                            {{ __('Verify Your Email!') }}
                         </p>
                     </div>
 
                     <div class="card-body">
                         <p class="my-1">
-                            {{ __('Please check your Email and click the link to verify your email') }}
+                            {{ __('Please check your e-mail and click the link to verify your email.') }}
                         </p>
-                        <p>Thank you!</p>
-                        <a href="#"
-                            onclick="event.preventDefault(); document.getElementById('resend').submit();">
-                            <button class="btn btn-danger py-1 mb-2">
-                                Resend Mail
+                        <p>
+                            {{ __('Make sure to check your spam box, or click the button below to resend another verfication email.') }}
+                        </p>
+                        <a href="#" onclick="event.preventDefault(); document.getElementById('resend').submit();">
+                            <button class="btn btn-danger mb-2">
+                                Resend Verification Mail
                             </button>
                         </a>
 

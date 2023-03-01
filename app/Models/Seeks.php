@@ -30,6 +30,7 @@ class Seeks extends Model
         'date_drug',
         'date_drink', 
         'date_smoker',
+        'country'
     ];
 
     public function user()

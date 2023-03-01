@@ -65,11 +65,10 @@ class RegisteredUserController extends Controller
 
         try {
             $user = User::create($validate);
-            event(new Registered($user));
+            // event(new Registered($user));
             Auth::login($user);
 
             return redirect()->intended('/')->with('status', 'Account created!');
-            
         } catch (\Exception $e) {
             $user->delete();
             return redirect()->back()->with('error', 'An error occured');

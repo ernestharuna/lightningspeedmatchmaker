@@ -3,7 +3,7 @@
         <div class="bg-white border rounded-3 shadow col-sm-4 col-lg-6 mx-3 p-4">
             <div class="text-center my-4">
                 <h2>
-                    <a href="/register/admin" class="text-decoration-none text-dark">Admin Login</a>
+                    <a href="/register/admin" class="text-decoration-none text-dark fw-bold">Admin Login</a>
                 </h2>
             </div>
             <form method="POST" action="/login/admin" class="row g-3">
@@ -19,7 +19,7 @@
                 </div>
                 <div class="col-12">
                     <label for="password" class="form-label fw-bold">Password</label>
-                    <input type="password" class="form-control fw-bold" name="password" placeholder="Password">
+                    <input type="password" class="form-control" name="password" placeholder="Password">
                     @error('password')
                         <p class="text-danger fs-6 mt-1">
                             {{ $message }}

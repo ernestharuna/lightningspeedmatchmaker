@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(40)->create();
+        \App\Models\User::factory(200)->create();
         Referrals::factory(10)->create();
         Admin::factory(1)->create();
         // Subscriptions::create([
@@ -45,12 +45,5 @@ class DatabaseSeeder extends Seeder
         //     'price' => '150',
         // ]);
 
-        
-        // Admin::factory()->create([
-        //     'first_name' => 'Ernest',
-        //     'last_name' => 'Haruna',
-        //     'email' => 'ernestharuna1@gmail.com',
-        //     'password' => 'ernestharuna1@gmail.com',
-        // ]);
     }
 }

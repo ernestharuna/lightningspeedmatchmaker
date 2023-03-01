@@ -70,7 +70,7 @@
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
-                                <li class="nav-item border rounded py-0 px-2 m-2">
+                                <li class="nav-item px-2 m-2">
                                     <a class="nav-link" href="{{ route('login') }}">
                                         {{ __('Login') }}
                                     </a>
@@ -78,7 +78,7 @@
                             @endif
 
                             @if (Route::has('register'))
-                                <li class="nav-item border rounded py-0 px-2 m-2">
+                                <li class="nav-item px-2 m-2">
                                     <a class="nav-link" href="{{ route('register') }}">
                                         {{ __('Register') }}
                                     </a>

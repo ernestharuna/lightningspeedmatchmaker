@@ -17,7 +17,7 @@ class ReferralsFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => $this->faker->numberBetween(1, 40),
+            'user_id' => $this->faker->numberBetween(1, 200),
             'ref_name' => $this->faker->name(),
             'ref_gender' => $this->faker->randomElement(['Male', 'Female']),
             'ref_email' => $this->faker->email(),

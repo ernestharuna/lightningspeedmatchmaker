@@ -113,7 +113,6 @@
                         <option value="Buddhist">Buddhist</option>
                         <option value="Agnostic">Agnostic</option>
                         <option value="Atheist">Atheist</option>
-                        <option value="Other">Other</option>
                     </select>
                 </div>
 

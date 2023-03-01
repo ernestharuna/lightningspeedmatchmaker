@@ -37,7 +37,6 @@
                         </option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
-                        <option value="Other">Other</option>
                     </select>
                 </div>
 
@@ -80,8 +79,8 @@
                         <option value="{{ Auth::user()->children }}" selected disabled>
                             {{ Auth::user()->children ? Auth::user()->children . __(' • ') : __('Choose a option') }}
                         </option>
-                        <option value="Yes, they live with me">Yes, they live with me</option>
-                        <option value="Yes, but they live elsewhere">Yes, but they live elsewhere</option>
+                        <option value="Yes">Yes, they live with me</option>
+                        <option value="Yes, independent">Yes, but they live elsewhere</option>
                         <option value="No">No</option>
                     </select>
                 </div>

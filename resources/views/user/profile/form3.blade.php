@@ -39,11 +39,10 @@
                         <option value="{{ Auth::user()->activity_level }}" selected disabled>
                             {{ Auth::user()->activity_level ? Auth::user()->activity_level . __(' • ') : __('Choose a option') }}
                         </option>
-                        <option value="I go to the Gym once a year">I go to the Gym once a year</option>
-                        <option value="I am a weekend warrior">I am a weekend warrior</option>
-                        <option value="I go 3-5 days a week">I go 3-5 days a week</option>
-                        <option value="I go daily">I go daily</option>
-                        <option value="I don't workout">I don't workout</option>
+                        <option value="Once a year">I go to the Gym once a year</option>
+                        <option value="A couple times a week">I go 3-5 days a week</option>
+                        <option value="Daily fitness">I go daily</option>
+                        <option value="Couch potato">I don't workout</option>
                     </select>
                 </div>
 
@@ -72,7 +71,7 @@
                         <option value="{{ Auth::user()->education }}" selected disabled>
                             {{ Auth::user()->education ? Auth::user()->education . __(' • ') : __('Choose a option') }}
                         </option>
-                        <option value="Never finished High School">Never finished High School</option>
+                        <option value="Some college">Some college</option>
                         <option value="Bachelors">Bachelors</option>
                         <option value="Masters">Masters</option>
                         <option value="Post-graduate">Post-graduate</option>

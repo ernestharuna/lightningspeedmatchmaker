@@ -91,6 +91,29 @@
                                 Now you've filled out the necessary quesetions, we will make you the best match possible
                                 with the details you've provided.
                             </p>
+
+                            @if ($user->subscription !== 'Free')
+                                <p class="fw-bold text-success">
+                                    Find your Match!
+                                </p>
+                                <button class="btn btn-success"
+                                    onclick="event.preventDefault(); 
+                                    document.getElementById('match').submit();">
+                                    Match
+                                </button>
+                                <form id="match" action="{{ route('match', Auth::id()) }}" method="POST"
+                                    class="d-none">
+                                    @csrf
+                                </form>
+                            @else
+                                <p class="text-secondary">
+                                    You are on the free plan and this means you're unable to make matches for yourself.
+                                    <br>
+                                    <span class="text-danger">
+                                        Change your subscription to be able to make Matches
+                                    </span>
+                                </p>
+                            @endif
                         </div>
                     </div>
                 @endisset

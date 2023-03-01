@@ -1,10 +1,10 @@
 <?php
 
+use App\Http\Controllers\MatchesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReferralsController;
 use App\Http\Controllers\SeeksController;
 use App\Http\Controllers\SubscriptionsController;
-use Database\Factories\SubscriptionsFactory;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,4 +47,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/matches', function () {
         return view('user.coming-soon');
     })->name('matches');
+
+    Route::post('/match/{user}', [MatchesController::class, 'match'])->name('match');
+    Route::get('/match', [MatchesController::class, 'index'])->name('match.index');
+    Route::post('/match', [MatchesController::class, 'stoore'])->name('match.store');
 });

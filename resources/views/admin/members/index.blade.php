@@ -9,8 +9,10 @@
                         placeholder="Search by name, gender or country">
                 </div>
             </form>
-
-            <ol class="list-group list-group-numbered">
+            <span class="border border-4 fw-bold p-1 rounded">
+                {{ $title }} - {{ count($allUsers) }}
+            </span>
+            <ol class="list-group list-group-numbered mt-3">
                 @unless(count($users) == 0)
                     @foreach ($users as $user)
                         <li class="list-group-item d-flex justify-content-between align-items-start">
@@ -47,7 +49,7 @@
                         </li>
                     @endforeach
                 @else
-                    <p class="bg-secondary p-2">No users to show</p>
+                    <p class="bg-secondary p-2 text-white">No users to show</p>
                 @endunless
             </ol>
             <div class="my-1 p-2">
