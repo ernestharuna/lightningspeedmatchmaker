@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Exception;
+use App\Models\Matches;
 use App\Models\Referrals;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -13,6 +14,7 @@ class ReferralsController extends Controller
     {
         return view('admin.referrals.index', [
             'refs' => Referrals::with('user')->latest()->paginate(10),
+            'matches' => Matches::with(['user', 'matched_user'])->latest()->get()
         ]);
     }
 
@@ -38,7 +40,6 @@ class ReferralsController extends Controller
                 'ref_no' => $credentials['ref_no']
             ]);
             return back()->with('status', 'Referral has been submitted');
-
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage());
         }

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Matches;
 use App\Models\User;
-use App\Models\Seeks;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,7 +13,7 @@ class MatchesController extends Controller
     public function index()
     {
         return view('user.match.index', [
-            'matches' => Matches::latest()->take(5)->get()
+            'matches' => Matches::with(['user', 'matched_user'])->latest()->take(5)->get()
         ]);
     }
 
@@ -27,7 +26,7 @@ class MatchesController extends Controller
             ]);
 
             $request->user()->matches()->create($credentials);
-            return redirect(route('matches'))->with('status', 'Match Made!');
+            return redirect(route('match.index'))->with('status', 'Match Made!');
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage());
         }

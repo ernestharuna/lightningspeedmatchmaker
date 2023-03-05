@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Matches;
 use Illuminate\Http\Request;
 use App\Models\Subscriptions;
 
@@ -13,9 +14,10 @@ class SubscriptionsController extends Controller
         return view('admin.subscriptions.index', [
             'users' => User::latest()->get(),
             'subs' => Subscriptions::all(),
+            'matches' => Matches::with(['user', 'matched_user'])->latest()->get()
         ]);
     }
-    
+
     public function index()
     {
         return view('user.subscriptions.index', [

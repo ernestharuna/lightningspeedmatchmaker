@@ -6,12 +6,12 @@
             @foreach ($matches as $match)
                 <div class="bg-white p-3 rounded border mb-2 d-flex align-items-center justify-content-between">
                     <div>
-                        <h3> {{ $match->first_name }}</h3>
+                        <h3> {{ $match->matched_user->first_name }}</h3>
                         <p class="m-0">{{ $match->match_info }}</p>
                     </div>
                     <div>
-                        <button class="btn btn-outline-success">
-                            Take
+                        <button class="btn btn-outline-danger">
+                            Delete
                         </button>
                     </div>
                 </div>

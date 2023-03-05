@@ -10,7 +10,7 @@
                     </div>
                     <div>
                         <button class="btn btn-outline-success"
-                            onclick="event.preventDefault(); document.getElementById('update-sub-{{ $match->id }}').submit();">
+                            onclick="event.preventDefault(); document.getElementById('match-user-{{ $match->id }}').submit();">
                             Take
                         </button>
                     </div>

@@ -16,6 +16,11 @@ class Matches extends Model
 
     public function user()
     {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class);
+    }
+
+    public function matched_user()
+    {
+        return $this->belongsTo(User::class, 'matchedUser_id');
     }
 }
