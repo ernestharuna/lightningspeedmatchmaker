@@ -44,11 +44,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/referrals/save', [ReferralsController::class, 'store'])->name('submit.ref');
 
     // matches
-    Route::get('/matches', function () {
-        return view('user.coming-soon');
-    })->name('matches');
-
-    Route::post('/match/{user}', [MatchesController::class, 'match'])->name('match');
     Route::get('/match', [MatchesController::class, 'index'])->name('match.index');
-    Route::post('/match', [MatchesController::class, 'stoore'])->name('match.store');
+    Route::post('/match', [MatchesController::class, 'store'])->name('match.store');
+    Route::post('/match/{user}', [MatchesController::class, 'match'])->name('match');
 });

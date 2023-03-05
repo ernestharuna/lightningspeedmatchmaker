@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Matches;
 use App\Models\User;
 use App\Models\Seeks;
 use Illuminate\Http\Request;
@@ -12,17 +13,20 @@ class MatchesController extends Controller
 
     public function index()
     {
+        return view('user.match.index', [
+            'matches' => Matches::latest()->take(5)->get()
+        ]);
     }
 
     public function store(Request $request)
     {
         try {
             $credentials = $request->validate([
-                'match' => 'required',
+                'matchedUser_id' => 'required',
+                'match_info' => 'required'
             ]);
 
             $request->user()->matches()->create($credentials);
-
             return redirect(route('matches'))->with('status', 'Match Made!');
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage());
@@ -332,67 +336,67 @@ class MatchesController extends Controller
 
         // Checker
         if ($userQuery_1->exists()) {
-            return view('user.match.index', [
+            return view('user.match.matches', [
                 'matches' => $userQuery_1->inRandomOrder()->get(),
                 'accuracy' => '100%'
             ]);
         } elseif ($userQuery_2->exists()) {
-            return view('user.match.index', [
+            return view('user.match.matches', [
                 'matches' => $userQuery_2->inRandomOrder()->get(),
                 'accuracy' => '90%'
             ]);
         } elseif ($userQuery_3->exists()) {
-            return view('user.match.index', [
+            return view('user.match.matches', [
                 'matches' => $userQuery_3->inRandomOrder()->get(),
                 'accuracy' => '80%'
             ]);
         } elseif ($userQuery_4->exists()) {
-            return view('user.match.index', [
+            return view('user.match.matches', [
                 'matches' => $userQuery_4->inRandomOrder()->get(),
                 'accuracy' => '70%'
             ]);
         } elseif ($userQuery_5->exists()) {
-            return view('user.match.index', [
+            return view('user.match.matches', [
                 'matches' => $userQuery_5->inRandomOrder()->get(),
                 'accuracy' => '60%'
             ]);
         } elseif ($userQuery_6->exists()) {
-            return view('user.match.index', [
+            return view('user.match.matches', [
                 'matches' => $userQuery_6->inRandomOrder()->get(),
                 'accuracy' => '44%'
             ]);
         } elseif ($userQuery_7->exists()) {
-            return view('user.match.index', [
+            return view('user.match.matches', [
                 'matches' => $userQuery_7->inRandomOrder()->get(),
                 'accuracy' => '33%'
             ]);
         } elseif ($userQuery_8->exists()) {
-            return view('user.match.index', [
+            return view('user.match.matches', [
                 'matches' => $userQuery_8->inRandomOrder()->get(),
                 'accuracy' => '28%'
             ]);
         } elseif ($userQuery_9->exists()) {
-            return view('user.match.index', [
+            return view('user.match.matches', [
                 'matches' => $userQuery_9->inRandomOrder()->get(),
                 'accuracy' => '22%'
             ]);
         } elseif ($userQuery_10->exists()) {
-            return view('user.match.index', [
+            return view('user.match.matches', [
                 'matches' => $userQuery_10->inRandomOrder()->get(),
                 'accuracy' => '17%'
             ]);
         } elseif ($userQuery_11->exists()) {
-            return view('user.match.index', [
+            return view('user.match.matches', [
                 'matches' => $userQuery_11->inRandomOrder()->get(),
                 'accuracy' => '11%'
             ]);
         } elseif ($userQuery_12->exists()) {
-            return view('user.match.index', [
+            return view('user.match.matches', [
                 'matches' => $userQuery_12->inRandomOrder()->get(),
                 'accuracy' => '13%'
             ]);
         } else {
-            return view('user.match.index', [
+            return view('user.match.matches', [
                 'matches' => [],
                 'accuracy' => '0%'
             ]);

@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('matches', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('matchedUser_id')->constrained()->cascadeOnDelete();
-            $table->string('matched_userId');
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('matchedUser_id')->constrained('users');
+            $table->string('match_info');
             $table->timestamps();
         });
     }

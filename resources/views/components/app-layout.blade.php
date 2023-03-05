@@ -48,7 +48,7 @@
                             <x-nav-link :href="route('subs')" :active="request()->routeIs('subs')">
                                 {{ __('Subscriptions') }}
                             </x-nav-link>
-                            <x-nav-link :href="route('matches')" :active="request()->routeIs('matches')">
+                            <x-nav-link :href="route('match.index')" :active="request()->routeIs('match.index')">
                                 {{ __('Matches') }}
                             </x-nav-link>
                             <x-nav-link :href="route('referrals')" :active="request()->routeIs('referrals')">
@@ -130,6 +130,10 @@
             {{ $slot }}
             <x-flash-message></x-flash-message>
             <x-danger-message></x-danger-message>
+
+            <div id="loading-overlay">
+                <div id="loading-spinner"></div>
+            </div>
         </main>
     </div>
 </body>

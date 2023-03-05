@@ -9,6 +9,11 @@ class Matches extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'matchedUser_id',
+        'match_info'
+    ];
+
     public function user()
     {
         return $this->hasOne(User::class);

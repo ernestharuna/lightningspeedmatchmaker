@@ -59,13 +59,13 @@ class ProfileController extends Controller
             'smokes' => 'sometimes|nullable',
             'drinks' => 'sometimes|nullable',
             'drugs' => 'sometimes|nullable',
-            'profile_pic' => 'sometimes|nullable',
-            'dp_1' => 'sometimes|nullable',
-            'dp_2' => 'sometimes|nullable',
+            'profile_pic' => 'sometimes|image',
+            'dp_1' => 'sometimes|image',
+            'dp_2' => 'sometimes|image',
             'how_jelly' => 'sometimes|nullable',
             'country' => 'sometimes|nullable',
             'city' => 'sometimes|nullable',
-            
+
             'subscription' => 'sometimes|nullable',
             'updated_at' => now()
         ]);
@@ -79,7 +79,7 @@ class ProfileController extends Controller
         if ($request->hasFile('dp_2')) {
             $validate['dp_2'] = $request->file('dp_2')->store('user_pics', 'public');
         };
- 
+
         // dd($validate);
         $user->update($validate);
 
