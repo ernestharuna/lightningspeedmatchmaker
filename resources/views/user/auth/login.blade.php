@@ -34,6 +34,9 @@
                     <p>
                         Don't have an account? <a href="{{ route('register') }}">Create Account</a>
                     </p>
+                    <p>
+                        <a href="{{ route('password.request') }}"> Forgot Password ?</a>
+                    </p>
                 </div>
             </form>
         </div>

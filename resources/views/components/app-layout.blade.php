@@ -70,19 +70,15 @@
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
-                                <li class="nav-item px-2 m-2">
-                                    <a class="nav-link" href="{{ route('login') }}">
-                                        {{ __('Login') }}
-                                    </a>
-                                </li>
+                                <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
+                                    {{ __('Log In') }}
+                                </x-nav-link>
                             @endif
 
                             @if (Route::has('register'))
-                                <li class="nav-item px-2 m-2">
-                                    <a class="nav-link" href="{{ route('register') }}">
-                                        {{ __('Register') }}
-                                    </a>
-                                </li>
+                                <x-nav-link :href="route('register')" :active="request()->routeIs('register')">
+                                    {{ __('Register') }}
+                                </x-nav-link>
                             @endif
                         @else
                             <li class="nav-item dropdown">

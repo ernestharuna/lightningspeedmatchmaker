@@ -13,10 +13,15 @@
 # Allow admin search users - done
 # Start matching algorithm
 # Fix admin logout - done
-
 # remove weight -done
 
 # allow users view match requests from other users - done
+# allow users to accept or decline requests. - doing
+# declined requests should be delete from table - doing
+# accepted requests should show on admin dashboard - 
+
+# edit profile page design
+# edit preference page design
+
 # let requests show match percentage relative to user
-# allow users to accept or decline requests.
-# declined requests should be delete from table
+# forgot / reset passwords - done
