@@ -47,4 +47,5 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/match', [MatchesController::class, 'index'])->name('match.index');
     Route::post('/match/save', [MatchesController::class, 'store'])->name('match.store');
     Route::post('/match/{user}', [MatchesController::class, 'match'])->name('match');
+    Route::get('/match/{match}', [MatchesController::class, 'show'])->name('match.show');
 });

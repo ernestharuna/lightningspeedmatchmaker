@@ -14,4 +14,9 @@
 # Start matching algorithm
 # Fix admin logout - done
 
-# remove weight
+# remove weight -done
+
+# allow users view match requests from other users - done
+# let requests show match percentage relative to user
+# allow users to accept or decline requests.
+# declined requests should be delete from table

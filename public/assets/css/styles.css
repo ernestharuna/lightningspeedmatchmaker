@@ -25,6 +25,14 @@
     color: white;
     margin: 10px;
     background: linear-gradient(45deg, rgb(0, 110, 255), rgb(123, 200, 255));
+    transition: .5s ease;
+
+}
+
+.my-card:hover {
+    box-shadow: 0 0 10px -3px black;
+    transform: scale(1.03, 1.03);
+    transition: .2s ease;
 }
 
 /* PAGE LOADER */
