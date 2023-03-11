@@ -47,7 +47,55 @@
 
             <div>
                 <h4>{{ $match->user->first_name }}'s Bio</h4>
+                <div class="border border-secondary px-1 d-inline rounded bg-white">
+                    <i class="bi bi-stars"></i> {{ $match->user->zodiac_sign }}
+                </div>
+                <div class="border border-secondary px-1 mx-1 d-inline rounded bg-white">
+                    <i class="bi bi-briefcase"></i> {{ $match->user->profession }}
+                </div>
+                <div class="border border-secondary px-1 mx-1 d-inline rounded bg-white">
+                    <i class="bi bi-person-workspace"></i> {{ $match->user->education }}
+                </div>
+                <div class="border border-secondary px-1 mx-1 d-inline rounded bg-white">
+                    <i class="bi bi-person-heart"></i> {{ $match->user->relationship_status }}
+                </div>
+
                 <p>{{ $match->user->extra }}</p>
+
+                <div>
+                    <h3>
+                        Extra Information
+                    </h3>
+                    <div>
+                        <b>Gender:</b> {{ $match->user->gender }}, <b>Orientation:</b> {{ $match->user->orientation }}
+                    </div>
+                    <div>
+                        <b>Ethnicity:</b> {{ $match->user->ethnicity }}, <b>Religion:</b> {{ $match->user->religion }}
+                    </div>
+                    <div>
+                        <b>Looking for:</b> {{ $match->user->looking_for }}
+                    </div>
+                    <div>
+                        <b>Height:</b> {{ $match->user->height }},
+                        <b>Weight:</b> {{ $match->user->weight }}lbs,
+                        <b>Hair color:</b {{ $match->user->hair_color }}>
+                    </div>
+                    <div>
+                        <b>Language:</b> {{ $match->user->first_language }},
+                        <b>Second Langauge:</b> {{ $match->user->second_language }}
+                    </div>
+                    <div>
+                        <b>Pets:</b> {{ $match->user->pets }},
+                        <b>Smokes:</b> {{ $match->user->smokes }},
+                        <b>Drugs:</b> {{ $match->user->drugs }}
+                    </div>
+                    <div>
+                        <b>How often you workout:</b> {{ $match->user->activity_level }}
+                    </div>
+                    <div>
+                        <b>Jealous type:</b> {{ $match->user->how_jelly }}
+                    </div>
+                </div>
 
                 @if ($match->status == 'pending')
                     <button class="btn btn-success"
@@ -60,7 +108,8 @@
                     </button>
 
                     {{-- Accept --}}
-                    <form action="{{ route('match.update', $match->id) }}" method="POST" id="accept" class="d-none">
+                    <form action="{{ route('match.update', $match->id) }}" method="POST" id="accept"
+                        class="d-none">
                         @csrf
                         @method('PATCH')
                         <input type="text" name="status" value="accepted">

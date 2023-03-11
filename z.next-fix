@@ -17,10 +17,10 @@
 # accepted requests should show on admin dashboard - done
 # allow users to accept or decline requests. - done
 # declined requests should be delete from table - done
+# edit profile page design - done
 
 
 # let requests show match percentage relative to user -
 # make algorithm to sum up all the search results into one array and return - 
-# edit profile page design
 # edit preference page design
 # make profile button show when they've filled the first part
