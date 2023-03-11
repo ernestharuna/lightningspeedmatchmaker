@@ -65,18 +65,31 @@
                                         <div class="ms-2 me-auto">
                                             <div class="fw-bold">{{ $match->user->first_name }}'s match</div>
                                             <a href="{{ route('users.show', $match->user) }}"
-                                                class="rounded-pill bg-white text-dark border text-decoration-none px-1">
+                                                class="rounded-pill bg-white text-dark border border-2 text-decoration-none px-1">
                                                 {{ $match->user->first_name }}
                                                 {{ $match->user->last_name }}
                                             </a>
-                                            <i class="bi bi-arrow-left-right text-danger"></i>
-                                            <a href="{{ route('users.show', $match->user) }}"
-                                                class="rounded-pill bg-white text-dark border text-decoration-none px-1">
+                                            <i class="bi bi-arrow-left-right text-danger m-2"></i>
+                                            <a href="{{ route('users.show', $match->matched_user) }}"
+                                                class="rounded-pill bg-white text-dark border border-2 text-decoration-none px-1">
                                                 {{ $match->matched_user->first_name }}
                                                 {{ $match->matched_user->last_name }}
                                             </a>
                                         </div>
-                                        <span class="badge bg-info rounded-pill">{{ $match->match_info }}</span>
+                                        <span class="badge bg-info rounded-pill mx-2">{{ $match->match_info }}</span>
+
+                                        <span class="badge bg-danger rounded-pill">
+                                            <a class="m-0"
+                                                onclick="event.preventDefault(); document.getElementById('delete-{{ $match->id }}').submit();">
+                                                <i class="bi bi-x text-white"></i>
+                                            </a>
+
+                                            <form method="POST" action="{{ route('match.delete', $match) }}"
+                                                class="d-none" id="delete-{{ $match->id }}">
+                                                @csrf
+                                                @method('DELETE')
+                                            </form>
+                                        </span>
                                     </li>
                                 @endforeach
                             @else

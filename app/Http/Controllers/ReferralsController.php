@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Exception;
 use App\Models\Matches;
 use App\Models\Referrals;
 use Illuminate\Http\Request;

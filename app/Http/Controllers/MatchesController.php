@@ -305,4 +305,10 @@ class MatchesController extends Controller
             ]);
         }
     }
+
+    public function delete(Matches $match)
+    {
+        $match->delete();
+        return redirect(route('admin.dashboard'))->with('error', 'Match deleted');
+    }
 }

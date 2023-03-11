@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ReferralsController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\MatchesController;
 use App\Http\Controllers\SubscriptionsController;
 
 Route::middleware('auth:admin')->group(function () {
@@ -17,15 +18,18 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('/admin/dashboard/subscriptions/{sub}/edit', [SubscriptionsController::class, 'edit'])->name('sub.edit');
     Route::put('/admin/dashboard/subscriptions/{sub}', [SubscriptionsController::class, 'update'])->name('sub.update');
     Route::delete('/admin/dashboard/subscriptions/{sub}/delete', [SubscriptionsController::class, 'delete'])->name('sub.delete');
-    
+
     // Users
     Route::get('/admin/dashboard/users', [UserController::class, 'index'])->name('users.index');
     Route::get('/admin/dashboard/subscribedUsers', [UserController::class, 'sub_users'])->name('sub.users');
     Route::get('/admin/dashboard/users/{user}', [UserController::class, 'show'])->name('users.show');
-    
+
     // Referrals
     Route::get('admin/dashboard/referrals', [ReferralsController::class, 'index'])->name('user.refs');
     Route::delete('admin/dashboard/referrals/{ref}', [ReferralsController::class, 'delete'])->name('user.refs.delete');
+
+    // match 
+    Route::delete('/admin/dashboard/matches/{match}', [MatchesController::class, 'delete'])->name('match.delete');
 
     // Admin log out
     Route::post('/admin/logout', [LoginController::class, 'admin_logout'])->name('admin.logout');

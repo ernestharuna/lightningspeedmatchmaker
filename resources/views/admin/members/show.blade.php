@@ -7,10 +7,12 @@
                         <img src="{{ $user->profile_pic ? asset('storage/' . $user->profile_pic) : asset('assets/img/logo.png') }}"
                             class="img-fluid rounded border" alt="..." style="width: 250px;">
                     </div>
-                    <h3 class="text-dark text-decoration-none my-2 d-inline-block">
+                    <h3 class="text-dark text-decoration-none mt-2">
                         {{ $user->first_name }} {{ $user->last_name }}
                     </h3>
-                    <small class="bg-secondary rounded-pill px-2">{{ $user->subscription }}</small>
+                    <small class="bg-secondary rounded-pill px-2 border border-2 text-white">
+                        {{ $user->subscription }} member
+                    </small>
                     <p>
                         {{ $user->extra }}
                     </p>
