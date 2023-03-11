@@ -2,11 +2,16 @@
     <div class="d-flex align-items-center justify-content-center mt-3">
         <div
             class="bg-white border rounded-3 shadow col-sm-4 col-md-6 col-lg-6 mx-3 p-4 animate__animated animate__fadeIn">
-            <div class="text-left my-4">
+            <div class="text-left my-2">
                 <h3>{{ Auth::user()->first_name }}, we need these basic details about you</h3>
-                <p>
-                   Make sure the details you give are accurate and correct.
+                <p class="m-0">
+                    Make sure the details you give are accurate and correct.
                 </p>
+            </div>
+
+            <div class="progress mb-3" role="progressbar" aria-label="Example with label" aria-valuenow="25"
+                aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar" style="width: 25%">25%</div>
             </div>
             @php
                 Auth::user()->looking_for != '' ? ($isActive = false) : ($isActive = true);
@@ -15,7 +20,6 @@
                 class="row g-3">
                 @csrf
                 @method('PATCH')
-
                 {{-- Date of birth --}}
                 <div class="col-md-6">
                     <label for="date_of_birth" class="form-label fw-bold">
@@ -74,8 +78,10 @@
 
                 {{-- children --}}
                 <div class="col-md-6">
-                    <label for="children" class="form-label fw-bold">Do you have children? <b class="text-danger">*</b></label>
-                    <select class="form-select" aria-label="Default select example" id="children" name="children" required>
+                    <label for="children" class="form-label fw-bold">Do you have children? <b
+                            class="text-danger">*</b></label>
+                    <select class="form-select" aria-label="Default select example" id="children" name="children"
+                        required>
                         <option value="{{ Auth::user()->children }}" selected disabled>
                             {{ Auth::user()->children ? Auth::user()->children . __(' • ') : __('Choose a option') }}
                         </option>
@@ -87,8 +93,10 @@
 
                 {{-- looking for --}}
                 <div class="col-md-6">
-                    <label for="looking_for" class="form-label fw-bold">What are you looking for ? <b class="text-danger">*</b></label>
-                    <select class="form-select" aria-label="Default select example" id="looking_for" name="looking_for" required>
+                    <label for="looking_for" class="form-label fw-bold">What are you looking for ? <b
+                            class="text-danger">*</b></label>
+                    <select class="form-select" aria-label="Default select example" id="looking_for" name="looking_for"
+                        required>
                         <option value="{{ Auth::user()->looking_for }}" selected disabled>
                             {{ Auth::user()->looking_for ? Auth::user()->looking_for . __(' • ') : __('Choose a option') }}
                         </option>

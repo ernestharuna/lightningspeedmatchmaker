@@ -8,22 +8,26 @@
                             Hi there, {{ $user->first_name }} 🤙🏽
                         </p>
                         <span class="text-white">
-                            <a href="{{ route('subs') }}" class="text-white text-decoration-none">
-                                {{ __('- Change Subscription') }}
+                            <a href="{{ route('subs') }}"
+                                class="text-dark rounded px-2 text-decoration-none bg-white border">
+                                {{ __('Change Subscription') }}
+                            </a>
+                            <a href="{{ route('referrals') }}"
+                                class="text-dark rounded px-2 mx-2 text-decoration-none bg-white border">
+                                {{ __('Refer a friend') }}
                             </a>
                             <br>
+                            <hr>
                             @isset($user->seeks->gender)
-                                <a href="{{ route('seeks.index') }}" class="text-white text-decoration-none">
-                                    {{ __('- Preference') }}
+                                <a href="{{ route('seeks.index') }}"
+                                    class="text-dark rounded px-2 text-decoration-none bg-white border">
+                                    {{ __('View Preference') }}
                                 </a>
-                                |
-                                <a href="{{ route('profile.index') }}" class="text-white text-decoration-none">
-                                    {{ __('- Profile') }}
+                                <a href="{{ route('profile.index') }}"
+                                    class="text-dark rounded px-2 mx-2 text-decoration-none bg-white border">
+                                    {{ __('Go To Profile') }}
                                 </a>
                                 <br>
-                                <a href="{{ route('referrals') }}" class="text-white text-decoration-none">
-                                    {{ __('- Refer a friend') }}
-                                </a>
                             @endisset
                         </span>
                     </div>

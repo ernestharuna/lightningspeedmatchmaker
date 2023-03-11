@@ -2,9 +2,13 @@
     <div class="d-flex align-items-center justify-content-center mt-3">
         <div
             class="bg-white border rounded-3 shadow col-sm-4 col-md-6 col-lg-6 mx-3 p-4 animate__animated animate__fadeIn">
-            <div class="text-left my-4">
+            <div class="text-left my-2">
                 <h3>Almost there</h3>
-                <p>Don't worry, your information is safe with us 😃</p>
+                <p class="m-0">Don't worry, your information is safe with us 😃</p>
+            </div>
+            <div class="progress mb-3" role="progressbar" aria-label="Example with label" aria-valuenow="25"
+                aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar" style="width: 75%">75%</div>
             </div>
             @php
                 Auth::user()->extra != '' ? ($isActive = false) : ($isActive = true);
@@ -34,8 +38,8 @@
                 <div class="col-md-6">
                     <label for="activity_level" class="form-label fw-bold">Activity Level <b
                             class="text-danger">*</b></label>
-                    <select class="form-select" aria-label="Default select example" id="activity_level" name="activity_level"
-                        required>
+                    <select class="form-select" aria-label="Default select example" id="activity_level"
+                        name="activity_level" required>
                         <option value="{{ Auth::user()->activity_level }}" selected disabled>
                             {{ Auth::user()->activity_level ? Auth::user()->activity_level . __(' • ') : __('Choose a option') }}
                         </option>

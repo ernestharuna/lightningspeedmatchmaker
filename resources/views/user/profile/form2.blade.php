@@ -2,9 +2,13 @@
     <div class="d-flex align-items-center justify-content-center mt-3">
         <div
             class="bg-white border rounded-3 shadow col-sm-4 col-md-6 col-lg-6 mx-3 p-4 animate__animated animate__fadeIn">
-            <div class="text-left my-4">
+            <div class="text-left my-2">
                 <h3>Describe yourself</h3>
-                <p>Please fill all fields for accurately for proper <b>Match Making</b></p>
+                <p class="m-0">Please fill all fields for accurately for proper <b>Match Making</b></p>
+            </div>
+            <div class="progress mb-3" role="progressbar" aria-label="Example with label" aria-valuenow="25"
+                aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar" style="width: 50%">50%</div>
             </div>
             @php
                 Auth::user()->religion != '' ? ($isActive = false) : ($isActive = true);
