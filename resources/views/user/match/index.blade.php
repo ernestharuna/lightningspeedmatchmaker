@@ -14,9 +14,7 @@
                         <p class="m-0">{{ $match->match_info }}</p>
                     </div>
                     <div>
-                        <button class="btn btn-outline-danger">
-                            Delete
-                        </button>
+                        <p class="bg-dark rounded-pill text-white px-3">{{ $match->status }}</p>
                     </div>
                 </div>
             @endforeach
@@ -36,7 +34,7 @@
         <hr>
 
         <h3>Match Requests</h3>
-        <p>Accept or Decline these request</p>
+        <p>Accepted/Declined requests will be deleted within 90 days</p>
 
         @unless(count($requests) == 0)
             @foreach ($requests as $req)
@@ -47,14 +45,17 @@
                 <div class="bg-white p-3 rounded border mb-2 d-flex align-items-center justify-content-between">
                     <div>
                         <h3> {{ $req->user->first_name }} {{ $last_name }}.</h3>
-                        <p class="m-0">{{ $match->match_info }}</p>
+                        <p class="m-0">{{ $req->match_info }}</p>
                     </div>
                     <div>
                         <a href="{{ route('match.show', $req->id) }}">
-                            <button class="btn btn-outline-secondary">
+                            <button class="btn btn-outline-secondary py-0 px-2">
                                 View
                             </button>
                         </a>
+                        <button class="btn btn-light bg-gradient border py-0 px-2">
+                            {{ $req->status }}
+                        </button>
                     </div>
                 </div>
             @endforeach

@@ -16,9 +16,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(200)->create();
+        \App\Models\User::factory(500)->create();
         Referrals::factory(10)->create();
         Admin::factory(1)->create();
+
         // Subscriptions::create([
         //     'subscription_type' => 'Free Plan',
         //     'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque excepturi ullam, quasi unde nihil
@@ -44,6 +45,5 @@ class DatabaseSeeder extends Seeder
         //     nesciunt!',
         //     'price' => '150',
         // ]);
-
     }
 }

@@ -24,6 +24,7 @@ Route::middleware('guest')->group(function () {
     Route::get('/login/admin', [LoginController::class, 'adminLoginForm'])->name('admin.login');
     Route::post('/login/admin', [LoginController::class, 'adminLogin']);
 
+    // Forgot | Reset passwords
     Route::get('/forgot-password', function () {
         return view('user.auth.forgot-password');
     })->name('password.request');

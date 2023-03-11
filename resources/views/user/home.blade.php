@@ -99,7 +99,7 @@
                                 <button class="btn btn-success"
                                     onclick="event.preventDefault(); 
                                     document.getElementById('match').submit();">
-                                    Match
+                                    <i class="bi bi-search-heart fs-5"></i> Match
                                 </button>
                                 <form id="match" action="{{ route('match', Auth::id()) }}" method="POST"
                                     class="d-none">

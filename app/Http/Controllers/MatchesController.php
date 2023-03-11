@@ -15,7 +15,6 @@ class MatchesController extends Controller
         return view('user.match.index', [
             'matches' => Auth::user()->matches,
             'requests' => Matches::where('matchedUser_id', Auth::id())->with(['user', 'matched_user'])->get()
-            // 'matches' => Matches::with(['user', 'matched_user'])->latest()->take(5)->get(),
         ]);
     }
 
@@ -31,13 +30,26 @@ class MatchesController extends Controller
         try {
             $credentials = $request->validate([
                 'matchedUser_id' => 'required',
-                'match_info' => 'required'
+                'match_info' => 'required',
             ]);
 
             $request->user()->matches()->create($credentials);
             return redirect(route('match.index'))->with('status', 'Match Made!');
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function update(Request $request, Matches $match)
+    {
+        try {
+            $credentials = $request->validate([
+                'status' => "required",
+            ]);
+            $match->update($credentials);
+            return back();
+        } catch (\Throwable $th) {
+            return back()->with('error', $th->getMessage());
         }
     }
 

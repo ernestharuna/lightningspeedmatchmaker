@@ -64,8 +64,17 @@
                                     <li class="list-group-item d-flex justify-content-between align-items-start">
                                         <div class="ms-2 me-auto">
                                             <div class="fw-bold">{{ $match->user->first_name }}'s match</div>
-                                            {{ $match->user->first_name }} made a match with
-                                            {{ $match->matched_user->first_name }}
+                                            <a href="{{ route('users.show', $match->user) }}"
+                                                class="rounded-pill bg-white text-dark border text-decoration-none px-1">
+                                                {{ $match->user->first_name }}
+                                                {{ $match->user->last_name }}
+                                            </a>
+                                            <i class="bi bi-arrow-left-right text-danger"></i>
+                                            <a href="{{ route('users.show', $match->user) }}"
+                                                class="rounded-pill bg-white text-dark border text-decoration-none px-1">
+                                                {{ $match->matched_user->first_name }}
+                                                {{ $match->matched_user->last_name }}
+                                            </a>
                                         </div>
                                         <span class="badge bg-info rounded-pill">{{ $match->match_info }}</span>
                                     </li>

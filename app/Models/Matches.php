@@ -11,7 +11,8 @@ class Matches extends Model
 
     protected $fillable = [
         'matchedUser_id',
-        'match_info'
+        'match_info',
+        'status'
     ];
 
     public function user()

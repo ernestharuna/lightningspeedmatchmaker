@@ -13,7 +13,7 @@ class AdminController extends Controller
         return view('admin.dashboard', [
             'users' => User::latest()->get(),
             'subs' => Subscriptions::all(),
-            'matches' => Matches::with(['user', 'matched_user'])->latest()->get()
+            'matches' => Matches::where('status', 'accepted')->with(['user', 'matched_user'])->latest()->get(),
         ]);
     }
 }

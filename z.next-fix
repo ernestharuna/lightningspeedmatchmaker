@@ -4,8 +4,6 @@
 # design user details forms - done
 # update Seek Migrations tables - done
 # start part 2 forms - done
-
-
 # make profile button disabled if they havent filled forms - done
 # make accounts deletable - done
 # Start admin panel and guard - done
@@ -13,15 +11,16 @@
 # Allow admin search users - done
 # Start matching algorithm
 # Fix admin logout - done
-# remove weight -done
-
+# remove weight - done
+# forgot / reset passwords - done
 # allow users view match requests from other users - done
-# allow users to accept or decline requests. - doing
-# declined requests should be delete from table - doing
-# accepted requests should show on admin dashboard - 
+# accepted requests should show on admin dashboard - done
+# allow users to accept or decline requests. - done
 
+
+# declined requests should be delete from table - doing
+# let requests show match percentage relative to user -
+# make algorithm to sum up all the search results into one array and return - 
 # edit profile page design
 # edit preference page design
-
-# let requests show match percentage relative to user
-# forgot / reset passwords - done
+# make profile button show when they've filled the first part

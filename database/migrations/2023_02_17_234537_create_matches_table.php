@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('matchedUser_id')->constrained('users');
-            $table->string('status');
             $table->string('match_info');
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }

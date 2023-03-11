@@ -37,24 +37,54 @@
                     alt="display picture" id="dp" class="img-fluid" />
             </div>
 
-            <h3>{{ $match->user->first_name }} {{ $last_name }}.</h3>
-            <p>{{ $match->user->date_of_birth }}</p>
-            <p>{{ $match->user->city }}, {{ $match->user->country }}</p>
+            <div>
+                <h3>{{ $match->user->first_name }} {{ $last_name }}.</h3>
+                <p>{{ $match->user->date_of_birth }}</p>
+                <p>{{ $match->user->city }}, {{ $match->user->country }}</p>
+            </div>
 
             <hr>
 
-            <h4>{{ $match->user->first_name }}'s Bio</h4>
-            <p>{{ $match->user->extra }}</p>
+            <div>
+                <h4>{{ $match->user->first_name }}'s Bio</h4>
+                <p>{{ $match->user->extra }}</p>
 
-            <button class="btn btn-success">Accept</button>
-            <button class="btn btn-danger mx-3">Decline</button>
+                @if ($match->status == 'pending')
+                    <button class="btn btn-success"
+                        onclick="event.preventDefault(); document.getElementById('accept').submit();">
+                        Accept
+                    </button>
+                    <button class="btn btn-danger mx-3"
+                        onclick="event.preventDefault(); document.getElementById('decline').submit();">
+                        Decline
+                    </button>
 
-            <form action="#" method="POST" class="d-none">
-                @csrf
-                <input type="text" name="" id="">
-            </form>
+                    {{-- Accept --}}
+                    <form action="{{ route('match.update', $match->id) }}" method="POST" id="accept" class="d-none">
+                        @csrf
+                        @method('PATCH')
+                        <input type="text" name="status" value="accepted">
+                    </form>
+                    {{-- Decline --}}
+                    <form action="{{ route('match.update', $match->id) }}" method="POST" id="decline"
+                        class="d-none">
+                        @csrf
+                        @method('PATCH')
+                        <input type="text" name="status" value="declined">
+                    </form>
+                @elseif ($match->status == 'accepted')
+                    <span class="bg-success bg-gradient my-1 p-2 d-inline-block border text-white"
+                        title="Your match maker will contatct you soon for reservations">
+                        Request accepted
+                    </span>
+                @elseif ($match->status == 'declined')
+                    <span class="bg-danger bg-gradient my-1 p-2 d-inline-block border text-white">
+                        Request Rejected
+                    </span>
+                @endif
+            </div>
 
-            <div class="d-sm-flex justify-content-center mt-3">
+            <div class="d-sm-flex justify-content-between mt-3">
                 <div>
                     <img class="img-fluid img-thumbnail"
                         src="{{ $match->user->profile_pic ? asset('storage/' . $match->user->profile_pic) : asset('assets/img/logo.png') }}"
