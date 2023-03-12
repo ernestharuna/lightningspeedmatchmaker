@@ -35,13 +35,15 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'email', Rule::unique('admins', 'email')],
             'password' => 'required|confirmed|min:6'
         ]);
-
         $credentials['password'] = bcrypt($credentials['password']);
-        $admin = Admin::create($credentials);
 
-        Auth::login($admin);
-
-        return redirect(route('admin.dashboard'))->with('status', 'You\'re now logged in as Administrator');
+        try {
+            $admin = Admin::create($credentials);
+            Auth::login($admin);
+            return redirect(route('admin.dashboard'))->with('status', 'You\'re now logged in as Administrator');
+        } catch (\Exception $e) {
+            return back()->with('error', 'Something went wrong');
+        }
     }
 
     // show register form
@@ -65,13 +67,13 @@ class RegisteredUserController extends Controller
 
         try {
             $user = User::create($validate);
-            // event(new Registered($user));
+            event(new Registered($user));
             Auth::login($user);
 
             return redirect()->intended('/')->with('status', 'Account created!');
         } catch (\Exception $e) {
             $user->delete();
-            return redirect()->back()->with('error', 'An error occured');
+            return redirect()->back()->with('error', 'Sometheing went wrong');
         }
     }
 }
