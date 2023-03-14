@@ -16,7 +16,6 @@
                 class="row g-3">
                 @csrf
                 @method('PATCH')
-
                 {{-- pets --}}
                 <div class="col-md-3">
                     <label for="pets" class="form-label fw-bold">Do you have pets? <b

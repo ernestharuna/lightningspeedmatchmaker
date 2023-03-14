@@ -129,6 +129,9 @@
 
             <div id="loading-overlay">
                 <div id="loading-spinner"></div>
+                <p class="mt-4 fs-6 text-center">
+                    <i> The Concierge Match Maker for the <br> very busy professionals</i>
+                </p>
             </div>
         </main>
     </div>

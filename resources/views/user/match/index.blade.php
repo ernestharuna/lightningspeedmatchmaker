@@ -19,7 +19,7 @@
                 </div>
             @endforeach
         @else
-            <div class="p-5 bg-secondary text-white">
+            <div class="p-3 bg-secondary text-white">
                 <p>
                     No match made at the moment, go to your dashboard.
                 </p>

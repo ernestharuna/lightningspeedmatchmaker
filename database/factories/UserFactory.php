@@ -18,8 +18,8 @@ class UserFactory extends Factory
     {
         $gender = $this->faker->randomElement(['Male', 'Female']);
         $orient = $gender == 'Male' ? $this->faker->randomElement(['Heterosexual', 'Gay']) : $this->faker->randomElement(['Heterosexual', 'Lesbian']);
-        $country = $this->faker->randomElement(['United States', 'China', 'India']);
-        $ethnicity = $country == 'United States of America' ? 'American' : $this->faker->randomElement(['Asian']); 
+        $country = $this->faker->randomElement(['United States', 'Canada']);
+        $ethnicity = $country == 'United States of America' ? 'American' : $this->faker->randomElement(['Asian']);
 
         return [
             'first_name' => fake()->firstName(),
