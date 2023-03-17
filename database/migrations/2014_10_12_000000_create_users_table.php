@@ -22,7 +22,7 @@ return new class extends Migration
 
             // Questionaire Questions
             // form 1
-            $table->string('date_of_birth')->nullable(); // date of birth
+            $table->date('date_of_birth')->nullable(); // date of birth
             $table->string('gender')->nullable(); // gender
             $table->string('orientation')->nullable(); //sexual orientation
             $table->string('relationship_status')->nullable(); // what is your marital status
