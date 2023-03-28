@@ -9,15 +9,21 @@
         background-position: right bottom, right;
         background-blend-mode: normal;
         background-repeat: no-repeat, no-repeat;
-        background-size: cover, 700px 700px;
+        background-size: cover, cover;
     }
 
     .dp_box {
         width: 200px;
         height: 200px;
         border: 1px solid black;
-        background-blend-mode: color-burn;
-        background: #fff
+        background: #fff;
+        overflow: hidden;
+    }
+
+    #dp {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
     #up {
@@ -47,16 +53,16 @@
 
             <div>
                 <h4>{{ $match->user->first_name }}'s Bio</h4>
-                <div class="border border-secondary px-1 d-inline rounded bg-white">
+                <div class="border border-secondary px-1 m-1 d-inline-block rounded bg-white">
                     <i class="bi bi-stars"></i> {{ $match->user->zodiac_sign }}
                 </div>
-                <div class="border border-secondary px-1 mx-1 d-inline rounded bg-white">
+                <div class="border border-secondary px-1 m-1 d-inline-block rounded bg-white">
                     <i class="bi bi-briefcase"></i> {{ $match->user->profession }}
                 </div>
-                <div class="border border-secondary px-1 mx-1 d-inline rounded bg-white">
+                <div class="border border-secondary px-1 m-1 d-inline-block rounded bg-white">
                     <i class="bi bi-person-workspace"></i> {{ $match->user->education }}
                 </div>
-                <div class="border border-secondary px-1 mx-1 d-inline rounded bg-white">
+                <div class="border border-secondary px-1 m-1 d-inline-block rounded bg-white">
                     <i class="bi bi-person-heart"></i> {{ $match->user->relationship_status }}
                 </div>
 
