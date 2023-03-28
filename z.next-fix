@@ -1,25 +1,3 @@
-# Separate routes into different PHP folders - done
-# Refactor routes names on blade files - done
-# Add update profile feature - done
-# design user details forms - done
-# update Seek Migrations tables - done
-# start part 2 forms - done
-# make profile button disabled if they havent filled forms - done
-# make accounts deletable - done
-# Start admin panel and guard - done
-# Add email verifications with OTP -done
-# Allow admin search users - done
-# Start matching algorithm
-# Fix admin logout - done
-# remove weight - done
-# forgot / reset passwords - done
-# allow users view match requests from other users - done
-# accepted requests should show on admin dashboard - done
-# allow users to accept or decline requests. - done
-# declined requests should be delete from table - done
-# edit profile page design - done
-
-
 # let requests show match percentage relative to user -
 # make algorithm to sum up all the search results into one array and return - 
 # edit preference page design
