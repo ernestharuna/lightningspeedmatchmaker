@@ -64,18 +64,18 @@ class RegisteredUserController extends Controller
         ]);
 
         $validate['password'] = bcrypt($validate['password']);
-        $user = User::create($validate);
-        event(new Registered($user));
-        Auth::login($user);
-        // try {
-        //     $user = User::create($validate);
-        //     event(new Registered($user));
-        //     Auth::login($user);
+        // $user = User::create($validate);
+        // event(new Registered($user));
+        // Auth::login($user);
+        try {
+            $user = User::create($validate);
+            event(new Registered($user));
+            Auth::login($user);
 
-        //     return redirect()->intended('/')->with('status', 'Account created!');
-        // } catch (\Exception $e) {
-        //     $user->delete();
-        //     return redirect()->back()->with('error', $e->getMessage());
-        // }
+            return redirect()->intended('/')->with('status', 'Account created!');
+        } catch (\Exception $e) {
+            $user->delete();
+            return redirect()->back()->with('error', $e->getMessage());
+        }
     }
 }
