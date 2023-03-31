@@ -142,12 +142,12 @@
             <x-flash-message></x-flash-message>
             <x-danger-message></x-danger-message>
 
-            <div id="loading-overlay">
+            {{-- <div id="loading-overlay">
                 <div id="loading-spinner"></div>
                 <p class="mt-4 fs-6 text-center">
                     <i> The Concierge Match Maker for the <br> very busy professionals</i>
                 </p>
-            </div>
+            </div> --}}
         </main>
     </div>
 </body>

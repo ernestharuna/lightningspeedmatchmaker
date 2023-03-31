@@ -9,11 +9,11 @@ use Illuminate\Support\Facades\Auth;
 
 class MatchesController extends Controller
 {
-
     public function index()
     {
         return view('user.match.index', [
-            'matches' => Auth::user()->matches,
+            // 'matches' => Auth::user()->matches,
+            'matches' => Matches::where('user_id', Auth::id())->with(['user', 'matched_user'])->get(),
             'requests' => Matches::where('matchedUser_id', Auth::id())->with(['user', 'matched_user'])->get()
         ]);
     }
@@ -24,6 +24,20 @@ class MatchesController extends Controller
             'match' => $match
         ]);
     }
+
+    public function showUser(Matches $profile)
+    {
+        return view('user.match.template_show', [
+            'match' => $profile
+        ]);
+    }
+
+    // public function searchProfile(Matches $searchProfile)
+    // {
+    //     return view('user.match.search_show', [
+    //         'match' => $searchProfile
+    //     ]);
+    // }
 
     public function store(Request $request)
     {

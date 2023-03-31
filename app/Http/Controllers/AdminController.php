@@ -14,6 +14,7 @@ class AdminController extends Controller
             'users' => User::latest()->get(),
             'subs' => Subscriptions::all(),
             'matches' => Matches::where('status', 'accepted')->with(['user', 'matched_user'])->latest()->get(),
+            'pending' => Matches::where('status', 'pending')->with(['user', 'matched_user'])->latest()->get(),
         ]);
     }
 }

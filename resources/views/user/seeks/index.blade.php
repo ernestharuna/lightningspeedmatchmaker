@@ -51,9 +51,6 @@
                                 <li>
                                     Can you date a smoker? <b>{{ $seeks->date_smoker }} </b>
                                 </li>
-                                <li>
-                                    Their income treshold <b>{{ $seeks->income }} </b>
-                                </li>
                             </ol>
                         </div>
                         <hr>
@@ -63,14 +60,16 @@
                                     Edit Preference
                                 </button>
                             </a>
-                            <a href="#" onclick="event.preventDefault(); document.getElementById('delete-preference').submit();">
+                            <a href="#"
+                                onclick="event.preventDefault(); document.getElementById('delete-preference').submit();">
                                 <button class="btn btn-danger mx-3">
                                     Delete
                                 </button>
                             </a>
 
                             {{-- for delete --}}
-                            <form id="delete-preference" action="{{ route('seeks.destroy', $seeks) }}" method="POST" class="d-none">
+                            <form id="delete-preference" action="{{ route('seeks.destroy', $seeks) }}" method="POST"
+                                class="d-none">
                                 @csrf
                                 @method('DELETE')
                             </form>

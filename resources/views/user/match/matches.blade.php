@@ -1,12 +1,25 @@
 <x-app-layout>
     <div class="container">
-        <h2 class="mb-3 fw-bold">Matches</h2>
+        <h2 class="mb-3 fw-bold">Match Search</h2>
+        <p>
+            Tap <b>Take</b> to save the person of your choice, and then you can view their profile at the
+            <b>Matches</b> section while you wait for them to accept your Match Request.
+        </p>
         @unless(count($matches) == 0)
             @foreach ($matches as $match)
                 <div class="bg-white p-3 rounded border mb-2 d-flex align-items-center justify-content-between">
                     <div>
-                        <h3> {{ $match->first_name }}</h3>
-                        <p class="m-0">{{ $accuracy }} match with you</p>
+                        <h3>
+                            {{ $match->first_name }}
+                        </h3>
+                        <p class="m-0">{{ $accuracy }} match with you </p>
+                        <p>
+                            <span class="bg-primary rounded-pill text-white px-2">Born Year</span>
+                            {{ $match->date_of_birth }}
+                            <br>
+                            <span class="bg-primary rounded-pill text-white px-2">Looking For</span>
+                            {{ $match->looking_for }}
+                        </p>
                     </div>
                     <div>
                         <button class="btn btn-outline-success"

@@ -104,14 +104,16 @@
                 </div>
 
                 @if ($match->status == 'pending')
-                    <button class="btn btn-success"
-                        onclick="event.preventDefault(); document.getElementById('accept').submit();">
-                        Accept
-                    </button>
-                    <button class="btn btn-danger mx-3"
-                        onclick="event.preventDefault(); document.getElementById('decline').submit();">
-                        Decline
-                    </button>
+                    <div class="my-3">
+                        <button class="btn btn-success"
+                            onclick="event.preventDefault(); document.getElementById('accept').submit();">
+                            Accept
+                        </button>
+                        <button class="btn btn-danger mx-3"
+                            onclick="event.preventDefault(); document.getElementById('decline').submit();">
+                            Decline
+                        </button>
+                    </div>
 
                     {{-- Accept --}}
                     <form action="{{ route('match.update', $match->id) }}" method="POST" id="accept"

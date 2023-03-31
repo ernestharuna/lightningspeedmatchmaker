@@ -22,7 +22,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Redirection
     Route::redirect('/', '/dashboard');
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
-
     // Profile & forms
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile/{user}', [ProfileController::class, 'update'])->name('profile.update');
@@ -44,9 +43,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/referrals/save', [ReferralsController::class, 'store'])->name('submit.ref');
 
     // matches
-    Route::get('/match', [MatchesController::class, 'index'])->name('match.index');
     Route::post('/match/save', [MatchesController::class, 'store'])->name('match.store');
+    Route::get('/match/profile/{profile}', [MatchesController::class, 'showUser'])->name('match.profile');
+    Route::get('/match/{match}/show', [MatchesController::class, 'show'])->name('match.show');
     Route::patch('/match/{match}', [MatchesController::class, 'update'])->name('match.update');
     Route::post('/match/{user}', [MatchesController::class, 'match'])->name('match');
-    Route::get('/match/{match}', [MatchesController::class, 'show'])->name('match.show');
+    Route::get('/match', [MatchesController::class, 'index'])->name('match.index');
 });
+
+
+// Use this later shaa
+// Route::get('/{searchProfile}/match/searchProfile/', [MatchesController::class, 'searchProfile'])->name('d.searchProfile');

@@ -1,20 +1,29 @@
 <x-app-layout>
     <div class="container">
-        <h3>Matches</h3>
+        <h3>Saved Matches</h3>
         <p>All your accepted matches will be showed here.</p>
         @unless(count($matches) == 0)
             @foreach ($matches as $match)
+                {{-- Format the user's last name --}}
                 @php
                     $word = $match->matched_user->last_name;
                     $last_name = substr($word, 0, 1);
                 @endphp
+
                 <div class="bg-white p-3 rounded border mb-2 d-flex align-items-center justify-content-between">
                     <div>
-                        <h3> {{ $match->matched_user->first_name }} {{ $last_name }}.</h3>
-                        <p class="m-0">{{ $match->match_info }}</p>
+                        <h3>
+                            <a href="{{ route('match.profile', $match) }}" class="text-decoration-none text">
+                                {{ $match->matched_user->first_name }} {{ $last_name }}.
+                            </a>
+                        </h3>
+                        <span class="m-0">{{ $match->match_info }} match with you</span> |
+                        <a href="{{ route('match.profile', $match) }}">
+                            See more
+                        </a>
                     </div>
                     <div>
-                        <p class="bg-dark rounded-pill text-white px-3">{{ $match->status }}</p>
+                        <span class="bg-secondary bg-gradient text-white px-2 py-1 rounded">{{ $match->status }}</span>
                     </div>
                 </div>
             @endforeach
@@ -45,15 +54,16 @@
                 <div class="bg-white p-3 rounded border mb-2 d-flex align-items-center justify-content-between">
                     <div>
                         <h3> {{ $req->user->first_name }} {{ $last_name }}.</h3>
-                        <p class="m-0">{{ $req->match_info }}</p>
+                        <p class="m-0">{{ $req->user->first_name }} is a {{ $req->match_info }} match with you</p>
                     </div>
                     <div>
-                        <a href="{{ route('match.show', $req->id) }}">
+                        <a href="{{ route('match.show', $req) }}">
                             <button class="btn btn-outline-secondary py-0 px-2">
                                 View
                             </button>
                         </a>
-                        <button class="btn btn-light bg-gradient border py-0 px-2">
+                        <button class="btn btn-light bg-gradient border py-0 px-2" title="Status: {{ $req->status }}"
+                            disabled>
                             {{ $req->status }}
                         </button>
                     </div>
