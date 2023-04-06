@@ -117,7 +117,13 @@
                         Edit Profile
                     </button>
                 </a>
-                <a href="#" onclick="event.preventDefault(); document.getElementById('delete-profile').submit();">
+                {{-- <a href="#" onclick="event.preventDefault(); document.getElementById('delete-profile').submit();">
+                    <button class="btn btn-danger mx-2">
+                        Delete Profile
+                    </button>
+                </a> --}}
+                <a href="#"
+                    onclick="event.preventDefault(); alert('For issues concerning your account, contact Customer Service')">
                     <button class="btn btn-danger mx-2">
                         Delete Profile
                     </button>

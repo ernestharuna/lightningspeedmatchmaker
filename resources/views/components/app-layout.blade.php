@@ -24,7 +24,7 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <!--Start of Tawk.to Script-->
-    <script type="text/javascript">
+    {{-- <script type="text/javascript">
         var Tawk_API = Tawk_API || {},
             Tawk_LoadStart = new Date();
         (function() {
@@ -36,7 +36,7 @@
             s1.setAttribute('crossorigin', '*');
             s0.parentNode.insertBefore(s1, s0);
         })();
-    </script>
+    </script> --}}
     <!--End of Tawk.to Script-->
 </head>
 
@@ -142,14 +142,12 @@
             <x-flash-message></x-flash-message>
             <x-danger-message></x-danger-message>
 
-            <div id="loading-overlay">
-                <div id="loading-spinner"></div>
-                <p class="mt-4 fs-6 text-center">
-                    <i> The Concierge Match Maker for the <br> very busy professionals</i>
-                </p>
-            </div>
+            <div id="loader"></div>
         </main>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>

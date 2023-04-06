@@ -1,126 +1,124 @@
 <x-app-layout>
+    @php
+        // for buttons at the top.. etc
+        isset($user->seeks->gender) ? ($disabled = false) : ($disabled = true);
+        // for card buttons
+        $step_1;
+        if ($user->gender && $user->date_of_birth && $user->education && $user->employed && $user->country) {
+            $step_1 = false;
+        } else {
+            $step_1 = true;
+        }
+        // for matching button
+        $user->subscription !== 'Free' ? ($match = true) : ($match = false);
+    @endphp
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8 mb-4">
-                <div class="card">
-                    <div class="card-body bg-primary bg-gradient">
-                        <p class="m-0 fs-3 text-white fw-bold">
-                            Hi there, {{ $user->first_name }} 🤙🏽
-                        </p>
-                        <span class="text-white">
-                            <a href="{{ route('subs') }}"
-                                class="text-dark rounded px-2 text-decoration-none bg-white border">
-                                {{ __('Change Subscription') }}
-                            </a>
-                            <a href="{{ route('referrals') }}"
-                                class="text-dark rounded px-2 mx-2 text-decoration-none bg-white border">
-                                {{ __('Refer a friend') }}
-                            </a>
-                            <br>
-                            <hr>
-                            @isset($user->seeks->gender)
-                                <a href="{{ route('seeks.index') }}"
-                                    class="text-dark rounded px-2 text-decoration-none bg-white border">
-                                    {{ __('View Preference') }}
-                                </a>
-                                <a href="{{ route('profile.index') }}"
-                                    class="text-dark rounded px-2 mx-2 text-decoration-none bg-white border">
-                                    {{ __('Go To Profile') }}
-                                </a>
-                                <br>
-                            @endisset
-                        </span>
-                    </div>
+        <div>
+            <div class="mb-2">
+                <h1 class="fw-bold">
+                    <i class="bi bi-cloud-sun-fill"></i>
+                    Good Day, {{ Auth::user()->first_name }}
+                </h1>
+                <small>Account Status: Verified <i class="bi bi-check-circle-fill text-primary"></i></small>
+            </div>
+            <div>
+
+                <a href="{{ route('profile.index') }}" class="text-decoration-none">
+                    <button @class([
+                        'btn',
+                        'btn-outline-primary',
+                        'm-1',
+                        'bg-gradient',
+                        'disabled' => $disabled,
+                    ]) title="View your profile">
+                        <i class="bi bi-person-circle"></i> Profile
+                    </button>
+                </a>
+                <a href="{{ route('seeks.index') }}" class="text-dark text-decoration-none">
+                    <button @class([
+                        'btn',
+                        'btn-outline-primary',
+                        'm-1',
+                        'bg-gradient',
+                        'disabled' => $disabled,
+                    ]) title="Edit your Matching preference">
+                        <i class="bi bi-sliders"></i> Preference
+                    </button>
+                </a>
+                <button @class([
+                    'btn',
+                    'btn-outline-primary',
+                    'm-1',
+                    'bg-gradient',
+                    'disabled' => $disabled,
+                ]) title="View match request">
+                    <i class="bi bi-envelope-paper-heart-fill"></i> Requests
+                </button>
+            </div>
+        </div>
+        <hr>
+
+        {{-- STEP 1 --}}
+        <div class="d-sm-flex">
+            <div class="card mx-3 my-2">
+                <div class="card-body">
+                    <h5 class="card-title">Step 1: Complete Your Profile.</h5>
+                    <p class="card-text">
+                        We need you to complete your user profile so we can offer you much more accurate matches
+                    </p>
+                    <p class="fw-bold">
+                        This takes just a few minutes.
+                    </p>
+                    <a href="{{ route('profile.edit') }}">
+                        <button class="btn btn-primary shadow">
+                            {{ __('Complete Profile') }}
+                        </button>
+                    </a>
                 </div>
             </div>
 
-            {{-- show if user hasn't filled these fields --}}
-            <div class="col-md-8 mb-4">
-                @unless($user->gender && $user->date_of_birth && $user->education && $user->employed && $user->country)
-                    <div class="card shadow animate__animated animate__headShake">
-                        <div class="card-header text-danger">
-                            <p class="m-0 fs-5">
-                                {{ __('Complete Your Matching Questionaire') }}
-                            </p>
-                        </div>
-
-                        <div class="card-body">
-                            <p>
-                                To move forward with completing your profile, we would need you to answer all of the
-                                questions to the best of your abilities to increase the quality of your matches.
-                                <br>
-                                This takes just a few minutes.
-                            </p>
-                            <p>
-                                <b>Let's get started!</b>
-                            </p>
-                            <a href="{{ route('profile.edit') }}">
-                                <button class="btn btn-primary shadow">
-                                    {{ __('Edit Profile') }}
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                @else
-                    @unless(isset($user->seeks->gender))
-                        <div class="card animate__animated animate__headShake">
-                            <div class="card-header">{{ __('Describe your ideal person') }}</div>
-
-                            <div class="card-body">
-                                <p>
-                                    Now you've filled out the necessary quesetions, tell us about the kind of partner you're
-                                    loking for.
-                                </p>
-                                <p>
-                                    <b>Let's get started!</b>
-                                </p>
-                                <a href="{{ route('seeks.create') }}">
-                                    <button class="btn btn-dark shadow fw-bolder">
-                                        {{ __('Start') }}
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-                    @endunless
-                @endunless
+            {{-- STEP 2 --}}
+            <div class="card mx-3 my-2">
+                <div class="card-body">
+                    <h5 class="card-title">Step 2: Your Soul-Mate</h5>
+                    <p class="card-text">
+                        Now you've completed your profile, tell us about the kind of partner you're
+                        loking for.
+                    </p>
+                    <p>
+                        <b>Let's get started!</b>
+                    </p>
+                    <a href="{{ route('seeks.create') }}">
+                        <button @class(['btn', 'btn-primary', 'shadow', 'disabled' => $step_1])>
+                            {{ __('Preference Form') }}
+                        </button>
+                    </a>
+                </div>
             </div>
+        </div>
 
-            <div class="col-md-8">
-                @isset($user->seeks->gender)
-                    <div class="card shadow animate__animated animate__headShake">
-                        <div class="card-header fw-bold text-success">{{ __('You\'re all set!') }}</div>
-
-                        <div class="card-body">
-                            <p>
-                                Now you've filled out the necessary quesetions, we will make you the best match possible
-                                with the details you've provided.
-                            </p>
-
-                            @if ($user->subscription !== 'Free')
-                                <p class="fw-bold text-success">
-                                    Find your Match!
-                                </p>
-                                <button class="btn btn-success"
-                                    onclick="event.preventDefault(); 
-                                    document.getElementById('match').submit();">
-                                    <i class="bi bi-search-heart fs-5"></i> Match
-                                </button>
-                                <form id="match" action="{{ route('match', Auth::id()) }}" method="POST"
-                                    class="d-none">
-                                    @csrf
-                                </form>
-                            @else
-                                <p class="text-secondary">
-                                    You are on the free plan and this means you're unable to make matches for yourself.
-                                    <br>
-                                    <span class="text-danger">
-                                        Change your subscription to be able to make Matches
-                                    </span>
-                                </p>
-                            @endif
-                        </div>
-                    </div>
-                @endisset
+        {{-- STEP 3 --}}
+        <div>
+            <div class="card mx-3 my-2">
+                <div class="card-body">
+                    <h5 class="card-title">Step 3: Find Your Match</h5>
+                    <p class="card-text">
+                        We will now match you based on the details you have given us of yourself
+                    </p>
+                    @if (!$match)
+                        <p class="text-danger">
+                            <i class="bi bi-info-square-fill text-danger"></i> Only paying members can make matches
+                        </p>
+                    @endif
+                    <button @class(['btn', 'btn-success', 'disabled' => !$match])"
+                        onclick="event.preventDefault(); 
+                            document.getElementById('match').submit();">
+                        <i class="bi bi-search-heart fs-5"></i> Find Match
+                    </button>
+                    <form id="match" action="{{ route('match', Auth::id()) }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </div>
             </div>
         </div>
     </div>
