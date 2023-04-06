@@ -16,7 +16,7 @@
         <div>
             <div class="mb-2">
                 <h1 class="fw-bold">
-                    <i class="bi bi-cloud-sun-fill"></i>
+                    <i class="bi bi-cloud-sun-fill text-secondary"></i>
                     Good Day, {{ Auth::user()->first_name }}
                 </h1>
                 <small>Account Status: Verified <i class="bi bi-check-circle-fill text-primary"></i></small>
@@ -45,24 +45,33 @@
                         <i class="bi bi-sliders"></i> Preference
                     </button>
                 </a>
-                <button @class([
-                    'btn',
-                    'btn-outline-primary',
-                    'm-1',
-                    'bg-gradient',
-                    'disabled' => $disabled,
-                ]) title="View match request">
-                    <i class="bi bi-envelope-paper-heart-fill"></i> Requests
-                </button>
+                <a href="{{ route('match.index') }}">
+                    <button @class([
+                        'btn',
+                        'btn-outline-primary',
+                        'm-1',
+                        'bg-gradient',
+                        ' position-relative',
+                        'disabled' => $disabled,
+                    ]) title="View match request">
+                        <i class="bi bi-envelope-paper-heart-fill"></i> Requests
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            99+
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
+                    </button>
+                </a>
             </div>
         </div>
         <hr>
 
         {{-- STEP 1 --}}
         <div class="d-sm-flex">
-            <div class="card mx-3 my-2">
+            <div class="card mx-3 my-2 shadow">
                 <div class="card-body">
-                    <h5 class="card-title">Step 1: Complete Your Profile.</h5>
+                    <h5 class="card-title">
+                        <span class="fw-bold">Step 1:</span> Complete Your Profile.
+                    </h5>
                     <p class="card-text">
                         We need you to complete your user profile so we can offer you much more accurate matches
                     </p>
@@ -78,9 +87,11 @@
             </div>
 
             {{-- STEP 2 --}}
-            <div class="card mx-3 my-2">
+            <div class="card mx-3 my-2 shadow">
                 <div class="card-body">
-                    <h5 class="card-title">Step 2: Your Soul-Mate</h5>
+                    <h5 class="card-title">
+                        <span class="fw-bold">Step 2:</span> Your Soul-Mate
+                    </h5>
                     <p class="card-text">
                         Now you've completed your profile, tell us about the kind of partner you're
                         loking for.
@@ -89,8 +100,21 @@
                         <b>Let's get started!</b>
                     </p>
                     <a href="{{ route('seeks.create') }}">
-                        <button @class(['btn', 'btn-primary', 'shadow', 'disabled' => $step_1])>
+                        <button @class([
+                            'btn',
+                            'btn-primary',
+                            'shadow',
+                            'position-relative',
+                            'disabled' => $step_1,
+                        ])>
                             {{ __('Preference Form') }}
+                            @if (!$step_1)
+                                <span
+                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    done
+                                    <span class="visually-hidden">unread messages</span>
+                                </span>
+                            @endif
                         </button>
                     </a>
                 </div>
@@ -99,9 +123,11 @@
 
         {{-- STEP 3 --}}
         <div>
-            <div class="card mx-3 my-2">
+            <div class="card mx-3 my-2 shadow">
                 <div class="card-body">
-                    <h5 class="card-title">Step 3: Find Your Match</h5>
+                    <h5 class="card-title">
+                        <span class="fw-bold">Step 3:</span> Find Your Match
+                    </h5>
                     <p class="card-text">
                         We will now match you based on the details you have given us of yourself
                     </p>

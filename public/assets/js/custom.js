@@ -1,10 +1,9 @@
-// alert('Hi there');
 window.addEventListener('load', function () {
-    var overlay = document.getElementById('loading-overlay');
-    overlay.style.display = 'none';
+    var overlay = document.getElementById('loader');
+    this.setTimeout(() => overlay.style.display = 'none', 1800)
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-    var overlay = document.getElementById('loading-overlay');
+    var overlay = document.getElementById('loader');
     overlay.style.display = 'flex';
 });

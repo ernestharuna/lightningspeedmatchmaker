@@ -42,6 +42,7 @@
 
 <body>
     <div id="app">
+        <div id="loader"></div>
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -142,12 +143,8 @@
             <x-flash-message></x-flash-message>
             <x-danger-message></x-danger-message>
 
-            <div id="loader"></div>
         </main>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
-    </script>
 </body>
 
 </html>
