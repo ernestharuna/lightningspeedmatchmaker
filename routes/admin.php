@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ReferralsController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\MatchesController;
 use App\Http\Controllers\SubscriptionsController;
 
@@ -33,4 +34,8 @@ Route::middleware('auth:admin')->group(function () {
 
     // Admin log out
     Route::post('/admin/logout', [LoginController::class, 'admin_logout'])->name('admin.logout');
+
+    // Mailing
+    Route::get('/mail/create', [MailController::class, 'create'])->name('create.mail');
+    Route::post('/mail/send', [MailController::class, 'sendMail'])->name('send.mail');
 });

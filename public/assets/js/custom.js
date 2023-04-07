@@ -1,6 +1,6 @@
 window.addEventListener('load', function () {
     var overlay = document.getElementById('loader');
-    this.setTimeout(() => overlay.style.display = 'none', 1800)
+    this.setTimeout(() => overlay.style.display = 'none', 2000)
 });
 
 document.addEventListener('DOMContentLoaded', function () {

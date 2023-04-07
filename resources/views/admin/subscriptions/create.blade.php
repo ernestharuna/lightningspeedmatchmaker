@@ -1,10 +1,11 @@
 <x-app-layout>
     <x-admin-panel>
         <div class="container">
+            <h3>Create Membership</h3>
             <form action="{{ route('sub.store') }}" method="POST" class="row g-3 align-items-center">
                 @csrf
                 <div class="col-md-4">
-                    <label for="subscription_type" class="form-label">Subscription Name</label>
+                    <label for="subscription_type" class="form-label">Membership Name</label>
                     <input type="text" class="form-control" id="subscription_type" name="subscription_type"
                         placeholder="Annual Plan" value="{{ old('subscription_type') }}">
                     @error('subscription_type')

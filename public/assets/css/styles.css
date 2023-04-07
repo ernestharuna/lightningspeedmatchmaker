@@ -39,17 +39,13 @@
 #loader {
     position: absolute;
     width: 100%;
-    height: 3px;
+    height: 4px;
     background: #0066ff;
-    /* background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet); */
     top: 0px;
     z-index: 9999;
     -webkit-animation: loader .6s linear infinite;
-    /* Safari and Chrome */
     -moz-animation: loader .6s linear infinite;
-    /* Firefox */
     -o-animation: loader .6s linear infinite;
-    /* Opera */
     animation: loader .6s linear infinite;
 }
 

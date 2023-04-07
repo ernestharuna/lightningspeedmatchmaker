@@ -20,7 +20,7 @@
             <span>
                 <a href="{{ route('admin.dashboard') }} " class="text-white text-decoration-none">View Matches</a>
                 <br>
-                <a href="#" class="text-white text-decoration-none">Make a Match</a>
+                <a href="{{ route('create.mail') }}" class="text-white text-decoration-none">Send Emails</a>
             </span>
         </div>
         <div class="my-card">
@@ -29,7 +29,7 @@
             </h3>
             <span>
                 <a href="{{ route('manage.subs') }}" class="text-white text-decoration-none">
-                    Subscriptions
+                    Memberships
                 </a>
                 <br>
                 <a href="{{ route('user.refs') }}" class="text-white text-decoration-none">
@@ -60,7 +60,7 @@
                     aria-labelledby="panelsStayOpen-headingOne">
                     <div class="accordion-body">
                         <ol class="list-group list-group-numbered">
-                            @unless(count($matches) == 0)
+                            @unless (count($matches) == 0)
                                 @foreach ($matches as $match)
                                     <li class="list-group-item d-flex justify-content-between align-items-start">
                                         <div class="ms-2 me-auto">
@@ -118,7 +118,7 @@
                     aria-labelledby="panelsStayOpen-headingTwo">
                     <div class="accordion-body">
                         <ol class="list-group list-group-numbered">
-                            @unless(count($pending) === 0)
+                            @unless (count($pending) === 0)
                                 @foreach ($pending as $pend)
                                     <li class="list-group-item d-flex justify-content-between align-items-start">
                                         <div class="ms-2 me-auto">

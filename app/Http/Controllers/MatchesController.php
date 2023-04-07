@@ -32,13 +32,6 @@ class MatchesController extends Controller
         ]);
     }
 
-    // public function searchProfile(Matches $searchProfile)
-    // {
-    //     return view('user.match.search_show', [
-    //         'match' => $searchProfile
-    //     ]);
-    // }
-
     public function store(Request $request)
     {
         try {
