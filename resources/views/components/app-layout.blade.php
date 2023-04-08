@@ -10,7 +10,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-    <title>Matchmaker | Lightning Speed</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -142,8 +141,10 @@
             {{ $slot }}
             <x-flash-message></x-flash-message>
             <x-danger-message></x-danger-message>
-
         </main>
+
+        {{-- footer --}}
+        @include('partials._footer')
     </div>
 </body>
 

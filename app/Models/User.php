@@ -87,6 +87,10 @@ class User extends Authenticatable implements MustVerifyEmail
         'subscription',
     ];
 
+    protected $dispatchesEvents = [
+        'created' => Matches::class,
+    ];
+
     /**
      * The attributes that should be hidden for serialization.
      *

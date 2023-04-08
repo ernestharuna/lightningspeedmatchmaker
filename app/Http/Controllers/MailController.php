@@ -25,16 +25,16 @@ class MailController extends Controller
 
         try {
             foreach ($users as $user) {
-                Mail::to($user->email)->send(new NewsLetter($data['title'], $data['content']));
+                Mail::to($user->email)->queue(new NewsLetter($data['title'], $data['content']));
             }
-            return back()->with('status', 'Emails have been sent successfully');
+            return back()->with('status', 'Emails have been queued for sending');
         } catch (\Throwable $th) {
             return back()->with('error', "something went wrong \n $th");
         }
 
         // try {
-        //     Mail::to("udwaghie@gmail.com")->send(new NewsLetter($data['title'], $data['content']));
-        //     return back()->with('status', 'Emails have been sent successfully');
+        //     Mail::to("udwaghie@gmail.com")->queue(new NewsLetter($data['title'], $data['content']));
+        //     return back()->with('status', 'Emails have been queued for sending');
         // } catch (\Throwable $th) {
         //     return back()->with('error', "something went wrong \n $th");
         // }

@@ -35,7 +35,7 @@ class NewsLetter extends Mailable
     public function envelope()
     {
         return new Envelope(
-            from: new Address('lightningspeedmatchmaker@gmail.com', 'Dan Amzallag'),
+            from: new Address('productace@proaceintl.com', 'Dan Amzallag'),
             subject: $this->title,
         );
     }

@@ -2,7 +2,10 @@
 
 namespace App\Notifications;
 
+use App\Models\Matches;
+use Illuminate\Support\Str;
 use Illuminate\Bus\Queueable;
+use Illuminate\Console\View\Components\Line;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
@@ -16,7 +19,7 @@ class NewMatch extends Notification
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(public Matches $matches)
     {
         //
     }
@@ -41,9 +44,11 @@ class NewMatch extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+            ->subject("New Match Notification")
+            ->greeting("New Match made by {$this->matches->user->first_name}")
+            ->line(Str::limit($this->matches->user->extra, 50))
+            ->action('Go to Lightning Speed Matchmaker', url('/'))
+            ->line('Thank you');
     }
 
     /**

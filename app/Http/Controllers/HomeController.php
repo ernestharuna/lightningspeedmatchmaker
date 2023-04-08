@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Matches;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,9 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $user = auth()->user();
+        $user = Auth::user();
+        $matches = Matches::where('matchedUser_id', Auth::id())->count();
         return view('user.home', [
             'user' => $user,
+            'matches' => $matches
         ]);
     }
 }
