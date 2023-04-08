@@ -4,7 +4,8 @@ namespace App\Providers;
 
 // use App\Listeners\LogVerifiedUser;
 // use Illuminate\Auth\Events\Verified;
-use App\Events\ChirpCreated;
+
+use App\Events\MatchCreated;
 use App\Listeners\NewMatchNotifications;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -18,13 +19,13 @@ class EventServiceProvider extends ServiceProvider
      * @var array<class-string, array<int, class-string>>
      */
     protected $listen = [
+        MatchCreated::class => [
+            NewMatchNotifications::class
+        ],
+
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
-
-        ChirpCreated::class => [
-            NewMatchNotifications::class
-        ]
         // Verified::class => [
         //     LogVerifiedUser::class,
         // ]
