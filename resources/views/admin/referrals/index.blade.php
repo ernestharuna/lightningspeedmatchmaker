@@ -2,8 +2,13 @@
     <x-admin-panel>
         <div class="container">
             <h3>All Referrals</h3>
+            <ul>
+                <li>
+                    Delete entries once you're done with them
+                </li>
+            </ul>
             <ol class="list-group list-group-numbered">
-                @unless(count($refs) == 0)
+                @unless (count($refs) == 0)
                     @foreach ($refs as $ref)
                         <li class="list-group-item d-flex justify-content-between align-items-start">
                             <div class="ms-2 me-auto">
@@ -12,7 +17,8 @@
                                         {{ $ref->ref_name }}
                                     </span>
                                 </div>
-                                {{ $ref->ref_gender }} | {{ $ref->ref_no }} {{ $ref->ref_email ? '| '.$ref->ref_email : '' }}
+                                {{ $ref->ref_gender }} | {{ $ref->ref_no }}
+                                {{ $ref->ref_email ? '| ' . $ref->ref_email : '' }}
                             </div>
                             <span class="badge bg-gradient bg-primary mx-2 rounded-pill">
                                 <span class="badge bg-white text-dark rounded-pill">referred by:</span>

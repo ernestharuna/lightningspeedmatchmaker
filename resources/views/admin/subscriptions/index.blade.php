@@ -2,8 +2,13 @@
     <x-admin-panel>
         <div class="container">
             <h3>Subscriptions</h3>
+            <ul>
+                <li>
+                    Tap on the membership name to edit or delete it.
+                </li>
+            </ul>
             <ol class="list-group list-group-numbered">
-                @unless(count($subs) == 0)
+                @unless (count($subs) == 0)
                     @foreach ($subs as $sub)
                         <li class="list-group-item d-flex justify-content-between align-items-start">
                             <div class="ms-2 me-auto">
