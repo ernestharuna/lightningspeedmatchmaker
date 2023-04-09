@@ -2,6 +2,7 @@
     @php
         // for buttons at the top.. etc
         isset($user->seeks->gender) ? ($disabled = false) : ($disabled = true);
+        
         // for card buttons
         $step_1;
         if ($user->gender && $user->date_of_birth && $user->education && $user->employed && $user->country) {
@@ -9,8 +10,9 @@
         } else {
             $step_1 = true;
         }
+        
         // for matching button
-        $user->subscription !== 'Free' ? ($match = true) : ($match = false);
+        $user->subscription !== 'Free' && !$disabled ? ($match = true) : ($match = false);
     @endphp
     <div class="container">
         <div>
@@ -73,7 +75,7 @@
                         <span class="fw-bold">Step 1:</span> Complete Your Profile.
                     </h5>
                     <p class="card-text">
-                        We need you to complete your user profile so we can offer you much more accurate matches
+                        We need you to complete your profile so we can offer you more accurate matches.
                     </p>
                     <p class="fw-bold">
                         This takes just a few minutes.
@@ -108,13 +110,15 @@
                             'disabled' => $step_1,
                         ])>
                             {{ __('Preference Form') }}
-                            @if (!$step_1)
-                                <span
-                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                @if ($disabled)
+                                    not done
+                                @else
                                     done
-                                    <span class="visually-hidden">unread messages</span>
-                                </span>
-                            @endif
+                                @endif
+                                <span class="visually-hidden">unread messages</span>
+                            </span>
                         </button>
                     </a>
                 </div>
@@ -129,16 +133,16 @@
                         <span class="fw-bold">Step 3:</span> Find Your Match
                     </h5>
                     <p class="card-text">
-                        We will now match you based on the details you have given us of yourself
+                        We will now match you based on the details you have given us of yourself.
                     </p>
                     @if (!$match)
                         <p class="text-danger">
-                            <i class="bi bi-info-square-fill text-danger"></i> Only paying members can make matches
+                            <i class="bi bi-info-square-fill text-danger"></i> Only paying members with complete
+                            profiles can make matches.
                         </p>
                     @endif
-                    <button @class(['btn', 'btn-success', 'disabled' => !$match])"
-                        onclick="event.preventDefault(); 
-                            document.getElementById('match').submit();">
+                    <button @class(['btn', 'btn-success', 'disabled' => !$match])
+                        onclick="event.preventDefault(); document.getElementById('match').submit();">
                         <i class="bi bi-search-heart fs-5"></i> Find Match
                     </button>
                     <form id="match" action="{{ route('match', Auth::id()) }}" method="POST" class="d-none">

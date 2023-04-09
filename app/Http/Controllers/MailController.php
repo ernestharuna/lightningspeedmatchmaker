@@ -16,12 +16,18 @@ class MailController extends Controller
 
     public function sendMail(Request $request)
     {
-        $users = User::where('email_verified_at', '!=', null)->get();
-
         $data = $request->validate([
+            'send_to' => 'required',
             'title' => 'required|max:100',
             'content' => 'required'
         ]);
+
+        $users = match ($data['send_to']) {
+            "verified" => User::where('email_verified_at', '!=', null)->get(),
+            "unverified" => User::where('email_verified_at', null)->get(),
+            "all" => User::all(),
+            default =>  User::all()
+        };
 
         try {
             foreach ($users as $user) {
