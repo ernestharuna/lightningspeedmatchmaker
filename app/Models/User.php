@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Events\UserCreated;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Contracts\Auth\CanResetPassword;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -88,7 +89,7 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     protected $dispatchesEvents = [
-        'created' => Matches::class,
+        'created' => UserCreated::class,
     ];
 
     /**

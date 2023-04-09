@@ -28,7 +28,10 @@ class NewMatchNotifications implements ShouldQueue
      */
     public function handle(MatchCreated $event)
     {
-        User::where('id', $event->matches->matchedUser_id)->notify(new NewMatch($event->matches));
-        User::where('id', $event->matches->user_id)->notify(new NewMatch($event->matches));
+        $user_1 = User::find($event->matches->user_id);
+        $user_2 = User::find($event->matches->matchedUser_id);
+
+        $user_1->notify(new NewMatch($event->matches));
+        $user_2->notify(new NewMatch($event->matches));
     }
 }

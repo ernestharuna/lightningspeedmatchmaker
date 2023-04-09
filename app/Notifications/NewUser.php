@@ -2,14 +2,14 @@
 
 namespace App\Notifications;
 
-use App\Models\Matches;
+use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Bus\Queueable;
+use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
-use Illuminate\Notifications\Notification;
 
-class NewMatch extends Notification implements ShouldQueue
+class NewUser extends Notification implements ShouldQueue
 {
     use Queueable;
 
@@ -18,7 +18,7 @@ class NewMatch extends Notification implements ShouldQueue
      *
      * @return void
      */
-    public function __construct(public Matches $matches)
+    public function __construct(public User $user)
     {
         //
     }
@@ -43,11 +43,11 @@ class NewMatch extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->subject("New Match Notification")
-            ->greeting("New Match made by {$this->matches->user->first_name}")
-            ->line(Str::limit($this->matches->user->extra, 80))
-            ->action('Go to Lightning Speed Matchmaker', url('/match'))
-            ->line('Once a match request is accepted, your matchmaker will call you for further arrangements');
+            ->subject('New User')
+            ->greeting('Hurray! A new user joined us.')
+            ->line(Str::limit($this->user->first_name, 10))
+            ->action('See All Users', url('/admin/dashboard/users'))
+            ->line('Do not forget to log into your Admin dashbard and send Newsletters to keep your users engaged.');
     }
 
     /**
