@@ -15,15 +15,17 @@ class NewsLetter extends Mailable
     use Queueable, SerializesModels;
 
     public $title;
+    public $user_name;
     public $content;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($title, $content)
+    public function __construct($title, $user_name, $content)
     {
         $this->title = $title;
+        $this->user_name = $user_name;
         $this->content = $content;
     }
 
