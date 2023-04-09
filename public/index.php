@@ -3,6 +3,12 @@
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
+
+ini_set('max_execution_time', 300);
+
+// TO DETERMINE THE CURRENT EXECUTION TIME
+// echo ini_get('max_execution_time');
+
 define('LARAVEL_START', microtime(true));
 
 /*

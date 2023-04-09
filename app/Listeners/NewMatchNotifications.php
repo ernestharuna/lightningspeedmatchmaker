@@ -2,9 +2,10 @@
 
 namespace App\Listeners;
 
-use App\Events\MatchCreated;
 use App\Models\User;
+use App\Events\MatchCreated;
 use App\Notifications\NewMatch;
+use App\Notifications\NewMatchee;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
@@ -32,6 +33,6 @@ class NewMatchNotifications implements ShouldQueue
         $user_2 = User::find($event->matches->matchedUser_id);
 
         $user_1->notify(new NewMatch($event->matches));
-        $user_2->notify(new NewMatch($event->matches));
+        $user_2->notify(new NewMatchee($event->matches));
     }
 }
