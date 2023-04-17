@@ -6,7 +6,6 @@ use App\Events\UserCreated;
 use App\Models\Admin;
 use App\Notifications\NewUser;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
 
 class NewUserNotifications implements ShouldQueue
 {
@@ -28,7 +27,8 @@ class NewUserNotifications implements ShouldQueue
      */
     public function handle(UserCreated $event)
     {
-        foreach (Admin::cursor() as $admin) {
+        $adminUsers = Admin::all();
+        foreach ($adminUsers as $admin) {
             $admin->notify(new NewUser($event->user));
         }
     }

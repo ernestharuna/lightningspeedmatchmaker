@@ -16,34 +16,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(500)->create();
-        Referrals::factory(10)->create();
+        \App\Models\User::factory(10)->create();
+        // Referrals::factory(2)->create();
         Admin::factory(1)->create();
-
-        // Subscriptions::create([
-        //     'subscription_type' => 'Free Plan',
-        //     'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque excepturi ullam, quasi unde nihil
-        //     nesciunt!',
-        //     'price' => '0',
-        // ]);
-
-        // Subscriptions::create([
-        //     'subscription_type' => 'Weekly Plan',
-        //     'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque excepturi ullam, quasi unde nihil
-        //     nesciunt!',
-        //     'price' => '10',
-        // ]);
-        // Subscriptions::create([
-        //     'subscription_type' => 'Monthly Plan',
-        //     'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque excepturi ullam, quasi unde nihil
-        //     nesciunt!',
-        //     'price' => '40',
-        // ]);
-        // Subscriptions::create([
-        //     'subscription_type' => 'Annual Plan',
-        //     'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque excepturi ullam, quasi unde nihil
-        //     nesciunt!',
-        //     'price' => '150',
-        // ]);
     }
 }

@@ -21,7 +21,7 @@ class LoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
-    
+
     public function __constructor()
     {
         $this->middleware('guest')->except('logout');
@@ -53,9 +53,9 @@ class LoginController extends Controller
         ])->onlyInput('email');
     }
 
-// ----------------------------------------------------------------------------------------
-// ----------------------------------------------------------------------------------------
-// ----------------------------------------------------------------------------------------
+    // ----------------------------------------------------------------------------------------
+    // ----------------------------------------------------------------------------------------
+    // ----------------------------------------------------------------------------------------
 
 
     // Show login form
@@ -90,12 +90,12 @@ class LoginController extends Controller
         Auth::logout();
 
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
 
         return redirect(route('login'))->with('status', 'You have been logged out');
     }
 
+    // admin logout
     public function admin_logout(Request $request)
     {
         Auth::guard('admin')->logout();

@@ -35,8 +35,8 @@ class MailController extends Controller
                 Mail::to($user->email)->queue(new NewsLetter($data['title'], $user_name, $data['content']));
             }
             return back()->with('status', 'Emails have been queued for sending');
-        } catch (\Throwable $th) {
-            return back()->with('error', "something went wrong \n $th");
+        } catch (\Exception $e) {
+            return back()->with('error', "something went wrong \n $e");
         }
 
         /* FOR TESTING */

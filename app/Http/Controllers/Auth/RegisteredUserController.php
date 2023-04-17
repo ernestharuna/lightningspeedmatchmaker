@@ -7,9 +7,9 @@ use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
-use Exception;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Registered;
+use Exception;
 
 class RegisteredUserController extends Controller
 {
@@ -64,18 +64,29 @@ class RegisteredUserController extends Controller
         ]);
 
         $validate['password'] = bcrypt($validate['password']);
-        // $user = User::create($validate);
-        // event(new Registered($user));
-        // Auth::login($user);
+
         try {
             $user = User::create($validate);
-            event(new Registered($user));
-            Auth::login($user);
 
+            event(new Registered($user));
+
+            Auth::login($user);
             return redirect()->intended('/')->with('status', 'Account created!');
-        } catch (\Exception $e) {
-            $user->delete();
-            return redirect()->back()->with('error', $e->getMessage());
+        } catch (Exception $e) {
+
+            if (isset($user)) {
+                $user->delete();
+            }
+
+            return redirect()->back()->with('error', "Something went wrong while processing your request");
         }
+
+        // For Testing
+        // $user = User::create($validate);
+        // dd($user);
+        // event(new Registered($user));
+        // Auth::login($user);
+
+        return redirect()->intended('/')->with('status', 'Account created!');
     }
 }

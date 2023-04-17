@@ -12,7 +12,6 @@ class MatchesController extends Controller
     public function index()
     {
         return view('user.match.index', [
-            // 'matches' => Auth::user()->matches,
             'matches' => Matches::where('user_id', Auth::id())->with(['user', 'matched_user'])->get(),
             'requests' => Matches::where('matchedUser_id', Auth::id())->with(['user', 'matched_user'])->get()
         ]);

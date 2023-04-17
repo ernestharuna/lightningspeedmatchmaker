@@ -2,3 +2,12 @@
 # make algorithm to sum up all the search results into one array and return - 
 # edit preference page design
 # make profile button show when they've filled the first part
+
+
+- Mail Controller
+
+This PHP code validates the input data received from a form using Laravel's validate method. The $request variable is an instance of Laravel's Illuminate\Http\Request class, which represents the HTTP request sent to the server. The validate method is called on the $request object to ensure that the required form fields are present and valid.
+The $data variable is then assigned the validated form data. It contains the values of the send_to, title, and content fields.
+Next, a match expression is used to determine which users should receive the message based on the value of the send_to field. The match expression is a new feature in PHP 8 that allows you to write more concise switch statements. It takes an expression and compares it against several possible values, executing the code block associated with the first matching value.
+In this case, the match expression takes the value of the send_to field and compares it against the values "verified", "unverified", and "all". Depending on the value of send_to, it retrieves a list of users using the appropriate Laravel Eloquent query. If the value of send_to is not one of the defined values, it retrieves all users by default.
+Finally, the $users variable contains the list of users that should receive the message based on the value of send_to. It is now ready to be used to send the message to the selected users.
