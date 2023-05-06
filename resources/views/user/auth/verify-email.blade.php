@@ -2,23 +2,26 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8 mb-4">
-                <div class="card text-center">
+                <div class="card text-start shadow my-5">
                     <div class="card-header">
-                        <p class="m-0 fs-5 text-danger">
-                            {{ __('Verify Your Email!') }}
+                        <p class="m-0 fs-4 fw-medium">
+                            {{ __('You\'re almost there!') }}
                         </p>
                     </div>
 
                     <div class="card-body">
                         <p class="my-1">
-                            {{ __('Please check your e-mail and click the link to verify your email.') }}
+                            Please check your email inbox for a <b>verification email</b> and follow the prompts to
+                            verify your account.
                         </p>
+                        <hr>
                         <p>
-                            {{ __('Make sure to check your spam box, or click the button below to resend another verfication email.') }}
+                            Didn't receive an email from us yet? <br> Try waiting a while or request another email by
+                            clicking the button below.
                         </p>
                         <a href="#" onclick="event.preventDefault(); document.getElementById('resend').submit();">
                             <button class="btn btn-danger mb-2">
-                                Resend Verification Mail
+                                Resend Email
                             </button>
                         </a>
 

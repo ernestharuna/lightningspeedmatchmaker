@@ -86,7 +86,6 @@ class RegisteredUserController extends Controller
         // dd($user);
         // event(new Registered($user));
         // Auth::login($user);
-
-        return redirect()->intended('/')->with('status', 'Account created!');
+        // return redirect()->intended('/')->with('status', 'Account created!');
     }
 }

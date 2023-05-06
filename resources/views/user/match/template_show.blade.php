@@ -45,7 +45,8 @@
 
             <div>
                 <h3>{{ $match->matched_user->first_name }} {{ $last_name }}.</h3>
-                <p>{{ $match->matched_user->date_of_birth }}</p>
+                <i id="data" class="d-none">{{ $match->matched_user->date_of_birth }}</i> {{-- JS gets data from here --}}
+                <p id="age"></p>
                 <p>{{ $match->matched_user->city }}, {{ $match->matched_user->country }}</p>
             </div>
 
@@ -130,4 +131,22 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const data = document.getElementById('data').innerHTML;
+
+        const birthDate = new Date(data);
+        const today = new Date();
+
+        var yearsDiff = today.getFullYear() - birthDate.getFullYear();
+        const monthsDiff = today.getMonth() - birthDate.getMonth();
+        const daysDiff = today.getDate() - birthDate.getDate();
+
+        // Check if the birth date hasn't happened yet this year
+        if (monthsDiff < 0 || (monthsDiff === 0 && daysDiff < 0)) {
+            yearsDiff--;
+        }
+
+        const age = document.getElementById('age').innerHTML = `${yearsDiff} years old`;
+    </script>
 </x-app-layout>

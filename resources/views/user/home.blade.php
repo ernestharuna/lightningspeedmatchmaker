@@ -138,7 +138,8 @@
                     @if (!$match)
                         <p class="text-danger">
                             <i class="bi bi-info-square-fill text-danger"></i> Only paying members with complete
-                            profiles can make matches.
+                            profiles can make matches. <br>
+                            You can click <a href="{{ route('subs') }}">here</a> to update your membership.
                         </p>
                     @endif
                     <button @class(['btn', 'btn-success', 'disabled' => !$match])

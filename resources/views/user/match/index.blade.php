@@ -2,7 +2,7 @@
     <div class="container">
         <h3>Saved Matches</h3>
         <p>All your accepted matches will be showed here.</p>
-        @unless(count($matches) == 0)
+        @unless (count($matches) == 0)
             @foreach ($matches as $match)
                 {{-- Format the user's last name --}}
                 @php
@@ -45,7 +45,7 @@
         <h3>Match Requests</h3>
         <p>Accepted/Declined requests will be deleted within 90 days</p>
 
-        @unless(count($requests) == 0)
+        @unless (count($requests) == 0)
             @foreach ($requests as $req)
                 @php
                     $word = $req->user->last_name;

@@ -45,7 +45,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('/assets/img/logo.png') }}" alt="logo" width="60px" height="auto">
+                    <img src="{{ asset('/assets/img/logo.png') }}" alt="logo" width="40px" height="auto">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
