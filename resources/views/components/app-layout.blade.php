@@ -61,7 +61,7 @@
                                 {{ __('Dashboard') }}
                             </x-nav-link>
                             <x-nav-link :href="route('subs')" :active="request()->routeIs('subs')">
-                                {{ __('Subscriptions') }}
+                                {{ __('Memberships') }}
                             </x-nav-link>
                             <x-nav-link :href="route('match.index')" :active="request()->routeIs('match.index')">
                                 {{ __('Matches') }}

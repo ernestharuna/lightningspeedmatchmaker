@@ -12,13 +12,19 @@
                     <div class="card-body">
                         <p class="my-1">
                             Please check your email inbox for a <b>verification email</b> and follow the prompts to
-                            verify your account.
+                            verify your account. <br>
+                            <a href="mailto:" class="text-danger fw-bold text-decoration-none">Click here</a> to open your
+                            mail.
                         </p>
                         <hr>
                         <p>
-                            Didn't receive an email from us yet? <br> Try waiting a while or request another email by
-                            clicking the button below.
+                            Didn't receive an email from us yet?
                         </p>
+                        <ul>
+                            <li>Check your spam box/junk folder</li>
+                            <li>You can request another verification email by clicking below</li>
+                            <li>Be patient as this may take up to 15 - 30 minutes.</li>
+                        </ul>
                         <a href="#" onclick="event.preventDefault(); document.getElementById('resend').submit();">
                             <button class="btn btn-danger mb-2">
                                 Resend Email

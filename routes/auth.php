@@ -69,6 +69,7 @@ Route::middleware('guest')->group(function () {
     })->name('password.update');
 });
 
+// Email verification
 Route::middleware('auth')->group(function () {
     Route::get('/email/verify', function () {
         return view('user.auth.verify-email');
@@ -81,7 +82,7 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/email/verification-notification', function (Request $request) {
         $request->user()->sendEmailVerificationNotification();
-        return back()->with('status', 'Verification link sent!');
+        return back()->with('status', 'Verification email sent!');
     })->middleware(['throttle:6,1'])->name('verification.send');
 
     Route::post('logout', [LoginController::class, 'logout'])->name('logout');

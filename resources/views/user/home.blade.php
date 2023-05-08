@@ -67,8 +67,9 @@
         </div>
         <hr>
 
-        {{-- STEP 1 --}}
-        <div class="d-sm-flex">
+        <div class="d-sm-flex justify-content-between align-items-center">
+
+            {{-- STEP 1 --}}
             <div class="card mx-3 my-2 shadow">
                 <div class="card-body">
                     <h5 class="card-title">
@@ -86,6 +87,10 @@
                         </button>
                     </a>
                 </div>
+            </div>
+
+            <div class="d-none d-lg-block">
+                <i class="bi bi-arrow-right fs-1"></i>
             </div>
 
             {{-- STEP 2 --}}
@@ -123,6 +128,7 @@
                     </a>
                 </div>
             </div>
+
         </div>
 
         {{-- STEP 3 --}}
@@ -138,7 +144,9 @@
                     @if (!$match)
                         <p class="text-danger">
                             <i class="bi bi-info-square-fill text-danger"></i> Only paying members with complete
-                            profiles can make matches. <br>
+                            profiles can make matches.
+                        </p>
+                        <p>
                             You can click <a href="{{ route('subs') }}">here</a> to update your membership.
                         </p>
                     @endif

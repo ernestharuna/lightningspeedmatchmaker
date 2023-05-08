@@ -1,9 +1,9 @@
 <x-app-layout>
     <div class="container">
-        <h2>Subscriptions</h2>
+        <h2>Memberships</h2>
         <p>You can come back to change this anytime</p>
         <div class="subscriptions">
-            @unless(count($subs) == 0)
+            @unless (count($subs) == 0)
 
                 @foreach ($subs as $sub)
                     <div class="box">
@@ -27,7 +27,7 @@
                     </form>
                 @endforeach
             @else
-                <p class="bg-secondary p-2">No subscriptions available at the momonet</p>
+                <p class="bg-secondary p-2">No memberships available at the momonet</p>
             @endunless
         </div>
     </div>

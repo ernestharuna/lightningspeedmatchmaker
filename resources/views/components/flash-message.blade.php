@@ -14,7 +14,7 @@
         }
     </style>
     <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 3000)" x-show="show" x-transition.duration.500ms role="alert"
-        id="alert" class="rounded shadow">
+        id="alert" class="shadow">
         <p class="p-0 m-0 fw-bold">
             {{ session('status') }}
         </p>
