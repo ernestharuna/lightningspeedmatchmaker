@@ -44,8 +44,8 @@
         @else
             <div class="p-5 bg-secondary text-white">
                 <p>
-                    There's no match for you at the moment, make sure you have your profile
-                    correctly filled, and try again.
+                    No match made at the moment, make sure you have your profile
+                    correctly filled out and try again.
                 </p>
                 <a href="{{ route('dashboard') }}">
                     <button class="btn btn-light">Back to dashboard</button>

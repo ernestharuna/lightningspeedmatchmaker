@@ -30,7 +30,7 @@
         @else
             <div class="p-3 bg-secondary text-white">
                 <p>
-                    No match made at the moment, go to your dashboard.
+                    No match made yet.
                 </p>
                 <a href="{{ route('dashboard') }}">
                     <button class="btn btn-light">Back to dashboard</button>
