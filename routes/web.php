@@ -50,7 +50,3 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/match/{user}', [MatchesController::class, 'match'])->name('match');
     Route::get('/match', [MatchesController::class, 'index'])->name('match.index');
 });
-
-
-// Use this later shaa
-// Route::get('/{searchProfile}/match/searchProfile/', [MatchesController::class, 'searchProfile'])->name('d.searchProfile');

@@ -40,9 +40,9 @@ class MatchesController extends Controller
             ]);
 
             $request->user()->matches()->create($credentials);
-            return redirect(route('match.index'))->with('status', 'Match Made!');
+            return redirect(route('match.index'))->with('status', 'Match Saved!');
         } catch (\Exception $e) {
-            return back()->with('error', $e->getMessage());
+            return back()->with('error', 'Oops, an error occured');
         }
     }
 
@@ -54,8 +54,8 @@ class MatchesController extends Controller
             ]);
             $match->update($credentials);
             return back();
-        } catch (\Throwable $th) {
-            return back()->with('error', $th->getMessage());
+        } catch (\Exception $e) {
+            return back()->with('error', 'Something went wrong');
         }
     }
 

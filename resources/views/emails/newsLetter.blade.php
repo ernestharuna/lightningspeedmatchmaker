@@ -1,5 +1,16 @@
 <html>
 
+<style>
+    body {
+        background: #F7F7F7;
+    }
+
+    h1 {
+        text-align: center;
+        color: #3838d7;
+    }
+</style>
+
 <body>
     <h1>{{ $title }}</h1>
     <p>Hello {{ $user_name }}</p>

@@ -3,7 +3,7 @@
         <div class="bg-white border rounded-3 shadow col-sm-4 col-lg-6 mx-3 p-4">
             <div class="text-center my-4">
                 <h2>
-                    <a href="/register/admin" class="text-decoration-none text-dark fw-bold">Admin Login</a>
+                    <a href="/register/admin" class="text-decoration-none text-dark">Admin Login</a>
                 </h2>
             </div>
             <form method="POST" action="/login/admin" class="row g-3">

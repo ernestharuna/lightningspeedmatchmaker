@@ -58,7 +58,7 @@
                     @enderror
                 </div>
                 <div>
-                    <button type="submit" class="btn btn-success">Send e-mails</button>
+                    <button type="submit" class="btn btn-success">Send Emails</button>
                 </div>
             </form>
         </div>

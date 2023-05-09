@@ -45,7 +45,7 @@ class LoginController extends Controller
 
         if (Auth::guard('admin')->attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect(route('admin.dashboard'))->with('status', 'You\'re now logged in as administrator');
+            return redirect(route('admin.dashboard'))->with('status', "Authenticated as administrator");
         };
 
         return back()->withErrors([
@@ -76,7 +76,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/')->with('status', 'You\'re now logged in');
+            return redirect()->intended('/')->with('status', "You're now logged in");
         }
 
         return back()->withErrors([
@@ -92,7 +92,7 @@ class LoginController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect(route('login'))->with('status', 'You have been logged out');
+        return redirect(route('login'))->with('status', "You have been logged out");
     }
 
     // admin logout

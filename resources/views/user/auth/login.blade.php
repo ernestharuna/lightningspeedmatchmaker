@@ -2,7 +2,7 @@
     <div class="d-flex align-items-center justify-content-center mt-3">
         <div class="bg-white border rounded-3 shadow col-sm-4 col-lg-6 mx-3 p-4">
             <div class="text-center my-4">
-                <h2>Login to your Account</h2>
+                <h2>User Login</h2>
             </div>
             <form method="POST" action="/login" class="row g-3">
                 @csrf
