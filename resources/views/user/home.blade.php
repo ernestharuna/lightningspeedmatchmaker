@@ -1,14 +1,24 @@
 <x-app-layout>
     @php
-        // for buttons at the top.. etc
-        isset($user->seeks->gender) ? ($disabled = false) : ($disabled = true);
+        if ($user->seeks) {
+            // for buttons at the top.. etc
+            isset($user->seeks->gender) ? ($disabled = false) : ($disabled = true);
+        } else {
+            $disabled = true;
+        }
         
         // for card buttons
-        $step_1;
+        $step_1; // used in card 2
         if ($user->gender && $user->date_of_birth && $user->education && $user->employed && $user->country) {
-            $step_1 = false;
-        } else {
             $step_1 = true;
+        } else {
+            $step_1 = false;
+        }
+        
+        if ($user->seeks) {
+            isset($user->seeks->gender) ? ($step_2 = false) : ($step_2 = true);
+        } else {
+            $step_2 = false;
         }
         
         // for matching button
@@ -21,48 +31,56 @@
                     <i class="bi bi-cloud-sun-fill text-secondary"></i>
                     Good Day, {{ Auth::user()->first_name }}
                 </h1>
-                <small>Account Status: Verified <i class="bi bi-check-circle-fill text-primary"></i></small>
+                <small title="Your email has been verified">Account Status: Verified <i
+                        class="bi bi-check-circle-fill text-primary"></i>
+                </small>
             </div>
             <div>
 
-                <a href="{{ route('profile.index') }}" class="text-decoration-none">
-                    <button @class([
-                        'btn',
-                        'btn-outline-primary',
-                        'm-1',
-                        'bg-gradient',
-                        'disabled' => $disabled,
-                    ]) title="View your profile">
+                <button @class([
+                    'btn',
+                    'btn-outline-primary',
+                    'fw-bold',
+                    'm-1',
+                    'bg-gradient',
+                    'disabled' => $disabled,
+                ]) title="View your profile">
+                    <a href="{{ route('profile.index') }}" class="text-decoration-none">
                         <i class="bi bi-person-circle"></i> Profile
-                    </button>
-                </a>
-                <a href="{{ route('seeks.index') }}" class="text-dark text-decoration-none">
-                    <button @class([
-                        'btn',
-                        'btn-outline-primary',
-                        'm-1',
-                        'bg-gradient',
-                        'disabled' => $disabled,
-                    ]) title="Edit your Matching preference">
+                    </a>
+                </button>
+
+                <button @class([
+                    'btn',
+                    'fw-bold',
+                    'btn-outline-primary',
+                    'm-1',
+                    'bg-gradient',
+                    'disabled' => $disabled,
+                ]) title="Edit your Matching preference">
+                    <a href="{{ route('seeks.index') }}" class="text-decoration-none">
                         <i class="bi bi-sliders"></i> Preference
-                    </button>
-                </a>
-                <a href="{{ route('match.index') }}">
-                    <button @class([
-                        'btn',
-                        'btn-outline-primary',
-                        'm-1',
-                        'bg-gradient',
-                        ' position-relative',
-                        'disabled' => $disabled,
-                    ]) title="View match request">
+                    </a>
+                </button>
+
+                <button @class([
+                    'btn',
+                    'fw-bold',
+                    'btn-outline-primary',
+                    'm-1',
+                    'bg-gradient',
+                    'position-relative',
+                    'disabled' => $disabled,
+                ]) title="View match request">
+                    <a href="{{ route('match.index') }}" class="text-decoration-none">
                         <i class="bi bi-envelope-paper-heart-fill"></i> Requests
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                             {{ $matches }}
                             <span class="visually-hidden">unread messages</span>
                         </span>
-                    </button>
-                </a>
+                    </a>
+                </button>
+
             </div>
         </div>
         <hr>
@@ -81,16 +99,32 @@
                     <p class="fw-bold">
                         This takes just a few minutes.
                     </p>
-                    <a href="{{ route('profile.edit') }}">
-                        <button class="btn btn-primary shadow">
+                    <button @class([
+                        'btn',
+                        'btn-primary',
+                        'shadow',
+                        'position-relative',
+                        'disabled' => $step_1,
+                    ])>
+                        <a href="{{ route('profile.edit') }}" class="text-white text-decoration-none">
                             {{ __('Complete Profile') }}
-                        </button>
-                    </a>
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                @if (!$step_1)
+                                    not done
+                                @else
+                                    done
+                                @endif
+                                <span class="visually-hidden">unread messages</span>
+                            </span>
+                        </a>
+                    </button>
                 </div>
             </div>
 
+            {{-- ARROW --}}
             <div class="d-none d-lg-block">
-                <i class="bi bi-arrow-right fs-1"></i>
+                <i class="bi bi-arrow-right fs-1 text-secondary"></i>
             </div>
 
             {{-- STEP 2 --}}
@@ -106,26 +140,26 @@
                     <p>
                         <b>Let's get started!</b>
                     </p>
-                    <a href="{{ route('seeks.create') }}">
-                        <button @class([
-                            'btn',
-                            'btn-primary',
-                            'shadow',
-                            'position-relative',
-                            'disabled' => $step_1,
-                        ])>
+                    <button @class([
+                        'btn',
+                        'btn-primary',
+                        'shadow',
+                        'position-relative',
+                        'disabled' => !$step_2,
+                    ])>
+                        <a href="{{ route('seeks.create') }}" class="text-white text-decoration-none">
                             {{ __('Preference Form') }}
                             <span
                                 class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                @if ($disabled)
+                                @if ($step_2)
                                     not done
                                 @else
                                     done
                                 @endif
                                 <span class="visually-hidden">unread messages</span>
                             </span>
-                        </button>
-                    </a>
+                        </a>
+                    </button>
                 </div>
             </div>
 
@@ -139,11 +173,12 @@
                         <span class="fw-bold">Step 3:</span> Find Your Match
                     </h5>
                     <p class="card-text">
-                        We will now match you based on the details you have given us of yourself.
+                        We will now match you based on the details you have provided.
                     </p>
                     @if (!$match)
                         <p class="text-danger">
-                            <i class="bi bi-info-square-fill text-danger"></i> Only paying members with complete
+                            <i class="bi bi-info-square-fill text-danger"></i> Only <u class="fw-bold">paying
+                                members</u> with complete
                             profiles can make matches.
                         </p>
                         <p>

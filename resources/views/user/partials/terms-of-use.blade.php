@@ -185,6 +185,9 @@
     These Terms of Use shall be governed by and construed in accordance with the
     laws of
     Florida, USA.
+</p>
+
+<p>
     <b>12. Arbitration of Disputes - </b>
     Except for infringement of Company’s intellectual property, which can be heard
     by a
@@ -223,14 +226,18 @@
     DO
     NOT WISH TO AGREE TO ARBITRATION, THEN YOU MAY NOT USE THIS WEBSITE.
 </p>
+
 <p>
     <b>13. Class Action Waiver - </b>
     ARBITRATION OR ANY OTHER LEGAL ACTION ARISING IN CONNECTION WITH THE USE OF THIS
     WEBSITE OR THESE TERMS OF USE MUST BE ON AN INDIVIDUAL BASIS, WHERE ALLOWED BY
     APPLICABLE LAWS. THIS MEANS NEITHER YOU NOR WE MAY JOIN OR CONSOLIDATE CLAIMS BY
     OR
-    AGAINST OTHER CUSTOMERS, OR LITIGATE IN COURT OR ARBITRATE ANY CLAIMS AS A
-    REPRESENTATIVE OR MEMBER OF A CLASS OR IN A PRIVATE ATTORNEY GENERAL CAPACITY.
+    AGAINST OTHER CUSTOMERS, OR LITIGATE IN COURT OR ARBITRATE ANY CLAIMS AS A REPRESENTATIVE OR MEMBER OF A CLASS OR IN
+    A PRIVATE ATTORNEY GENERAL CAPACITY.
+</p>
+
+<p>
     <b>14. Attorneys’ Fees - </b>
     In any dispute, action, proceeding, or arbitration regarding the use of this
     website

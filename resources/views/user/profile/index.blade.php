@@ -122,12 +122,42 @@
                         Delete Profile
                     </button>
                 </a> --}}
-                <a href="#"
-                    onclick="event.preventDefault(); alert('For issues concerning your account, contact Customer Service')">
-                    <button class="btn btn-danger mx-2">
-                        Delete Profile
-                    </button>
-                </a>
+
+                <button type="button" class="btn btn-danger mx-2" data-bs-toggle="modal"
+                    data-bs-target="#deleteProfile">
+                    Delete Profile
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="deleteProfile" tabindex="-1" aria-labelledby="deleteProfileLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5 text-danger" id="deleteProfileLabel">Account Deletion!</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                    This process will delete all your user data from Lightning Speed Matchmnaker, and
+                                    this <b>cannot be undone.</b><br><br>
+                                    Are you sure you want to proceed?
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger mx-4 px-4"
+                                    onclick="event.preventDefault(); document.getElementById('delete-profile').submit();">
+                                    Yes
+                                </button>
+                                <button type="button" class="btn btn-secondary px-4" data-bs-dismiss="modal">
+                                    No
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 
                 {{-- for delete --}}
                 <form id="delete-profile" action="{{ route('profile.delete') }}" method="POST" class="d-none">

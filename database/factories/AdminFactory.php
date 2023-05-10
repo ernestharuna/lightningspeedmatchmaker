@@ -18,9 +18,9 @@ class AdminFactory extends Factory
     public function definition()
     {
         return [
-            'first_name' => $this->faker->firstName(),
-            'last_name' => $this->faker->lastName(),
-            'email' => $this->faker->randomElement(['udwaghie@gmail.com']),
+            'first_name' => "Ernest",
+            'last_name' => "Haruna",
+            'email' => "udwaghie@gmail.com",
             'password' => Hash::make('password'),
         ];
     }

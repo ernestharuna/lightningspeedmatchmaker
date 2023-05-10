@@ -1,7 +1,21 @@
 <x-app-layout>
     <div class="container">
         <h2>Memberships</h2>
-        <p>You can come back to change this anytime</p>
+        <hr>
+        <p>
+            You can change this anytime you want.
+        </p>
+        <p>
+            <small>
+                <i class="bi bi-info-circle text-success fs-6"></i> Matchmaking is allowed to members who have selected a
+                paid
+                membership.
+                <br>
+                <i class="bi bi-info-circle text-success fs-6"></i> If you select a <b>Free Membership</b>, you will only
+                be eligible to be selected in a Match made by a paying user. <br>
+                <i class="bi bi-info-circle text-success fw-bold fs-6"></i> You will get an email if you get matched.
+            </small>
+        </p>
         <div class="subscriptions">
             @unless (count($subs) == 0)
 
@@ -19,8 +33,8 @@
                             {{ $sub->description }}
                         </p>
                     </div>
-                    <form id="update-sub-{{ $sub->id }}" action="{{ route('profile.update', Auth::id()) }}" method="POST"
-                        class="d-none">
+                    <form id="update-sub-{{ $sub->id }}" action="{{ route('profile.update', Auth::id()) }}"
+                        method="POST" class="d-none">
                         @csrf
                         @method('PATCH')
                         <input type="text" value="{{ $sub->subscription_type }}" name="subscription">

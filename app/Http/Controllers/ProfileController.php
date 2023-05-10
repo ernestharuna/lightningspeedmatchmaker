@@ -88,14 +88,22 @@ class ProfileController extends Controller
 
     public function destroy(Request $request)
     {
-        $user = $request->user();
-        Auth::logout();
+        try {
+            $user = $request->user();
 
-        $user->delete();
+            $user->seeks()->delete();
+            $user->matches()->delete();
+            $user->delete();
 
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+            Auth::logout();
 
-        return Redirect::to('/');
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+
+            // return Redirect::to('/register');
+            return redirect('/register')->with('status', 'Account Deleted');
+        } catch (\Illuminate\Database\QueryException $e) {
+            return redirect()->back()->with('error', 'something went error');
+        }
     }
 }

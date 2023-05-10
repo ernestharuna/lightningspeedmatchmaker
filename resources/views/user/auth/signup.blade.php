@@ -90,12 +90,13 @@
                                 </div>
                                 <div class="modal-body">
                                     <p>
-                                        <i><b>Last Revised:</b> August 1, 2019</i>
+                                        <b>Last Revised:</b> August 1, 2019
                                     </p>
                                     @include('user.partials.terms-of-use')
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary fw-bold" data-bs-dismiss="modal">
+                                    <button type="button" class="btn btn-primary fw-bold" data-bs-dismiss="modal"
+                                        onclick="document.getElementById('terms').checked = true; document.getElementById('submit-btn').disabled = false;">
                                         I AGREE
                                     </button>
                                 </div>

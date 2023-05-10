@@ -7,6 +7,11 @@
         </p>
         @unless (count($matches) == 0)
             @foreach ($matches as $match)
+                @php
+                    $dateOfBirth = new DateTime($match->date_of_birth);
+                    $currentDate = new DateTime();
+                    $age = $currentDate->diff($dateOfBirth)->y;
+                @endphp
                 <div class="bg-white p-3 rounded border mb-2 d-flex align-items-center justify-content-between">
                     <div>
                         <h3>
@@ -17,7 +22,7 @@
                             <i class="d-none" id="data">{{ $match->date_of_birth }}</i> {{-- JS gets age from here --}}
                             <span class="badge bg-gradient bg-primary rounded-pill">
                                 <span class="badge bg-white text-dark rounded-pill">Age:</span>
-                                <span id="age"></span>
+                                <span id="age">{{ $age }}</span>
                             </span>
 
                             <span class="badge bg-gradient bg-primary mx-1 rounded-pill">
