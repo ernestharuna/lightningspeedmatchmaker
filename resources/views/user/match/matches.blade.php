@@ -19,10 +19,9 @@
                         </h3>
                         <p class="m-0">{{ $accuracy }} match with you </p>
                         <p>
-                            <i class="d-none" id="data">{{ $match->date_of_birth }}</i> {{-- JS gets age from here --}}
                             <span class="badge bg-gradient bg-primary rounded-pill">
                                 <span class="badge bg-white text-dark rounded-pill">Age:</span>
-                                <span id="age">{{ $age }}</span>
+                                <span>{{ $age }} Years</span>
                             </span>
 
                             <span class="badge bg-gradient bg-primary mx-1 rounded-pill">
@@ -59,7 +58,7 @@
         @endunless
     </div>
 
-    <script>
+    {{-- <script>
         const data = document.getElementById('data').innerHTML;
 
         const birthDate = new Date(data);
@@ -74,6 +73,6 @@
             yearsDiff--;
         }
 
-        const age = document.getElementById('age').innerHTML = `${yearsDiff} years`;
+        const age = document.getElementById('age').innerHTML = `${yearsDiff} years`; --}}
     </script>
 </x-app-layout>

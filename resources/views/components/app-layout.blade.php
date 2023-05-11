@@ -86,7 +86,7 @@
                         @guest
                             @if (Route::has('login'))
                                 <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
-                                    {{ __('Log In') }}
+                                    {{ __('Login') }}
                                 </x-nav-link>
                             @endif
 

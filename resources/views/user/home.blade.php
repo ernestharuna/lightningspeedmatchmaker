@@ -15,11 +15,17 @@
             $step_1 = false;
         }
         
-        if ($user->seeks) {
-            isset($user->seeks->gender) ? ($step_2 = false) : ($step_2 = true);
+        if ($step_1) {
+            if ($user->seeks) {
+                isset($user->seeks->gender) ? ($step_2 = false) : ($step_2 = true);
+            } else {
+                $step_2 = true;
+            }
         } else {
             $step_2 = false;
         }
+        
+        isset($user->seeks->gender, $user->seeks->sexual_orientation) ? ($btn_2 = false) : ($btn_2 = true);
         
         // for matching button
         $user->subscription !== 'Free' && !$disabled ? ($match = true) : ($match = false);
@@ -151,7 +157,7 @@
                             {{ __('Preference Form') }}
                             <span
                                 class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                @if ($step_2)
+                                @if ($btn_2)
                                     not done
                                 @else
                                     done

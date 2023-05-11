@@ -7,6 +7,4 @@ The match expression is a new feature in PHP 8 that allows you to write more con
 In this case, the match expression takes the value of the send_to field and compares it against the values "verified", "unverified", and "all". Depending on the value of send_to, it retrieves a list of users using the appropriate Laravel Eloquent query. If the value of send_to is not one of the defined values, it retrieves all users by default.
 Finally, the $users variable contains the list of users that should receive the message based on the value of send_to. It is now ready to be used to send the message to the selected users.
 
-- Turn DOB to age with JS (done)
-- Test new mail server (done)
-- refine algorithm ( )
+- The GET method is not supported for route match/201. Supported methods: POST, PATCH - matching error

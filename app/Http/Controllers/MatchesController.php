@@ -39,10 +39,14 @@ class MatchesController extends Controller
                 'match_info' => 'required',
             ]);
 
+            if (Matches::where('matchedUser_id', $credentials['matchedUser_id'])->exists()) {
+                return redirect(route('dashboard'))->with('error', "Cannot match same user multiple times");
+            }
+
             $request->user()->matches()->create($credentials);
             return redirect(route('match.index'))->with('status', 'Match Saved!');
         } catch (\Exception $e) {
-            return back()->with('error', 'Oops, an error occured');
+            return redirect(route('dashboard'))->with('error', 'Something went wrong!');
         }
     }
 
