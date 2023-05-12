@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="d-flex align-items-center justify-content-center mt-3">
-        <div class="bg-white border rounded-3 shadow col-sm-4 col-lg-6 mx-3 p-4">
+        <div class="bg-white border rounded-3 shadow col-sm-4 col-lg-4 mx-3 p-4">
             <div class="text-center my-4">
                 <h2>User Login</h2>
             </div>
@@ -26,16 +26,19 @@
                     @enderror
                 </div>
 
-                <div class="col-12 mt-4">
+                <div class="col-12 my-4">
                     <button type="submit" class="btn btn-primary shadow fw-bold">Log in</button>
                 </div>
-
+                <hr>
                 <div>
                     <p>
-                        Don't have an account? <a href="{{ route('register') }}">Create Account</a>
+                        Don't have an account? <a href="{{ route('register') }}"
+                            class="text-decoration-none fw-bold">create account</a>
                     </p>
                     <p>
-                        <a href="{{ route('password.request') }}"> Forgot Password ?</a>
+                        <a href="{{ route('password.request') }}" class="text-decoration-none fw-bold">
+                            forgot password?
+                        </a>
                     </p>
                 </div>
             </form>

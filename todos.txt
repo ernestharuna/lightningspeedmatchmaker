@@ -25,3 +25,6 @@ Added N/A
 7. Ethnicity
 8. Religion
 9. zodiac
+
+UI updates 
+1. make session message look lke firefox's

@@ -77,8 +77,8 @@
                 </div>
                 <div>
                     <input type="checkbox" name="terms" id="terms" onchange="checkTerms()"> I agree to the
-                    <a data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="text-primary fw-bold">
-                        Terms of Use
+                    <a data-bs-toggle="modal" data-bs-target="#staticBackdrop"class="text-decoration-none fw-bold">
+                        terms of use
                     </a>
                     <!-- Modal -->
                     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -111,7 +111,9 @@
                 </div>
                 <div>
                     <p>
-                        Already have an account? <a href="{{ route('login') }}">Log in</a>
+                        Already have an account? <a href="{{ route('login') }}" class="text-decoration-none fw-bold">
+                            login here
+                        </a>
                     </p>
                 </div>
             </form>
