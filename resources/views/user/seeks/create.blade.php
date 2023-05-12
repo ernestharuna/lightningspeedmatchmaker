@@ -61,6 +61,7 @@
                         <option value="Muscular">Muscular</option>
                         <option value="Chubby">Chubby</option>
                         <option value="Fat">Fat</option>
+                        <option value="N/A">I don't mind</option>
                     </select>
                 </div>
 
@@ -75,6 +76,7 @@
                         <option value="Brunette">Brunette</option>
                         <option value="Blonde">Blonde</option>
                         <option value="Red">Red</option>
+                        <option value="N/A">I don't mind</option>
                     </select>
                 </div>
 
@@ -90,10 +92,11 @@
                         <option value="Blue">Blue</option>
                         <option value="Green">Green</option>
                         <option value="Hazel">Hazel</option>
+                        <option value="N/A">I don't mind</option>
                     </select>
                 </div>
 
-                {{-- physically active --}}
+                {{-- physically activity --}}
                 <div class="col-md-6">
                     <label for="how_pa" class="form-label fw-bold"
                         title="How physically active do you want your partner to be">Activity level</label>
@@ -105,6 +108,7 @@
                         <option value="A couple times a week">A couple times a week</option>
                         <option value="Daily fitness">Daily fitness</option>
                         <option value="Couch potato">I don't mind a couch potato</option>
+                        <option value="N/A">I don't mind</option>
                     </select>
                 </div>
 
@@ -122,6 +126,7 @@
                         <option value="Bachelors">Bachelors</option>
                         <option value="Masters">Masters</option>
                         <option value="Post-graduate">Post-graduate</option>
+                        <option value="N/A">I don't mind</option>
                     </select>
                 </div>
 
@@ -139,6 +144,7 @@
                         <option value="Platonic relationship">Someone looking for a platonic relationship</option>
                         <option value="Friends with benefit">Someone looking for friends with benefits</option>
                         <option value="Hang out buddy">Someone looking to spend time doing outdoor activities</option>
+                        <option value="N/A">Not sure</option>
                     </select>
                 </div>
 
@@ -166,6 +172,9 @@
                         <option value="Asian">Asian</option>
                         <option value="African">African</option>
                         <option value="Latinos">Latino/Hispanic</option>
+                        <option value="Middle Eastern/Arab">Middle Eastern/Arab</option>
+                        <option value="Mixed/Multiracial">Mixed/Multiracial</option>
+                        <option value="N/A">I don't mind</option>
                         <option value="Other">Other</option>
                     </select>
                 </div>
@@ -188,6 +197,7 @@
                         <option value="Buddhist">Buddhist</option>
                         <option value="Agnostic">Agnostic</option>
                         <option value="Atheist">Atheist</option>
+                        <option value="N/A">I don't mind</option>
                     </select>
                 </div>
 
@@ -199,6 +209,7 @@
                         <option value="" selected disabled>
                             Choose an option
                         </option>
+                        <option value="N/A">I don't mind</option>
                         <option value="Capricon">Capricon</option>
                         <option value="Libra">Libra</option>
                         <option value="Sagittarius">Sagittarius</option>
@@ -295,8 +306,8 @@
                     </label>
                     <select class="form-select" aria-label="Default select example" id="country" name="country"
                         autocomplete="on" required>
-                        <option value="{{ Auth::user()->country }}" selected disabled>
-                            {{ Auth::user()->country ? Auth::user()->country : __('Choose an option') }}
+                        <option value="" selected disabled>
+                            Choose an option
                         </option>
                         <option value="Canada">Canada</option>
                         <option value="United States">United States</option>

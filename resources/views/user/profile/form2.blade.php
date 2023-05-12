@@ -99,6 +99,8 @@
                         <option value="Asian">Asian</option>
                         <option value="African">African</option>
                         <option value="Latinos">Latino/Hispanic</option>
+                        <option value="Middle Eastern/Arab">Middle Eastern/Arab</option>
+                        <option value="Mixed/Multiracial">Mixed/Multiracial</option>
                         <option value="Other">Other</option>
                     </select>
                 </div>

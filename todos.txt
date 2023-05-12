@@ -8,3 +8,20 @@ In this case, the match expression takes the value of the send_to field and comp
 Finally, the $users variable contains the list of users that should receive the message based on the value of send_to. It is now ready to be used to send the message to the selected users.
 
 - The GET method is not supported for route match/201. Supported methods: POST, PATCH - matching error
+- Compare Mail controller on server with local
+
+To check box
+1. Education
+2. Looking for
+
+
+Added N/A
+1. Body type
+2. Hair color
+3. Eye color
+4. Physical activity
+5. Education
+6. what they want
+7. Ethnicity
+8. Religion
+9. zodiac
