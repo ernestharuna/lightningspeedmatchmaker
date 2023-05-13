@@ -50,3 +50,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/match/{user}', [MatchesController::class, 'match'])->name('match');
     Route::get('/match', [MatchesController::class, 'index'])->name('match.index');
 });
+
+Route::fallback(function () {
+    return view('errors.404');
+});
+
+// Route::post('/some-form', function () {
+//     // Handle form submission
+// })->middleware('throttle:5,1')->name('some-form');
+
+// n addition to handling 404 errors, you can also use middleware to handle other types of errors, such as 419 errors. In the example above, the throttle middleware is used to limit the number of requests that can be made to the /some-form route. If a user submits the form more than 5 times within a minute, they will receive a 419 error.
+
+// You can customize the view that is returned for different types of errors by creating a view file in the resources/views/errors directory with the appropriate HTTP status code as the filename (e.g. 404.blade.php for a 404 error).
