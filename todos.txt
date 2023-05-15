@@ -28,3 +28,6 @@ Added N/A
 
 UI updates 
 1. make session message look lke firefox's
+
+separate algorithm into another file,
+work on the percentage as well

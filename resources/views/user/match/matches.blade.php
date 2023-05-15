@@ -2,22 +2,62 @@
     <div class="container">
         <h2 class="mb-3 fw-bold">Match Search</h2>
         <p>
-            Tap <b>Take</b> to save the person of your choice, and then you can view their profile at the
-            <b>Matches</b> section while you wait for them to accept your Match Request.
+            <small>
+                - Tap <b>Take</b> to save the person of your choice. <br>
+                - You can view their profile by tapping their or <b>See Profile</b>.
+            </small>
         </p>
+
         @unless (count($matches) == 0)
             @foreach ($matches as $match)
                 @php
+                    // format age
                     $dateOfBirth = new DateTime($match->date_of_birth);
                     $currentDate = new DateTime();
                     $age = $currentDate->diff($dateOfBirth)->y;
+                    
+                    // User Instance
+                    $auth = auth()->user();
+                    
+                    // User age
+                    $u_dob = new DateTime($auth->date_of_birth);
+                    $u_age = $currentDate->diff($u_dob)->y;
+                    
+                    // Age difference
+                    $ageData = $u_age - $age;
+                    
+                    // Match percentage || Algorithm for percentage ---------------------------------
+                    $accuracy = 100;
+                    if ($match->looking_for == $auth->looking_for) {
+                    }
+                    if ($ageData > 13 || $ageData < -13) {
+                        $accuracy -= 20;
+                    }
+                    if ($auth->seeks->religion != $match->religion) {
+                        $accuracy -= 10;
+                    }
+                    // if ($auth->seeks->religion != $match->religion ) {
+                    //     $accuracy -= 10;
+                    // }
+                    // if ($auth->seeks->religion != $match->religion ) {
+                    //     $accuracy -= 10;
+                    // }
+                    // if ($auth->seeks->religion != $match->religion ) {
+                    //     $accuracy -= 10;
+                    // }
                 @endphp
                 <div class="bg-white p-3 rounded border mb-2 d-flex align-items-center justify-content-between">
                     <div>
                         <h3>
-                            {{ $match->first_name }}
+                            <a href="{{ route('user.foo', $match) }}"
+                                class="text-decoration-none text-dark">{{ $match->first_name }}</a>
                         </h3>
-                        <p class="m-0">{{ $accuracy }} match with you </p>
+                        <p class="m-0">
+                            <small>
+                                {{ $accuracy }}% match with you | <a href="{{ route('user.foo', $match) }}">See
+                                    profile</a>
+                            </small>
+                        </p>
                         <p>
                             <span class="badge bg-gradient bg-primary rounded-pill">
                                 <span class="badge bg-white text-dark rounded-pill">Age:</span>
@@ -56,6 +96,9 @@
                 </a>
             </div>
         @endunless
+        <div class="my-1 p-2">
+            {{ $matches->links() }}
+        </div>
     </div>
 
     {{-- <script>

@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReferralsController;
 use App\Http\Controllers\SeeksController;
 use App\Http\Controllers\SubscriptionsController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,12 +44,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/referrals/save', [ReferralsController::class, 'store'])->name('submit.ref');
 
     // matches
-    Route::post('/match/save', [MatchesController::class, 'store'])->name('match.store');
-    Route::get('/match/profile/{profile}', [MatchesController::class, 'showUser'])->name('match.profile');
-    Route::get('/match/{match}/show', [MatchesController::class, 'show'])->name('match.show');
-    Route::patch('/match/{match}', [MatchesController::class, 'update'])->name('match.update');
-    Route::post('/match/{user}', [MatchesController::class, 'match'])->name('match');
+    Route::get('/user/match/search', [MatchesController::class, 'match'])->name('match');
+    Route::get('/find/user/profile/{user}', [UserController::class, 'foo'])->name('user.foo');
+
     Route::get('/match', [MatchesController::class, 'index'])->name('match.index');
+    Route::post('/match', [MatchesController::class, 'store'])->name('match.store');
+    Route::get('/match/{match}', [MatchesController::class, 'show'])->name('match.show');
+    Route::patch('/match/{match}', [MatchesController::class, 'update'])->name('match.update');
+    Route::get('/match/profile/{profile}', [MatchesController::class, 'showUser'])->name('match.profile');
 });
 
 Route::fallback(function () {

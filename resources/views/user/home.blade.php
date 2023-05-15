@@ -220,13 +220,9 @@
                             You can click <a href="{{ route('subs') }}">here</a> to update your membership.
                         </p>
                     @endif
-                    <button @class(['btn', 'btn-dark', 'disabled' => !$match])
-                        onclick="event.preventDefault(); document.getElementById('match').submit();">
-                        <i class="bi bi-search-heart fs-5"></i> Find Match
-                    </button>
-                    <form id="match" action="{{ route('match', Auth::id()) }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
+                    <a @class(['btn', 'btn-dark', 'disabled' => !$match]) href="{{ route('match') }}">
+                        <i class="bi bi-search-heart fs-4"></i> Find Match
+                    </a>
                 </div>
             </div>
         </div>

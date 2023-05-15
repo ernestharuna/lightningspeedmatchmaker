@@ -1,4 +1,4 @@
-{{-- @php
+@php
     $word = $match->last_name;
     $last_name = substr($word, 0, 1);
 @endphp
@@ -45,8 +45,13 @@
 
             <div>
                 <h3>{{ $match->first_name }} {{ $last_name }}.</h3>
-                <p>{{ $match->date_of_birth }}</p>
-                <p>{{ $match->city }}, {{ $match->country }}</p>
+                <i id="data" class="d-none">{{ $match->date_of_birth }}</i>
+                <p class="m-0">
+                    Age: <span id="age"></span>
+                </p>
+                <p class="m-0">
+                    Location: {{ $match->city }}, {{ $match->country }}
+                </p>
             </div>
 
             <hr>
@@ -107,8 +112,8 @@
             </div>
 
             <div class="d-inline-block bg-white bg-gradient border border-secondary border-1 rounded px-3 p-1 fw-bold my-3"
-                title="Request Status: {{ $match->status }}">
-                Status: {{ $match->status }}
+                title="Send a match request">
+                Request a Match
             </div>
 
             <div class="d-sm-flex justify-content-between mt-3">
@@ -130,4 +135,21 @@
             </div>
         </div>
     </div>
-</x-app-layout> --}}
+    <script>
+        const data = document.getElementById('data').innerHTML;
+
+        const birthDate = new Date(data);
+        const today = new Date();
+
+        var yearsDiff = today.getFullYear() - birthDate.getFullYear();
+        const monthsDiff = today.getMonth() - birthDate.getMonth();
+        const daysDiff = today.getDate() - birthDate.getDate();
+
+        // Check if the birth date hasn't happened yet this year
+        if (monthsDiff < 0 || (monthsDiff === 0 && daysDiff < 0)) {
+            yearsDiff--;
+        }
+
+        const age = document.getElementById('age').innerHTML = `${yearsDiff} years`;
+    </script>
+</x-app-layout>

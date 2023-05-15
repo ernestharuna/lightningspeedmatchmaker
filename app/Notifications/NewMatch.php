@@ -46,9 +46,9 @@ class NewMatch extends Notification implements ShouldQueue
             ->subject("New Match Notification")
             ->greeting("New match request sent to {$this->matches->matched_user->first_name}")
             ->line("{$this->matches->matched_user->first_name}'s Bio:")
-            ->line(Str::limit($this->matches->user->extra, 80))
+            ->line(Str::limit($this->matches->matched_user->extra, 80))
             ->action('Go to Lightning Speed Matchmaker', url('/match'))
-            ->line("Once {$this->matches->matched_user->first_name} accept's your match request, our professional match maker will contact you via phone to discuss the next step to get connected with your match.");
+            ->line("If {$this->matches->matched_user->first_name} accept's your match request, our professional match maker will contact you via phone to discuss the next step to get connected with your match.");
     }
 
     /**

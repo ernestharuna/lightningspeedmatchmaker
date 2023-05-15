@@ -3,8 +3,17 @@
         <div
             class="bg-white border rounded-3 shadow col-sm-10 col-md-10 col-lg-6 mx-3 p-4 animate__animated animate__fadeIn">
             <div class="text-left my-4">
-                <h3>You can now edit your matching preferences</h3>
+                <h3>Edit your matching preferences</h3>
+                <p class="m-0">
+                    - "<b>N/A</b>" signifies that you may have selected a neutral option when filling out your
+                    preference
+                    form
+                </p>
+                <p>
+                    - <span class="text-danger">Remember</span> to fill out what you seek in you soulmate.
+                </p>
             </div>
+            <hr>
             <form method="POST" action="{{ route('seeks.update', $seeks) }}" enctype="multipart/form-data" class="row g-3">
                 @csrf
                 @method('PATCH')

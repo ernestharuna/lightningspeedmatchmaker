@@ -28,6 +28,13 @@ class UserController extends Controller
         ]);
     }
 
+    public function foo(User $user)
+    {
+        return view('user.match.search_show', [
+            'match' => $user
+        ]);
+    }
+
     public function show(User $user)
     {
         return view('admin.members.show', [
