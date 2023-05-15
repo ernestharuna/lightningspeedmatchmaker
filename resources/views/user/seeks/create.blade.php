@@ -46,6 +46,7 @@
                         <option value="5'5ft - 6ft">5'5ft - 6ft</option>
                         <option value="6ft - 6'5ft">6ft - 6'5ft</option>
                         <option value="6'5 above">6'5 above</option>
+                        <option value="N/A" class="text-danger">I don't mind</option>
                     </select>
                 </div>
 
@@ -61,7 +62,7 @@
                         <option value="Muscular">Muscular</option>
                         <option value="Chubby">Chubby</option>
                         <option value="Fat">Fat</option>
-                        <option value="N/A">I don't mind</option>
+                        <option value="N/A" class="text-danger">I don't mind</option>
                     </select>
                 </div>
 
@@ -76,7 +77,7 @@
                         <option value="Brunette">Brunette</option>
                         <option value="Blonde">Blonde</option>
                         <option value="Red">Red</option>
-                        <option value="N/A">I don't mind</option>
+                        <option value="N/A" class="text-danger">I don't mind</option>
                     </select>
                 </div>
 
@@ -92,7 +93,7 @@
                         <option value="Blue">Blue</option>
                         <option value="Green">Green</option>
                         <option value="Hazel">Hazel</option>
-                        <option value="N/A">I don't mind</option>
+                        <option value="N/A" class="text-danger">I don't mind</option>
                     </select>
                 </div>
 
@@ -108,7 +109,7 @@
                         <option value="A couple times a week">A couple times a week</option>
                         <option value="Daily fitness">Daily fitness</option>
                         <option value="Couch potato">I don't mind a couch potato</option>
-                        <option value="N/A">I don't mind</option>
+                        <option value="N/A" class="text-danger">I don't mind</option>
                     </select>
                 </div>
 
@@ -126,7 +127,7 @@
                         <option value="Bachelors">Bachelors</option>
                         <option value="Masters">Masters</option>
                         <option value="Post-graduate">Post-graduate</option>
-                        <option value="N/A">I don't mind</option>
+                        <option value="N/A" class="text-danger">I don't mind</option>
                     </select>
                 </div>
 
@@ -140,11 +141,11 @@
                         <option value="" selected disabled>
                             Choose an option
                         </option>
+                        <option value="N/A" class="text-danger">Not sure</option>
                         <option value="Marriage">Someone looking for Marriage</option>
                         <option value="Platonic relationship">Someone looking for a platonic relationship</option>
                         <option value="Friends with benefit">Someone looking for friends with benefits</option>
                         <option value="Hang out buddy">Someone looking to spend time doing outdoor activities</option>
-                        <option value="N/A">Not sure</option>
                     </select>
                 </div>
 
@@ -168,13 +169,13 @@
                         <option value="" selected disabled>
                             Choose an option
                         </option>
+                        <option value="N/A" class="text-danger">I don't mind</option>
                         <option value="American">American</option>
                         <option value="Asian">Asian</option>
                         <option value="African">African</option>
                         <option value="Latinos">Latino/Hispanic</option>
                         <option value="Middle Eastern/Arab">Middle Eastern/Arab</option>
                         <option value="Mixed/Multiracial">Mixed/Multiracial</option>
-                        <option value="N/A">I don't mind</option>
                         <option value="Other">Other</option>
                     </select>
                 </div>
@@ -197,7 +198,7 @@
                         <option value="Buddhist">Buddhist</option>
                         <option value="Agnostic">Agnostic</option>
                         <option value="Atheist">Atheist</option>
-                        <option value="N/A">I don't mind</option>
+                        <option value="N/A" class="text-danger">I don't mind</option>
                     </select>
                 </div>
 
@@ -209,7 +210,6 @@
                         <option value="" selected disabled>
                             Choose an option
                         </option>
-                        <option value="N/A">I don't mind</option>
                         <option value="Capricon">Capricon</option>
                         <option value="Libra">Libra</option>
                         <option value="Sagittarius">Sagittarius</option>
@@ -222,6 +222,7 @@
                         <option value="Virgo">Virgo</option>
                         <option value="Aries">Aries</option>
                         <option value="Scorpio">Scorpio</option>
+                        <option value="N/A" class="text-danger">I don't mind</option>
                     </select>
                 </div>
 
@@ -300,7 +301,7 @@
                 </div>
 
                 {{-- country --}}
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <label for="country" class="form-label fw-bold">
                         Country <b class="text-danger">*</b>
                     </label>

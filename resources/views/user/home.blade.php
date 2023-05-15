@@ -34,8 +34,7 @@
         <div>
             <div class="mb-2">
                 <h1 class="fw-bold">
-                    <i class="bi bi-cloud-sun-fill text-secondary"></i>
-                    Good Day, {{ Auth::user()->first_name }}
+                    Dashboard
                 </h1>
                 <small title="Your email has been verified">Account Status: Verified <i
                         class="bi bi-check-circle-fill text-primary"></i>
@@ -91,8 +90,37 @@
         </div>
         <hr>
 
-        <div class="d-sm-flex justify-content-between align-items-center">
+        {{-- User Card --}}
+        <div class="mx-3 my-2 shadow d-flex border rounded bg-white">
+            <div class="card-body d-flex align-items-center g-3 p-2">
+                <div>
+                    <img src="{{ $user->profile_pic ? asset('storage/' . $user->profile_pic) : asset('assets/img/logo.png') }}"
+                        class="img-fluid rounded border" alt="..."
+                        style="width: 65px; height: 65px; aspect-ratio: 3/2;">
+                </div>
+                <div class="mx-3 text-black">
+                    <h5>Ernest Haruna &middot; {{ $age }}</h5>
+                    <p class="m-0">
+                        <small class="fw-semibold">Last match: <span
+                                class="fw-normal">{{ $md }}</span></small>
+                    </p>
+                    <hr class="m-0">
+                    <p class="m-0">
+                        <small class="fw-semibold">Refer a friend
+                            <a href="{{ route('referrals') }}"
+                                class="bg-secondary text-white px-2 text-decoration-none">here
+                            </a>
+                        </small>
+                    </p>
+                </div>
+            </div>
+            <div class="p-2 flex-shrink-1 bg-primary bg-gradient text-white rounded-end w-25 d-flex align-items-center overflow-hidden"
+                title="You are a {{ $user->subscription }} member, go to the Membership section to change this">
+                <h5 class="text-center w-100 fw-bold">{{ $user->subscription }} Member </h5>
+            </div>
+        </div>
 
+        <div class="d-sm-flex justify-content-between align-items-center">
             {{-- STEP 1 --}}
             <div class="card mx-3 my-2 shadow">
                 <div class="card-body">
@@ -137,7 +165,7 @@
             <div class="card mx-3 my-2 shadow">
                 <div class="card-body">
                     <h5 class="card-title">
-                        <span class="fw-bold">Step 2:</span> Your Soul-Mate
+                        <span class="fw-bold">Step 2:</span> Your Soulmate
                     </h5>
                     <p class="card-text">
                         Now you've completed your profile, tell us about the kind of partner you're
@@ -191,7 +219,7 @@
                             You can click <a href="{{ route('subs') }}">here</a> to update your membership.
                         </p>
                     @endif
-                    <button @class(['btn', 'btn-success', 'disabled' => !$match])
+                    <button @class(['btn', 'btn-dark', 'disabled' => !$match])
                         onclick="event.preventDefault(); document.getElementById('match').submit();">
                         <i class="bi bi-search-heart fs-5"></i> Find Match
                     </button>

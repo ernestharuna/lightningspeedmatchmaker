@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="container">
-        <h2>Memberships</h2>
+        <h2><i class="bi bi-person-gear"></i> Memberships</h2>
         <hr>
         <p>
             You can change this anytime you want.

@@ -1,13 +1,13 @@
 <x-app-layout>
     <div class="d-flex align-items-center justify-content-center mt-3">
-        <div class="bg-white border rounded-3 shadow col-sm-4 col-lg-6 mx-3 p-4">
+        <div class="bg-white border rounded-3 shadow col-sm-4 col-lg-5 mx-3 p-4">
             <div class="text-center my-4">
-                <h2 class="fw-bold">Create Account</h2>
+                <h2>Create Account</h2>
             </div>
             <form method="POST" action="/register" class="row g-3">
                 @csrf
                 {{-- first name --}}
-                <div class="col-md-6">
+                <div class="col-6">
                     <label for="first_name" class="form-label fw-bold">First Name</label>
                     <input type="text" class="form-control" name="first_name" placeholder="John"
                         value="{{ old('first_name') }}">
@@ -19,7 +19,7 @@
                 </div>
 
                 {{-- last name --}}
-                <div class="col-md-6">
+                <div class="col-6">
                     <label for="last_name" class="form-label fw-bold">Last Name</label>
                     <input type="text" class="form-control" name="last_name" placeholder="Doe"
                         value="{{ old('last_name') }}">
@@ -32,8 +32,8 @@
 
                 {{-- email --}}
                 <div class="col-6">
-                    <label for="email" class="form-label fw-bold">E-mail</label>
-                    <input type="email" class="form-control" name="email" placeholder="john@xyz.com"
+                    <label for="email" class="form-label fw-bold">Email</label>
+                    <input type="email" class="form-control" name="email" placeholder="yourname@mail.com"
                         value="{{ old('email') }}">
                     @error('email')
                         <p class="text-danger fs-6 mt-1">
@@ -52,6 +52,27 @@
                             {{ $message }}
                         </p>
                     @enderror
+                </div>
+
+                {{-- Date of birth --}}
+                <div class="col-md-6">
+                    <label for="date_of_birth" class="form-label fw-bold">
+                        Date of Birth
+                        <b class="text-danger">*</b>
+                    </label>
+                    <input type="text" class="form-control" id="date_of_birth" name="date_of_birth"
+                        placeholder="YYYY-MM-DD" required>
+                </div>
+
+                {{-- gender --}}
+                <div class="col-md-6">
+                    <label for="gender" class="form-label fw-bold">Gender <b class="text-danger">*</b></label>
+                    <select id="gender" class="form-select" aria-label="Default select example" name="gender"
+                        required>
+                        <option value="" selected disabled>Choose an option</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
                 </div>
 
                 {{-- password --}}
@@ -131,5 +152,10 @@
         } else {
             submitButton.disabled = true;
         }
-    }
+    };
+
+    flatpickr('#date_of_birth', {
+        dateFormat: 'Y-m-d',
+        // Add more configuration options as needed
+    });
 </script>
