@@ -91,20 +91,25 @@
         <hr>
 
         {{-- User Card --}}
-        <div class="mx-3 my-2 shadow d-flex border rounded bg-white">
+        <div class="mx-3 my-2 shadow border card">
             <div class="card-body d-flex align-items-center g-3 p-2">
-                <div>
+                <div style="width: 85px; height: 85px;">
                     <img src="{{ $user->profile_pic ? asset('storage/' . $user->profile_pic) : asset('assets/img/logo.png') }}"
-                        class="img-fluid rounded border" alt="..."
-                        style="width: 65px; height: 65px; aspect-ratio: 3/2;">
+                        class="img-fluid rounded border" alt="...">
                 </div>
                 <div class="mx-3 text-black">
-                    <h5>Ernest Haruna &middot; {{ $age }}</h5>
+                    <h5>Ernest Haruna</h5>
+
                     <p class="m-0">
-                        <small class="fw-semibold">Last match: <span
-                                class="fw-normal">{{ $md }}</span></small>
+                        <small class="fw-semibold">Age: <span class="fw-normal">{{ $age }} years old</span>
+                        </small>
                     </p>
-                    <hr class="m-0">
+
+                    <p class="m-0">
+                        <small class="fw-semibold">Last match: <span class="fw-normal">{{ $md }}</span>
+                        </small>
+                    </p>
+
                     <p class="m-0">
                         <small class="fw-semibold">Refer a friend
                             <a href="{{ route('referrals') }}"
@@ -113,10 +118,6 @@
                         </small>
                     </p>
                 </div>
-            </div>
-            <div class="p-2 flex-shrink-1 bg-primary bg-gradient text-white rounded-end w-25 d-flex align-items-center overflow-hidden"
-                title="You are a {{ $user->subscription }} member, go to the Membership section to change this">
-                <h5 class="text-center w-100 fw-bold">{{ $user->subscription }} Member </h5>
             </div>
         </div>
 
