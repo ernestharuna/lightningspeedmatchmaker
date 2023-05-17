@@ -67,10 +67,12 @@ class MatchesController extends Controller
     {
         $gender = Auth::user()->seeks->gender;
         $orientation = Auth::user()->seeks->sexual_orientation;
+        $looking_for = Auth::user()->seeks->rel_type;
 
         $user_search = User::where([
             ['gender', '=', "$gender"],
             ['orientation', '!=', "$orientation"],
+            ['looking_for', '=', "$looking_for"],
             ['id', '!=', Auth::id()],
             ['email_verified_at', '!=', null],
         ])->inRandomOrder()->paginate(10);

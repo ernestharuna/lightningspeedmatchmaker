@@ -10,42 +10,9 @@
 
         @unless (count($matches) == 0)
             @foreach ($matches as $match)
-                @php
-                    // format age
-                    $dateOfBirth = new DateTime($match->date_of_birth);
-                    $currentDate = new DateTime();
-                    $age = $currentDate->diff($dateOfBirth)->y;
-                    
-                    // User Instance
-                    $auth = auth()->user();
-                    
-                    // User age
-                    $u_dob = new DateTime($auth->date_of_birth);
-                    $u_age = $currentDate->diff($u_dob)->y;
-                    
-                    // Age difference
-                    $ageData = $u_age - $age;
-                    
-                    // Match percentage || Algorithm for percentage ---------------------------------
-                    $accuracy = 100;
-                    if ($match->looking_for == $auth->looking_for) {
-                    }
-                    if ($ageData > 13 || $ageData < -13) {
-                        $accuracy -= 20;
-                    }
-                    if ($auth->seeks->religion != $match->religion) {
-                        $accuracy -= 10;
-                    }
-                    // if ($auth->seeks->religion != $match->religion ) {
-                    //     $accuracy -= 10;
-                    // }
-                    // if ($auth->seeks->religion != $match->religion ) {
-                    //     $accuracy -= 10;
-                    // }
-                    // if ($auth->seeks->religion != $match->religion ) {
-                    //     $accuracy -= 10;
-                    // }
-                @endphp
+                {{-- Matching percentage calculator --}}
+                @include('partials._percentager')
+                {{-- Matching percentage calculator END --}}
                 <div class="bg-white p-3 rounded border mb-2 d-flex align-items-center justify-content-between">
                     <div>
                         <h3>

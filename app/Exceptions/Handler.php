@@ -2,6 +2,10 @@
 
 namespace App\Exceptions;
 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Illuminate\Session\TokenMismatchException;
+
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
@@ -58,5 +62,18 @@ class Handler extends ExceptionHandler
             return redirect()->guest('/login/admin');
         }
         return redirect()->guest(route('login'));
+    }
+
+    public function render($request, Throwable $exception)
+    {
+        if ($exception instanceof NotFoundHttpException) {
+            return response()->view('errors.404', [], 404);
+        } elseif ($exception instanceof ModelNotFoundException) {
+            return response()->view('errors.404', [], 404);
+        } elseif ($exception instanceof TokenMismatchException) {
+            return response()->view('errors.419', [], 419);
+        }
+
+        return parent::render($request, $exception);
     }
 }
