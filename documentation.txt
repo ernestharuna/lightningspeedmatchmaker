@@ -41,8 +41,8 @@ Added N/A on seeks form
 9. zodiac
 10. height
 
-separate algorithm into another file,
 work on the percentage as well
 change Delete Preferences to Reset Pref/
 Edit Preferences isnt same form as Create Preferences
-Make Extra Information a table
+Make Extra Information profiles a table
+Make percentage algorithm a component

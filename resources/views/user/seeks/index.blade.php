@@ -63,7 +63,7 @@
                             <a href="#"
                                 onclick="event.preventDefault(); document.getElementById('delete-preference').submit();">
                                 <button class="btn btn-danger mx-3">
-                                    Delete
+                                    Reset Preferences
                                 </button>
                             </a>
 
