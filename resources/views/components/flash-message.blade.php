@@ -7,7 +7,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             width: max-content;
-            background: rgba(12, 255, 12, 0.2);
+            background: #0cff0c33;
             padding: 5px 10px;
             z-index: 2000;
         }

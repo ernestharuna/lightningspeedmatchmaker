@@ -7,7 +7,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             width: max-content;
-            border: 0.5px solid rgb(255, 0, 0);
+            background: #ce5c5cb0;
             padding: 5px 10px;
             z-index: 2000;
         }
