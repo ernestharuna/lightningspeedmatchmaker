@@ -98,7 +98,7 @@
                         class="img-fluid rounded border" alt="...">
                 </div>
                 <div class="mx-3 text-black">
-                    <h5>Ernest Haruna</h5>
+                    <h5>{{ Auth::user()->first_name }} {{ Auth::user()->last_name }} </h5>
 
                     <p class="m-0">
                         <small class="fw-semibold">Age: <span class="fw-normal">{{ $age }} years old</span>

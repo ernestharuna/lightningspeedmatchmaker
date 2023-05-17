@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>404 - Not Found</title>
+    <title>Page expired</title>
 </head>
 
 <body>
@@ -14,56 +14,84 @@
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             background-image: url('/logo.png');
             background-repeat: no-repeat;
-            background-size: 100px;
+            background-position: center center;
+            background-attachment: fixed;
+            background-size: contain;
+            background: #fff
+        }
+
+        .container {
+            width: 50dvw;
+            backdrop-filter: blur(15px);
+            border-radius: 1rem;
+            border: 1px solid #e2e2e2b0;
+            margin: 0 auto;
+            margin-top: 5%;
+            text-align: center;
+            padding: 10px 20px;
+            box-shadow: 0 0 5px -2px;
+            transition: all .5s ease-out;
+        }
+
+        @media screen and (max-width: 800px) {
+            .container {
+                width: 90%;
+                margin-top: 60%;
+            }
+        }
+
+        .container:hover {
+            backdrop-filter: blur(8px);
+        }
+
+        h1 {
+            font-size: 3rem;
         }
 
         a {
-            text-decoration: none;
-        }
-
-        a:link {
-            color: #000;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .mt-5 {
-            margin-top: 15rem
-        }
-
-        #click {
-            width: max-content;
-            margin: 0 auto;
-            padding: 10px 20px;
+            background: #0D6EFD;
+            padding: 10px;
             border-radius: 5px;
-            box-shadow: 0 1px 5px -1px;
-            transition: all .2s;
-            background: #fff;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            transition: all .3s;
         }
 
-        #click:hover {
-            box-shadow: 0 1px 5px -4px;
-            background: #f1f1f1;
+        a:hover {
+            background: #004fc6;
+        }
+
+        #msg {
+            text-align: left;
         }
     </style>
 
-    <div>
-        <div class="mt-5 text-center">
-            <h1>
-                Oops, something went wrong!
-            </h1>
-            <p>
-                Let's help you retrace your steps
-            </p>
-            <a href="http://lightningspeedmatchmaker.com">
-                <div id="click">
-                    Click here!
-                </div>
+    <main>
+        <div class="container">
+            <h2 style="font-size: 4rem; margin: 0;">⚠️</h2>
+            <h1>Page Expired</h1>
+            {{-- <h3>Oops! Page not found.</h3> --}}
+            <p id="msg">It seems that the page you were trying to access has expired. This could be due to the
+                session timing out
+                or a security measure in place.
+                <br><br>
+                To continue, please refresh the page and try again. If the issue persists, kindly return to the previous
+                page or visit our homepage to explore other content.
+                <br><br>
+                If you believe this is an error, please contact our support team for further assistance. We are here to
+                help resolve any issues you may be facing.
+                <br><br>
+                Thank you for your understanding and patience.
+            </p><br>
+            <a onclick="window.location.reload();" style="cursor: pointer;">
+                Reload
+            </a>
+            <a href="https://www.lightningspeedmatchmaker.com" style="background: green; cursor: pointer;">
+                Return Home
             </a>
         </div>
-    </div>
+    </main>
 </body>
 
 </html>

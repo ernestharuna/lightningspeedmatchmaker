@@ -14,56 +14,66 @@
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             background-image: url('/logo.png');
             background-repeat: no-repeat;
-            background-size: 100px;
+            background-position: center center;
+            background-attachment: fixed;
+            background-size: contain;
+        }
+
+        .container {
+            width: 50dvw;
+            backdrop-filter: blur(15px);
+            border-radius: 1rem;
+            border: 1px solid #e2e2e2b0;
+            margin: 0 auto;
+            margin-top: 10%;
+            text-align: center;
+            padding: 10px 20px;
+            box-shadow: 0 0 5px -2px;
+            transition: all .5s ease-out;
+        }
+
+        @media screen and (max-width: 800px) {
+            .container {
+                width: 90%;
+                margin-top: 60%;
+            }
+        }
+
+        .container:hover {
+            backdrop-filter: blur(8px);
+        }
+
+        h1 {
+            font-size: 6rem;
+            margin: 10px
         }
 
         a {
-            text-decoration: none;
-        }
-
-        a:link {
-            color: #000;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .mt-5 {
-            margin-top: 15rem
-        }
-
-        #click {
-            width: max-content;
-            margin: 0 auto;
-            padding: 10px 20px;
+            background: #0D6EFD;
+            padding: 10px;
             border-radius: 5px;
-            box-shadow: 0 1px 5px -1px;
-            transition: all .2s;
-            background: #fff;
+            color: white;
+            text-decoration: none;
+            display: block;
+            transition: all .3s;
         }
 
-        #click:hover {
-            box-shadow: 0 1px 5px -4px;
-            background: #f1f1f1;
+        a:hover {
+            background: #004fc6;
         }
     </style>
 
-    <div>
-        <div class="mt-5 text-center">
-            <h1>
-                Oops, something went wrong!
-            </h1>
-            <p>
-                Let's help you retrace your steps
-            </p>
-            <a href="http://lightningspeedmatchmaker.com">
-                <div id="click">
-                    Click here!
-                </div>
+    <main>
+        <div class="container">
+            <h1>404</h1>
+            <h3>Oops! Page not found.</h3>
+            <p>Something is wrong with the page you're trying to access.</p>
+
+            <a href="https://www.lightningspeedmatchmaker.com">
+                Return Home
             </a>
         </div>
-    </div>
+    </main>
 </body>
 
 </html>

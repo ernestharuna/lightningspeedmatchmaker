@@ -32,7 +32,7 @@
     
     // Children compatibility
     if ($auth->seeks->children == 'Yes') {
-        break;
+        // break;
     } elseif ($auth->seeks->children == 'No') {
         if ($auth->seeks->children == $match->children) {
             $accuracy += 6.25;
@@ -40,7 +40,7 @@
     }
     // Pet compatibility
     if ($auth->seeks->date_pet_owner == 'Yes') {
-        break;
+        // break;
     } elseif ($auth->seeks->date_pet_owner == 'No') {
         if ($auth->seeks->date_pet_owner == $match->pets) {
             $accuracy += 6.25;
@@ -48,7 +48,7 @@
     }
     // Drug compatibility
     if ($auth->seeks->date_drug == 'Yes') {
-        break;
+        // break;
     } elseif ($auth->seeks->date_drug == 'No') {
         if ($auth->seeks->date_drug == $match->drugs) {
             $accuracy += 6.25;
@@ -57,7 +57,7 @@
     
     // Drinking compatibility
     if ($auth->seeks->date_drink == 'Yes') {
-        break;
+        // break;
     } elseif ($auth->seeks->date_drink == 'No') {
         if ($auth->seeks->date_drink == $match->drinks) {
             $accuracy += 6.25;
@@ -65,7 +65,7 @@
     }
     // Smoking compatibility
     if ($auth->seeks->date_smoker == 'Yes') {
-        break;
+        // break;
     } elseif ($auth->seeks->date_smoker == 'No') {
         if ($auth->seeks->date_smoker == $match->smokes) {
             $accuracy += 6.25;
