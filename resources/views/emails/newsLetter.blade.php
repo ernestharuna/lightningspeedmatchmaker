@@ -1,15 +1,17 @@
 <html>
 
-<style>
-    body {
-        background: #F7F7F7;
-    }
+<head>
+    <style>
+        body {
+            background: #89c4ff;
+            color: #000;
+        }
 
-    h1 {
-        text-align: center;
-        color: #3838d7;
-    }
-</style>
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
 
 <body>
     <h1>{{ $title }}</h1>
