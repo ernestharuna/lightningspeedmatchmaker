@@ -1,6 +1,7 @@
 <!-- Nothing worth having comes easy. - Theodore Roosevelt -->
+<!-- This component has its algorigthm in app/View/Components -->
 
-<div class="bg-white p-3 rounded border mb-2 d-flex align-items-center justify-content-between">
+<div class="bg-white p-3 rounded shadow mb-3 d-flex align-items-center justify-content-between">
     <div>
         <h3>
             <a href="{{ route('user.foo', $match) }}" class="text-decoration-none text-dark">{{ $match->first_name }}</a>
