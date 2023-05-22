@@ -46,3 +46,15 @@ change Delete Preferences to Reset Pref/
 Edit Preferences isnt same form as Create Preferences
 Make Extra Information profiles a table
 Make percentage algorithm a component
+
+ADD TO NEWSLETTER class
+
+When sending content from an HTML textarea in Laravel, the newline characters (\n) are typically not interpreted as line breaks in HTML. To ensure that your paragraphs are properly formatted, you can use the nl2br() function in Laravel to convert the newline characters to HTML line breaks (<br> tags). Here's an example:
+
+CODE
+php
+$content = nl2br($request->input('textarea_content'));
+
+In the above code, textarea_content is the name of your textarea input field. The nl2br() function converts the newline characters to <br> tags, 
+allowing your paragraphs to be displayed correctly when sent as part of the email template.
+After converting the content using nl2br(), you can pass it to your email template and it should preserve the line breaks and paragraph formatting.

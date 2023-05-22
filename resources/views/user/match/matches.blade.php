@@ -10,7 +10,6 @@
 
         @unless (count($matches) == 0)
             @foreach ($matches as $match)
-                {{-- Matching percentage calculator --}}
                 @php
                     // format age
                     $dateOfBirth = new DateTime($match->date_of_birth);
@@ -26,105 +25,8 @@
                     
                     // Age difference
                     $ageData = $u_age - $age;
-                    
-                    // Match percentage || Algorithm for percentage ---------------------------------
-                    $accuracy = 0;
-                    
-                    if ($ageData > 13 || $ageData < -13) {
-                        $accuracy -= 6.25;
-                    }
-                    if ($auth->seeks->how_jelly == $match->how_jelly) {
-                        $accuracy += 6.25;
-                    }
-                    if ($auth->seeks->religion == $match->religion) {
-                        $accuracy += 6.25;
-                    }
-                    if ($auth->seeks->country == $match->country) {
-                        $accuracy += 6.25;
-                    }
-                    
-                    // Children compatibility
-                    if ($auth->seeks->children == 'Yes') {
-                        // break;
-                    } elseif ($auth->seeks->children == 'No') {
-                        if ($auth->seeks->children == $match->children) {
-                            $accuracy += 6.25;
-                        }
-                    }
-                    // Pet compatibility
-                    if ($auth->seeks->date_pet_owner == 'Yes') {
-                        // break;
-                    } elseif ($auth->seeks->date_pet_owner == 'No') {
-                        if ($auth->seeks->date_pet_owner == $match->pets) {
-                            $accuracy += 6.25;
-                        }
-                    }
-                    // Drug compatibility
-                    if ($auth->seeks->date_drug == 'Yes') {
-                        // break;
-                    } elseif ($auth->seeks->date_drug == 'No') {
-                        if ($auth->seeks->date_drug == $match->drugs) {
-                            $accuracy += 6.25;
-                        }
-                    }
-                    
-                    // Drinking compatibility
-                    if ($auth->seeks->date_drink == 'Yes') {
-                        // break;
-                    } elseif ($auth->seeks->date_drink == 'No') {
-                        if ($auth->seeks->date_drink == $match->drinks) {
-                            $accuracy += 6.25;
-                        }
-                    }
-                    // Smoking compatibility
-                    if ($auth->seeks->date_smoker == 'Yes') {
-                        // break;
-                    } elseif ($auth->seeks->date_smoker == 'No') {
-                        if ($auth->seeks->date_smoker == $match->smokes) {
-                            $accuracy += 6.25;
-                        }
-                    }
                 @endphp
-
-                {{-- Matching percentage calculator END --}}
-                <div class="bg-white p-3 rounded border mb-2 d-flex align-items-center justify-content-between">
-                    <div>
-                        <h3>
-                            <a href="{{ route('user.foo', $match) }}"
-                                class="text-decoration-none text-dark">{{ $match->first_name }}</a>
-                        </h3>
-                        <p class="m-0">
-                            <small>
-                                {{ $accuracy }}% match with you | <a href="{{ route('user.foo', $match) }}">See
-                                    profile</a>
-                            </small>
-                        </p>
-                        <p>
-                            <span class="badge bg-gradient bg-primary rounded-pill">
-                                <span class="badge bg-white text-dark rounded-pill">Age:</span>
-                                <span>{{ $age }} Years</span>
-                            </span>
-
-                            <span class="badge bg-gradient bg-primary mx-1 rounded-pill">
-                                <span class="badge bg-white text-dark rounded-pill">seeking:</span>
-                                {{ $match->looking_for }}
-                            </span>
-                        </p>
-                    </div>
-                    <div>
-                        <button class="btn btn-outline-success"
-                            onclick="event.preventDefault(); 
-                            document.getElementById('match-user-{{ $match->id }}').submit();">
-                            Take
-                        </button>
-                    </div>
-                </div>
-
-                <form action="{{ route('match.store') }}" class="d-none" id="match-user-{{ $match->id }}" method="POST">
-                    @csrf
-                    <input type="number" value="{{ $match->id }}" name="matchedUser_id">
-                    <input type="text" value="{{ $accuracy }}" name="match_info">
-                </form>
+                <x-matchcard :$match :$auth :$ageData :$age />
             @endforeach
         @else
             <div class="p-5 bg-secondary text-white">
@@ -141,22 +43,5 @@
             {{ $matches->links() }}
         </div>
     </div>
-
-    {{-- <script>
-        const data = document.getElementById('data').innerHTML;
-
-        const birthDate = new Date(data);
-        const today = new Date();
-
-        var yearsDiff = today.getFullYear() - birthDate.getFullYear();
-        const monthsDiff = today.getMonth() - birthDate.getMonth();
-        const daysDiff = today.getDate() - birthDate.getDate();
-
-        // Check if the birth date hasn't happened yet this year
-        if (monthsDiff < 0 || (monthsDiff === 0 && daysDiff < 0)) {
-            yearsDiff--;
-        }
-
-        const age = document.getElementById('age').innerHTML = `${yearsDiff} years`; --}}
     </script>
 </x-app-layout>
