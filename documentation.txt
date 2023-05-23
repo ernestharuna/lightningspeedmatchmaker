@@ -42,10 +42,8 @@ Added N/A on seeks form
 10. height
 
 work on the percentage as well
-change Delete Preferences to Reset Pref/
-Edit Preferences isnt same form as Create Preferences
+Edit Preferences isn't same form as Create Preferences
 Make Extra Information profiles a table
-Make percentage algorithm a component
 
 ADD TO NEWSLETTER class
 

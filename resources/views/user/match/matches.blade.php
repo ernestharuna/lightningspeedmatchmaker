@@ -12,9 +12,9 @@
             @foreach ($matches as $match)
                 @php
                     // format age
-                    $dateOfBirth = new DateTime($match->date_of_birth);
+                    $dob = new DateTime($match->date_of_birth);
                     $currentDate = new DateTime();
-                    $age = $currentDate->diff($dateOfBirth)->y;
+                    $age = $currentDate->diff($dob)->y;
                     
                     // User Instance
                     $auth = auth()->user();

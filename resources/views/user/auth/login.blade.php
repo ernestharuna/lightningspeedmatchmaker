@@ -7,7 +7,7 @@
             <form method="POST" action="/login" class="row g-3">
                 @csrf
                 <div class="col-12">
-                    <label for="email" class="form-label fw-bold">E-mail</label>
+                    <label for="email" class="form-label fw-bold">Email</label>
                     <input type="email" class="form-control" name="email" placeholder="john@xyz.com">
                     @error('email')
                         <p class="text-danger fs-6 mt-1">
@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="col-12 my-4">
-                    <button type="submit" class="btn btn-primary shadow fw-bold">Log in</button>
+                    <button type="submit" class="btn btn-primary shadow fw-bold">Login</button>
                 </div>
                 <hr>
                 <div>
@@ -37,7 +37,7 @@
                     </p>
                     <p>
                         <a href="{{ route('password.request') }}" class="text-decoration-none fw-bold">
-                            forgot password?
+                            Forgot password?
                         </a>
                     </p>
                 </div>

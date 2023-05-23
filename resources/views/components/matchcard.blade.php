@@ -25,10 +25,10 @@
         </p>
     </div>
     <div>
-        <button class="btn btn-outline-success"
+        <button class="btn btn-outline-secondary rounded-0 shadow"
             onclick="event.preventDefault(); 
             document.getElementById('match-user-{{ $match->id }}').submit();">
-            Take
+            <small>Send Request</small>
         </button>
     </div>
 </div>
