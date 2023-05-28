@@ -6,7 +6,7 @@ use Illuminate\View\Component;
 
 class matchcard extends Component
 {
-    public $accuracy = 0;
+    public $accuracy = 6.25;
 
     /**
      * Create a new component instance.
@@ -73,11 +73,11 @@ class matchcard extends Component
             $this->accuracy += 6.25;
         }
 
-        if ($auth->seeks->zodiac_sign == 'N/A') {
-            $this->accuracy += 6.25;
-        } elseif ($auth->seeks->zodiac_sign == $match->zodiac_sign) {
-            $this->accuracy += 6.25;
-        }
+        // if ($auth->seeks->zodiac_sign == 'N/A') {
+        //     $this->accuracy += 6.25;
+        // } elseif ($auth->seeks->zodiac_sign == $match->zodiac_sign) {
+        //     $this->accuracy += 6.25;
+        // }
         // END attributes with N/A----------------------//
 
 
