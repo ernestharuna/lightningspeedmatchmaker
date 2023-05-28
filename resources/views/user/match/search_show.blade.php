@@ -18,7 +18,7 @@
     $ageData = $u_age - $age;
     
     // Match percentage || Algorithm for percentage ---------------------------------
-    $accuracy = 0;
+    $accuracy = 6.25;
     if ($ageData > 13 || $ageData < -13) {
         $accuracy -= 6.25;
     }
