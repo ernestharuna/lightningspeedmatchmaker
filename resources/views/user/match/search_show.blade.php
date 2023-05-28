@@ -1,6 +1,128 @@
 @php
     $word = $match->last_name;
     $last_name = substr($word, 0, 1);
+    
+    // format age
+    $dob = new DateTime($match->date_of_birth);
+    $currentDate = new DateTime();
+    $age = $currentDate->diff($dob)->y;
+    
+    // User Instance
+    $auth = auth()->user();
+    
+    // User age
+    $u_dob = new DateTime($auth->date_of_birth);
+    $u_age = $currentDate->diff($u_dob)->y;
+    
+    // Age difference
+    $ageData = $u_age - $age;
+    
+    // Match percentage || Algorithm for percentage ---------------------------------
+    $accuracy = 0;
+    if ($ageData > 13 || $ageData < -13) {
+        $accuracy -= 6.25;
+    }
+    if ($auth->seeks->how_jelly == $match->how_jelly) {
+        $accuracy += 6.25;
+    }
+    if ($auth->seeks->religion == $match->religion) {
+        $accuracy += 6.25;
+    }
+    if ($auth->seeks->country == $match->country) {
+        $accuracy += 6.25;
+    }
+    
+    // Attributes with N/A----------------------//
+    if ($auth->seeks->height == 'N/A') {
+        $accuracy += 6.25;
+    } elseif ($auth->seeks->height == $match->height) {
+        $accuracy += 6.25;
+    }
+    
+    if ($auth->seeks->body_type == 'N/A') {
+        $accuracy += 6.25;
+    } elseif ($auth->seeks->body_type == $match->body_type) {
+        $accuracy += 6.25;
+    }
+    
+    if ($auth->seeks->hair_color == 'N/A') {
+        $accuracy += 6.25;
+    } elseif ($auth->seeks->hair_color == $match->hair_color) {
+        $accuracy += 6.25;
+    }
+    
+    if ($auth->seeks->eye_color == 'N/A') {
+        $accuracy += 6.25;
+    } elseif ($auth->seeks->eye_color == $match->eye_color) {
+        $accuracy += 6.25;
+    }
+    
+    if ($auth->seeks->how_pa == 'N/A') {
+        $accuracy += 6.25;
+    } elseif ($auth->seeks->how_pa == $match->activity_level) {
+        $accuracy += 6.25;
+    }
+    
+    if ($auth->seeks->education == 'N/A') {
+        $accuracy += 6.25;
+    } elseif ($auth->seeks->education == $match->education) {
+        $accuracy += 6.25;
+    }
+    
+    if ($auth->seeks->ethnicity == 'N/A') {
+        $accuracy += 6.25;
+    } elseif ($auth->seeks->ethnicity == $match->ethnicity) {
+        $accuracy += 6.25;
+    }
+    
+    if ($auth->seeks->zodiac_sign == 'N/A') {
+        $accuracy += 6.25;
+    } elseif ($auth->seeks->zodiac_sign == $match->zodiac_sign) {
+        $accuracy += 6.25;
+    }
+    // END attributes with N/A----------------------//
+    
+    // Children compatibility
+    if ($auth->seeks->children == 'Yes') {
+        // break;
+    } elseif ($auth->seeks->children == 'No') {
+        if ($auth->seeks->children == $match->children) {
+            $accuracy += 6.25;
+        }
+    }
+    // Pet compatibility
+    if ($auth->seeks->date_pet_owner == 'Yes') {
+        // break;
+    } elseif ($auth->seeks->date_pet_owner == 'No') {
+        if ($auth->seeks->date_pet_owner == $match->pets) {
+            $accuracy += 6.25;
+        }
+    }
+    // Drug compatibility
+    if ($auth->seeks->date_drug == 'Yes') {
+        // break;
+    } elseif ($auth->seeks->date_drug == 'No') {
+        if ($auth->seeks->date_drug == $match->drugs) {
+            $accuracy += 6.25;
+        }
+    }
+    
+    // Drinking compatibility
+    if ($auth->seeks->date_drink == 'Yes') {
+        // break;
+    } elseif ($auth->seeks->date_drink == 'No') {
+        if ($auth->seeks->date_drink == $match->drinks) {
+            $accuracy += 6.25;
+        }
+    }
+    // Smoking compatibility
+    if ($auth->seeks->date_smoker == 'Yes') {
+        // break;
+    } elseif ($auth->seeks->date_smoker == 'No') {
+        if ($auth->seeks->date_smoker == $match->smokes) {
+            $accuracy += 6.25;
+        }
+    }
 @endphp
 
 <style>
@@ -44,7 +166,7 @@
             </div>
 
             <div>
-                <h3>{{ $match->first_name }} {{ $last_name }}.</h3>
+                <h2>{{ $match->first_name }} {{ $last_name }}.</h2>
                 <i id="data" class="d-none">{{ $match->date_of_birth }}</i>
                 <p class="m-0">
                     Age: <span id="age"></span>
@@ -52,22 +174,43 @@
                 <p class="m-0">
                     Location: {{ $match->city }}, {{ $match->country }}
                 </p>
+
+                <hr>
+
+                <div>
+                    <h4>Match Accuracy - <span class="fw-bold"> {{ $accuracy }}%</span></h4>
+                    <button onclick="goback();"
+                        class="btn btn-danger rounded text-white px-2 py-1 text-decoration-none">
+                        <i class="bi bi-arrow-left-short"></i>Back
+                    </button>
+                    <button
+                        onclick="event.preventDefault(); document.getElementById('match-user-{{ $match->id }}').submit();"
+                        class="btn btn-success rounded text-white px-2 py-1 text-decoration-none mx-2">
+                        Send a Request
+                    </button>
+                </div>
+                <form action="{{ route('match.store') }}" class="d-none" id="match-user-{{ $match->id }}"
+                    method="POST">
+                    @csrf
+                    <input type="number" value="{{ $match->id }}" name="matchedUser_id">
+                    <input type="text" value="{{ $accuracy }}%" name="match_info">
+                </form>
             </div>
 
             <hr>
 
             <div>
                 <h4>{{ $match->first_name }}'s Bio</h4>
-                <div class="border border-secondary px-1 m-1 d-inline-block rounded bg-white">
+                <div class="border border-secondary px-1 m-1 d-inline-block shadow bg-white">
                     <i class="bi bi-stars"></i> {{ $match->zodiac_sign }}
                 </div>
-                <div class="border border-secondary px-1 m-1 d-inline-block rounded bg-white">
+                <div class="border border-secondary px-1 m-1 d-inline-block shadow bg-white">
                     <i class="bi bi-briefcase"></i> {{ $match->profession }}
                 </div>
-                <div class="border border-secondary px-1 m-1 d-inline-block rounded bg-white">
+                <div class="border border-secondary px-1 m-1 d-inline-block shadow bg-white">
                     <i class="bi bi-person-workspace"></i> {{ $match->education }}
                 </div>
-                <div class="border border-secondary px-1 m-1 d-inline-block rounded bg-white">
+                <div class="border border-secondary px-1 m-1 d-inline-block shadow bg-white">
                     <i class="bi bi-person-heart"></i> {{ $match->relationship_status }}
                 </div>
 
@@ -109,11 +252,6 @@
                         <b>Jealous type:</b> {{ $match->how_jelly }}
                     </div>
                 </div>
-            </div>
-
-            <div class="d-inline-block bg-white bg-gradient border border-secondary border-1 rounded px-3 p-1 fw-bold my-3"
-                title="Send a match request">
-                Request a Match
             </div>
 
             <div class="d-sm-flex justify-content-between mt-3">

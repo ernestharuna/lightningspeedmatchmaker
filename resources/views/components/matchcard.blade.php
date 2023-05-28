@@ -36,5 +36,5 @@
 <form action="{{ route('match.store') }}" class="d-none" id="match-user-{{ $match->id }}" method="POST">
     @csrf
     <input type="number" value="{{ $match->id }}" name="matchedUser_id">
-    <input type="text" value="{{ $accuracy }}" name="match_info">
+    <input type="text" value="{{ $accuracy }}%" name="match_info">
 </form>

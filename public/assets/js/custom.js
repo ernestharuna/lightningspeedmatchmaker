@@ -7,3 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var overlay = document.getElementById('loader');
     overlay.style.display = 'flex';
 });
+
+function goback() {
+    window.history.back();
+}

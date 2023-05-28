@@ -1,3 +1,5 @@
+{{-- This page shows all search results for a match search --}}
+
 <x-app-layout>
     <div class="container">
         <h2 class="mb-3 fw-bold">Match Search</h2>

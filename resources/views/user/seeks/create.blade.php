@@ -141,11 +141,11 @@
                         <option value="" selected disabled>
                             Choose an option
                         </option>
-                        <option value="N/A" class="text-danger">Not sure</option>
                         <option value="Marriage">Someone looking for Marriage</option>
                         <option value="Platonic relationship">Someone looking for a platonic relationship</option>
                         <option value="Friends with benefit">Someone looking for friends with benefits</option>
                         <option value="Hang out buddy">Someone looking to spend time doing outdoor activities</option>
+                        <option value="N/A" class="text-danger">Not sure</option>
                     </select>
                 </div>
 
@@ -169,7 +169,6 @@
                         <option value="" selected disabled>
                             Choose an option
                         </option>
-                        <option value="N/A" class="text-danger">I don't mind</option>
                         <option value="American">American</option>
                         <option value="Asian">Asian</option>
                         <option value="African">African</option>
@@ -177,6 +176,7 @@
                         <option value="Middle Eastern/Arab">Middle Eastern/Arab</option>
                         <option value="Mixed/Multiracial">Mixed/Multiracial</option>
                         <option value="Other">Other</option>
+                        <option value="N/A" class="text-danger">I don't mind</option>
                     </select>
                 </div>
 

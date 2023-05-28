@@ -44,11 +44,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/referrals/save', [ReferralsController::class, 'store'])->name('submit.ref');
 
     // matches
-    Route::get('/user/match/search', [MatchesController::class, 'match'])->name('match');
-    Route::get('/find/user/profile/{user}', [UserController::class, 'foo'])->name('user.foo');
+    Route::get('/user/match/search', [MatchesController::class, 'match'])->name('match'); //Find match button
+    Route::get('/find/user/profile/{user}', [UserController::class, 'foo'])->name('user.foo'); //View single user profile
 
-    Route::get('/match', [MatchesController::class, 'index'])->name('match.index');
-    Route::post('/match', [MatchesController::class, 'store'])->name('match.store');
+    Route::get('/match', [MatchesController::class, 'index'])->name('match.index'); //Show saved matches page
+    Route::post('/match', [MatchesController::class, 'store'])->name('match.store'); //Save a match
     Route::get('/match/{match}', [MatchesController::class, 'show'])->name('match.show');
     Route::patch('/match/{match}', [MatchesController::class, 'update'])->name('match.update');
     Route::get('/match/profile/{profile}', [MatchesController::class, 'showUser'])->name('match.profile');

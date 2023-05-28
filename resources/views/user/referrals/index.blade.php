@@ -40,10 +40,10 @@
                     </select>
                 </div>
 
-                 {{-- email --}}
-                 <div class="col-md-6">
+                {{-- email --}}
+                <div class="col-md-6">
                     <label for="referral_email" class="form-label fw-bold">
-                        E-mail <span class="fw-normal">(optional)</span>
+                        Email <span class="fw-normal">(optional)</span>
                     </label>
                     <input type="email" class="form-control" id="referral_email" name="referral_email"
                         value="{{ old('referral_email') }}" placeholder="johndoe@xyz.com">
@@ -55,13 +55,13 @@
                     @enderror
                 </div>
 
-                 {{-- phone number --}}
-                 <div class="col-md-6">
+                {{-- phone number --}}
+                <div class="col-md-6">
                     <label for="ref_no" class="form-label fw-bold">
                         Phone Number <b class="text-danger">*</b>
                     </label>
-                    <input type="tel" class="form-control" id="ref_no" name="ref_no"
-                        value="{{ old('ref_no') }}" placeholder="+2348 1836 70422" required>
+                    <input type="tel" class="form-control" id="ref_no" name="ref_no" value="{{ old('ref_no') }}"
+                        placeholder="+234 818 367 0422" required>
 
                     @error('ref_no')
                         <p class="text-danger fs-6 mt-1">
@@ -77,7 +77,7 @@
                     - Make sure to notify your friends before submitting their details to us as we will reach out to
                     them.
                     <br>
-                    - If your friend has been referred with the same email, your form will be rejected. 
+                    - If your friend has been referred with the same email, your form will be rejected.
                 </small>
 
                 <div class="mt-3 d-flex align-item-center justify-content-between">

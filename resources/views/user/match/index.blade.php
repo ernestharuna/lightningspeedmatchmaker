@@ -1,3 +1,4 @@
+{{-- This page shows the previously saved matches --}}
 <x-app-layout>
     <div class="container">
         <h3>Saved Matches</h3>
@@ -22,9 +23,20 @@
                             See more
                         </a>
                     </div>
-                    <div>
-                        <span class="bg-secondary bg-gradient text-white px-2 py-1 rounded">{{ $match->status }}</span>
-                    </div>
+
+                    @if ($match->status == 'accepted')
+                        <div>
+                            <span class="bg-success bg-gradient text-white px-2 py-1">{{ $match->status }}</span>
+                        </div>
+                    @elseif ($match->status == 'pending')
+                        <div>
+                            <span class="bg-secondary bg-gradient text-white px-2 py-1">{{ $match->status }}</span>
+                        </div>
+                    @elseif ($match->status == 'declined')
+                        <div>
+                            <span class="bg-danger bg-gradient text-white px-2 py-1">{{ $match->status }}</span>
+                        </div>
+                    @endif
                 </div>
             @endforeach
         @else

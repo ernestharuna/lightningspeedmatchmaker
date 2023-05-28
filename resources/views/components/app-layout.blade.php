@@ -13,6 +13,8 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
+
+    <!-- Developer custom styles/scripts -->
     <link rel="stylesheet" href="{{ asset('/assets/css/styles.css') }}">
     <script src="{{ asset('assets/js/custom.js') }}"></script>
 

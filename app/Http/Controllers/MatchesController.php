@@ -69,17 +69,30 @@ class MatchesController extends Controller
         $orientation = Auth::user()->seeks->sexual_orientation;
         $looking_for = Auth::user()->seeks->rel_type;
 
-        $user_search = User::where([
-            ['gender', '=', "$gender"],
-            ['orientation', '!=', "$orientation"],
-            ['looking_for', '=', "$looking_for"],
-            ['id', '!=', Auth::id()],
-            ['email_verified_at', '!=', null],
-        ])->inRandomOrder()->paginate(10);
+        if ($looking_for != 'N/A') {
+            $user_search = User::where([
+                ['gender', '=', "$gender"],
+                ['orientation', '=', "$orientation"],
+                ['looking_for', '=', "$looking_for"],
+                ['id', '!=', Auth::id()],
+                ['email_verified_at', '!=', null],
+            ])->inRandomOrder()->paginate(10);
 
-        return view('user.match.matches', [
-            'matches' => $user_search,
-        ]);
+            return view('user.match.matches', [
+                'matches' => $user_search,
+            ]);
+        } else {
+            $user_search = User::where([
+                ['gender', '=', "$gender"],
+                ['orientation', '=', "$orientation"],
+                ['id', '!=', Auth::id()],
+                ['email_verified_at', '!=', null],
+            ])->inRandomOrder()->paginate(10);
+
+            return view('user.match.matches', [
+                'matches' => $user_search,
+            ]);
+        }
     }
 
     public function delete(Matches $match)

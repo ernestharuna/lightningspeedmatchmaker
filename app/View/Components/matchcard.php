@@ -30,6 +30,57 @@ class matchcard extends Component
             $this->accuracy += 6.25;
         }
 
+        // Attributes with N/A----------------------//
+        if ($auth->seeks->height == 'N/A') {
+            $this->accuracy += 6.25;
+        } elseif ($auth->seeks->height == $match->height) {
+            $this->accuracy += 6.25;
+        }
+
+        if ($auth->seeks->body_type == 'N/A') {
+            $this->accuracy += 6.25;
+        } elseif ($auth->seeks->body_type == $match->body_type) {
+            $this->accuracy += 6.25;
+        }
+
+        if ($auth->seeks->hair_color == 'N/A') {
+            $this->accuracy += 6.25;
+        } elseif ($auth->seeks->hair_color == $match->hair_color) {
+            $this->accuracy += 6.25;
+        }
+
+        if ($auth->seeks->eye_color == 'N/A') {
+            $this->accuracy += 6.25;
+        } elseif ($auth->seeks->eye_color == $match->eye_color) {
+            $this->accuracy += 6.25;
+        }
+
+        if ($auth->seeks->how_pa == 'N/A') {
+            $this->accuracy += 6.25;
+        } elseif ($auth->seeks->how_pa == $match->activity_level) {
+            $this->accuracy += 6.25;
+        }
+
+        if ($auth->seeks->education == 'N/A') {
+            $this->accuracy += 6.25;
+        } elseif ($auth->seeks->education == $match->education) {
+            $this->accuracy += 6.25;
+        }
+
+        if ($auth->seeks->ethnicity == 'N/A') {
+            $this->accuracy += 6.25;
+        } elseif ($auth->seeks->ethnicity == $match->ethnicity) {
+            $this->accuracy += 6.25;
+        }
+
+        if ($auth->seeks->zodiac_sign == 'N/A') {
+            $this->accuracy += 6.25;
+        } elseif ($auth->seeks->zodiac_sign == $match->zodiac_sign) {
+            $this->accuracy += 6.25;
+        }
+        // END attributes with N/A----------------------//
+
+
         // Children compatibility
         if ($auth->seeks->children == 'Yes') {
             // break;

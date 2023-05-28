@@ -54,16 +54,16 @@
 
             <div>
                 <h4>{{ $match->user->first_name }}'s Bio</h4>
-                <div class="border border-secondary px-1 m-1 d-inline-block rounded bg-white">
+                <div class="border border-secondary px-1 m-1 d-inline-block shadow bg-white">
                     <i class="bi bi-stars"></i> {{ $match->user->zodiac_sign }}
                 </div>
-                <div class="border border-secondary px-1 m-1 d-inline-block rounded bg-white">
+                <div class="border border-secondary px-1 m-1 d-inline-block shadow bg-white">
                     <i class="bi bi-briefcase"></i> {{ $match->user->profession }}
                 </div>
-                <div class="border border-secondary px-1 m-1 d-inline-block rounded bg-white">
+                <div class="border border-secondary px-1 m-1 d-inline-block shadow bg-white">
                     <i class="bi bi-person-workspace"></i> {{ $match->user->education }}
                 </div>
-                <div class="border border-secondary px-1 m-1 d-inline-block rounded bg-white">
+                <div class="border border-secondary px-1 m-1 d-inline-block shadow bg-white">
                     <i class="bi bi-person-heart"></i> {{ $match->user->relationship_status }}
                 </div>
 
