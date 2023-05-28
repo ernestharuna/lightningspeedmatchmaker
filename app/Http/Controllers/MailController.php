@@ -22,6 +22,8 @@ class MailController extends Controller
             'content' => 'required'
         ]);
 
+        $content = nl2br($data['content']);
+
         $users = match ($data['send_to']) {
             "verified" => User::where('email_verified_at', '!=', null)->get(),
             "unverified" => User::where('email_verified_at', null)->get(),
@@ -29,10 +31,11 @@ class MailController extends Controller
             default =>  User::all()
         };
 
+
         try {
             foreach ($users as $user) {
                 $user_name = $user->first_name;
-                Mail::to($user->email)->queue(new NewsLetter($data['title'], $user_name, $data['content']));
+                Mail::to($user->email)->queue(new NewsLetter($data['title'], $user_name, $content));
             }
             return back()->with('status', 'Emails have been queued for sending');
         } catch (\Exception $e) {

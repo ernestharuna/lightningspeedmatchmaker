@@ -41,10 +41,6 @@ Added N/A on seeks form
 9. zodiac
 10. height
 
-work on the percentage as well
-Edit Preferences isn't same form as Create Preferences
-Make Extra Information profiles a table
-
 ADD TO NEWSLETTER class
 
 When sending content from an HTML textarea in Laravel, the newline characters (\n) are typically not interpreted as line breaks in HTML. To ensure that your paragraphs are properly formatted, you can use the nl2br() function in Laravel to convert the newline characters to HTML line breaks (<br> tags). Here's an example:
